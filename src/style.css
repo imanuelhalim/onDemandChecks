@@ -1,0 +1,3229 @@
+html {
+  overflow-x: hidden;
+}
+body {
+  font-family: POPPINS-REGULAR, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+@font-face {
+  font-family: "POPPINS-REGULAR";
+  src: url("./fonts/POPPINS-REGULAR.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+}
+@font-face {
+  font-family: "POPPINS-LIGHT";
+  src: url("./fonts/POPPINS-LIGHT.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: "Poppins-Medium";
+  src: url("./fonts/Poppins-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: "Poppins-SemiBold";
+  src: url("./fonts/Poppins-SemiBold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+}
+a {
+  text-decoration: none !important;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+a:hover {
+  text-decoration: none;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.header {
+  float: left;
+  width: 100%;
+}
+.topheader {
+  width: 100%;
+  background: #0f9be6;
+  padding: 6px 0px;
+  float: left;
+}
+.socialtop {
+  width: 100%;
+  float: left;
+}
+.socinfo {
+  float: left;
+  padding-right: 15px;
+}
+.fbicons {
+  font-size: 14px;
+  color: #fff;
+  background: #277eac;
+  padding: 8px 0px 0px 0px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  float: left;
+}
+.scialtxt {
+  float: left;
+  font-size: 14px;
+  color: #fff;
+  padding: 7px 0px 0px 15px;
+}
+.scialtxt:hover {
+  color: #fff;
+}
+.calltxt {
+  font-size: 14px;
+  color: #fff;
+  float: left;
+}
+.topright {
+  width: 100%;
+  padding: 7px 4px 0px;
+  float: left;
+}
+.topright span {
+  float: right;
+  font-size: 13px;
+  color: #fff;
+}
+.topright span a {
+  color: #fff;
+}
+.topright span a:hover {
+  color: #162333;
+}
+
+.navheader {
+  width: 100%;
+  background: #162333;
+  float: left;
+}
+.logo {
+  width: 100%;
+  padding: 10px 0px;
+  float: left;
+}
+.logo img {
+  width: 130px;
+}
+.topnavdiv {
+  float: right;
+  padding: 15px 0px 0px;
+}
+.padspce {
+  padding: 0px;
+}
+.padid {
+  padding: 0px 15px 0px 0px;
+}
+
+#navbar {
+  margin: 0px;
+  padding: 0px;
+}
+.navbar {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  min-height: inherit;
+  border-radius: 0px;
+}
+.navbar-brand {
+  padding: 0px;
+  height: auto;
+}
+.navbar > .container .navbar-brand {
+  margin-left: 0px;
+  margin-top: 0px;
+}
+.navbar-nav {
+  margin: 0px;
+}
+.navbar-nav > li {
+  padding: 0px;
+}
+.navbar-nav > li > a {
+  padding: 12px 20px;
+  font-size: 15px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Poppins-Medium";
+}
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a.active {
+  color: #fff;
+  font-family: "Poppins-Medium";
+}
+.navbar-nav > li > a:focus {
+  outline: none;
+  color: #0f9be6;
+  font-family: "Poppins-Medium";
+}
+.nav > li > a:focus,
+.nav > li > a:hover {
+  background-color: #162333;
+  color: #0f9be6;
+}
+
+.bannerfull {
+  float: left;
+  width: 100%;
+  position: relative;
+}
+.bannerfull img {
+  float: left;
+  width: 100%;
+  position: relative;
+}
+.bannerinfo {
+  position: absolute;
+  top: 15%;
+  float: left;
+  width: 100%;
+}
+.banner-content {
+  padding: 20px;
+  width: 100%;
+}
+.banner-content h1 {
+  margin: 0px;
+  font-family: "Poppins-SemiBold";
+  font-size: 65px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+}
+.banner-content h2 {
+  margin: 5px 0px;
+  font-family: "Poppins-Medium";
+  font-size: 38px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+}
+.banner-content p {
+  margin: 5px 0px;
+  font-size: 17px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+}
+.apply {
+  width: 100%;
+  padding: 15px 0px 0px;
+  float: left;
+}
+.btnappy {
+  background: #0f9be6;
+  padding: 11px 40px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  display: table;
+  margin: 0px auto;
+}
+.btnappy:hover {
+  background: #162333;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.verifiyfull {
+  width: 100%;
+  float: left;
+}
+.verifiyinfo {
+  width: 100%;
+  background: #ebebeb;
+  padding: 15px 0px;
+  float: left;
+}
+.verifiytxt {
+  width: 100%;
+  float: left;
+}
+.verifiytxt h3 {
+  width: 100%;
+  font-size: 24px;
+  color: #162333;
+  font-family: "Poppins-SemiBold";
+  margin: 0px;
+  text-transform: uppercase;
+  float: left;
+}
+.verifiytxt h5 {
+  width: 100%;
+  font-size: 13px;
+  color: #8e9eb2;
+  margin: 5px 0px 0px;
+  text-transform: uppercase;
+  float: left;
+}
+.formverydiv {
+  width: 100%;
+  float: left;
+}
+.veryinput {
+  width: 38%;
+  font-size: 13px;
+  background: #fff;
+  border: none;
+  padding: 8px 10px;
+  color: #666;
+  border-radius: 5px;
+  margin: 5px 15px 0px 0px;
+  float: left;
+}
+.submitvrifiy {
+  width: 18%;
+  font-size: 13px;
+  background: #0f9be6;
+  border: none;
+  padding: 8px 25px;
+  color: #fff;
+  border-radius: 3px;
+  margin: 5px 0px 0px 0px;
+  font-family: "Poppins-SemiBold";
+  float: left;
+}
+.submitvrifiy:hover {
+  width: 18%;
+  font-size: 13px;
+  background: #162333;
+}
+.shadoweffe {
+  width: 100%;
+  text-align: right;
+  float: left;
+}
+
+.solutionfull {
+  width: 100%;
+  padding: 20px 0px 0px;
+  float: left;
+}
+.solutinfo {
+  width: 100%;
+  padding: 15px 0px 15px;
+  float: left;
+}
+.solutinfo h1 {
+  width: 100%;
+  font-size: 27px;
+  color: #0f9be6;
+  float: left;
+}
+.solutinfo h6 {
+  width: 100%;
+  font-size: 15px;
+  color: #57595b;
+  line-height: 25px;
+  float: left;
+}
+.solutinfo p {
+  width: 100%;
+  font-size: 13px;
+  color: #6e6f70;
+  line-height: 25px;
+  float: left;
+}
+.delivert {
+  color: #162333;
+}
+.soutionpic {
+  width: 100%;
+  float: left;
+}
+.readbg {
+  background: #3e3e3e;
+  font-size: 13px;
+  padding: 8px 35px;
+  color: #fff;
+  font-family: "Poppins-Medium";
+  border-radius: 3px;
+  text-transform: uppercase;
+  float: left;
+  margin: 15px 0px 0px;
+}
+.readbg:hover {
+  background: #0f9be6;
+  color: #fff;
+}
+
+.whyusfull {
+  width: 100%;
+  background: #f2f7fb;
+  float: left;
+}
+.whyusinfo {
+  width: 100%;
+  padding: 35px 0px 0px;
+  float: left;
+}
+.whyusinfo h2 {
+  width: 100%;
+  margin: 10px 0px;
+  font-size: 27px;
+  text-transform: uppercase;
+  color: #162333;
+  text-align: center;
+  font-family: "Poppins-SemiBold";
+  float: left;
+}
+.whyusinfo p {
+  width: 90%;
+  margin: 0% 5%;
+  font-size: 13px;
+  color: #57595b;
+  text-align: center;
+  line-height: 23px;
+  float: left;
+}
+
+.whyboxmain {
+  width: 100%;
+  padding: 40px 0px 25px;
+  float: left;
+}
+.whybox {
+  width: 100%;
+  float: left;
+}
+.whycriceldiv {
+  width: 100%;
+  float: left;
+}
+.whyiocnbg {
+  background: #f2f7fb;
+  border: solid 18px #0f9be6;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  margin: 0px auto;
+  display: table;
+  text-align: center;
+  padding: 20px 0px 0px;
+  position: relative;
+  z-index: 99;
+}
+.roundshadow {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  margin-top: -7px;
+  float: left;
+}
+.applywhydiv {
+  width: 100%;
+  float: left;
+}
+.applywhydiv h2 {
+  width: 100%;
+  font-size: 20px;
+  color: #162333;
+  text-align: center;
+  float: left;
+}
+.applywhydiv p {
+  width: 100%;
+  font-size: 13px;
+  color: #57595b;
+  text-align: center;
+  margin: 0px 0px 10px 0px;
+  float: left;
+}
+.applybgnow {
+  background: #3e3e3e;
+  font-size: 13px;
+  padding: 8px 35px;
+  color: #fff;
+  font-family: "Poppins-Medium";
+  border-radius: 3px;
+  text-transform: uppercase;
+  display: table;
+  margin: 0px auto;
+}
+.applybgnow:hover {
+  background: #0f9be6;
+  color: #fff;
+}
+.idimgs {
+  width: 100%;
+  margin-bottom: 25px;
+  float: left;
+}
+.idimgs img {
+  width: 100%;
+  float: left;
+}
+
+.policeupdatefull {
+  width: 100%;
+  float: left;
+}
+.chckinfo {
+  width: 100%;
+  padding: 25px 0px 10px;
+  float: left;
+}
+.chckinfo h3 {
+  width: 100%;
+  font-size: 27px;
+  color: #0f9be6;
+  text-align: center;
+  float: left;
+}
+
+.policeinfodiv {
+  width: 100%;
+  padding: 30px 0px;
+  float: left;
+}
+.updatebox {
+  width: 100%;
+  background: #f8f8f8;
+  border: solid 1px #d2d2d2;
+  border-radius: 3px;
+  padding-bottom: 3px;
+  float: left;
+}
+.updateinner {
+  width: 100%;
+  background: #f8f8f8;
+  border: solid 1px #d2d2d2;
+  border-radius: 3px;
+  margin: -3px 0px 0px -3px;
+  padding: 15px;
+  float: left;
+}
+.policeimg {
+  width: 100%;
+  float: left;
+}
+.policeimg img {
+  width: 100%;
+  border-radius: 5px;
+  float: left;
+}
+.policetxt {
+  width: 100%;
+  float: left;
+}
+.policetxt h4 {
+  width: 100%;
+  font-size: 15px;
+  color: #162333;
+  font-family: "Poppins-SemiBold";
+  text-transform: uppercase;
+  line-height: 22px;
+  float: left;
+}
+.policetxt p {
+  width: 100%;
+  font-size: 14px;
+  color: #57595b;
+  line-height: 22px;
+  float: left;
+}
+.chckbottom {
+  width: 100%;
+  padding: 5px 0px 10px 0px;
+  float: left;
+}
+.datess {
+  float: left;
+  font-size: 14px;
+  color: #818284;
+}
+.linkco {
+  color: #818284;
+}
+.iconcolrs {
+  color: #0f9be6;
+}
+.readmorstxt {
+  float: right;
+  color: #0f9be6;
+  font-size: 14px;
+}
+.readmorstxt:hover {
+  float: right;
+  color: #162333;
+}
+
+.agenydiv {
+  width: 100%;
+  padding: 25px 25px 10px 25px;
+  background: #f8f8f8;
+  float: left;
+}
+.agenydiv h4 {
+  width: 100%;
+  color: #0f9be6;
+  font-size: 20px;
+  float: left;
+}
+.agenyinfo {
+  width: 100%;
+  padding: 2px 0px;
+  float: left;
+}
+.angypic {
+  float: left;
+  min-width: 90px;
+  text-align: center;
+}
+.angyctxts {
+  float: left;
+  padding: 10px 0px 0px 15px;
+}
+.angyctxts h5 {
+  float: left;
+  margin: 2px 0px;
+}
+.angyctxts h5 a {
+  float: left;
+  font-size: 14px;
+  color: #0f9be6;
+  font-family: "Poppins-SemiBold";
+}
+.angyctxts h5 a:hover {
+  color: #0f9be6;
+}
+.angyctxts p {
+  float: left;
+  font-size: 14px;
+  color: #162333;
+  clear: both;
+}
+
+.faqsinfos {
+  width: 100%;
+  background: #f8f8f8;
+  border-radius: 3px;
+  padding: 25px 25px 10px 25px;
+  float: left;
+}
+.faqsinfos h4 {
+  width: 100%;
+  color: #162333;
+  font-size: 20px;
+  float: left;
+}
+
+.faqdetials {
+  width: 100%;
+  padding-bottom: 25px;
+  float: left;
+}
+
+#accordion-first .accordion-group {
+  margin-bottom: 10px;
+}
+
+#accordion-first .accordion-heading,
+#accordion-first .accordion-toggle:hover,
+#accordion-first .accordion-heading .accordion-toggle.active {
+  background: none repeat scroll 0% 0% transparent;
+}
+#accordion-first .accordion-heading {
+  border-bottom: 0px none;
+  font-size: 16px;
+}
+
+#accordion-first .accordion-heading .accordion-toggle {
+  display: block;
+  cursor: pointer;
+  padding: 5px 0px !important;
+  color: #30a2e7;
+  outline: medium none !important;
+  text-decoration: none;
+  border-bottom: solid 1px #e2e2e2;
+  margin-bottom: 10px;
+}
+
+#accordion-first .accordion-heading .accordion-toggle > em {
+  border-radius: 100px;
+  color: #30a2e7;
+  font-size: 15px;
+  height: 32px;
+  line-height: 32px;
+  margin-right: 0px;
+  text-align: center;
+  width: 32px;
+}
+
+.footerfull {
+  width: 100%;
+  background: #162333;
+  padding: 15px 0px;
+  margin: 50px 0px 0px;
+  float: left;
+}
+.footerhead {
+  width: 100%;
+  float: left;
+}
+.footerhead h5 {
+  width: 100%;
+  font-size: 17px;
+  color: #fff;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  float: left;
+}
+.footerhead p {
+  width: 100%;
+  font-size: 12px;
+  color: #fff;
+  float: left;
+}
+.icnpads {
+  padding: 0px 10px 0px 0px;
+}
+.foterlinks {
+  width: 100%;
+  margin-top: -5px;
+  float: left;
+}
+.foterlinks ul {
+  width: 100%;
+  float: left;
+}
+.foterlinks ul li {
+  float: left;
+  list-style-type: none;
+}
+.foterlinks ul li a {
+  float: left;
+  font-size: 13px;
+  color: #fff;
+  padding: 0px 35px 0px 0px;
+  line-height: 25px;
+}
+.foterlinks ul li a:hover {
+  color: #f1f2f4;
+}
+.followusdiv {
+  float: right;
+  width: 100%;
+}
+.followusdiv h5 {
+  float: left;
+  font-size: 17px;
+  color: #fff;
+  width: 100%;
+  text-align: right;
+  text-transform: uppercase;
+}
+.followlinks {
+  float: right;
+  padding-top: 4px;
+}
+.followlinks ul {
+  float: right;
+}
+.followlinks ul li {
+  float: left;
+  list-style-type: none;
+  padding: 0px 5px;
+}
+.followlinks ul li a {
+  float: left;
+  font-size: 13px;
+  color: #fff;
+}
+.endfooter {
+  width: 100%;
+  padding: 18px 0px;
+  float: left;
+}
+.endcopy {
+  width: 100%;
+  padding: 0px 15px;
+  font-size: 13px;
+  color: #162333;
+  float: left;
+}
+.copylink {
+  color: #0f9be6;
+}
+.copylink:hover {
+  color: #162333;
+}
+
+ul.liststyle {
+  width: 100%;
+  float: left;
+  margin-left: 30px;
+  list-style: disc;
+}
+ul.liststyle li {
+  font-size: 13px;
+  color: #2b2b2b;
+  line-height: 22px;
+  margin-bottom: 10px;
+}
+
+/*======================INNER STYLE==========================*/
+
+.innerhead {
+  width: 100%;
+  background: url(./images/inenrtopbg.jpg) center top repeat;
+  height: 149px;
+  position: relative;
+  float: left;
+}
+.innerhead:before {
+  width: 0;
+  height: 0;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+  border-top: 25px solid #22d3ec;
+  content: "";
+  position: absolute;
+  float: left;
+  bottom: -23px;
+  left: 45%;
+}
+
+.innerdetialshead {
+  width: 100%;
+  padding: 35px 0px 0px;
+  float: left;
+}
+.innerdetialshead h1 {
+  width: 100%;
+  font-size: 45px;
+  color: #fff;
+  text-shadow: 0px 2px 5px #168898;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Poppins-SemiBold";
+  float: left;
+}
+
+.innerpage {
+  width: 100%;
+  padding: 80px 0px 50px 0px;
+  float: left;
+}
+.aboutimgdiv {
+  width: 100%;
+  background: #73bcdf;
+  padding: 15px 0px 10px;
+  text-align: center;
+  float: left;
+}
+.innerdetials {
+  width: 100%;
+  float: left;
+}
+.innerdetials h2 {
+  width: 100%;
+  font-size: 25px;
+  color: #162333;
+  margin: 5px 0px 15px 0px;
+  font-family: "Poppins-Medium";
+  float: left;
+}
+.innerdetials h6 {
+  width: 100%;
+  font-size: 15px;
+  color: #2b2b2b;
+  margin: 5px 0px 10px 0px;
+  line-height: 25px;
+  float: left;
+}
+.innerdetials p {
+  width: 100%;
+  font-size: 13px;
+  color: #2b2b2b;
+  line-height: 25px;
+  float: left;
+}
+.innerdetials ul {
+  width: 100%;
+  float: left;
+  margin-left: 30px;
+  list-style: disc;
+}
+.innerdetials ul li {
+  font-size: 13px;
+  color: #2b2b2b;
+  line-height: 22px;
+  margin-bottom: 10px;
+}
+.txtcolor {
+  color: #0f9be6;
+}
+
+.verfiybg {
+  width: 100%;
+  background: #0f9be6 url(./images/verifybottom.jpg) center bottom no-repeat;
+  float: left;
+}
+.verfiyinner {
+  width: 100%;
+  padding: 10px 20px 0px;
+  float: left;
+}
+.verfiyinner h2 {
+  width: 100%;
+  font-size: 22px;
+  color: #fff;
+  line-height: 26px;
+  float: left;
+}
+.verfiyinner p {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  float: left;
+}
+.veryfiinput {
+  width: 100%;
+  float: left;
+  background: #fff;
+  border: solid 1px #1483be;
+  font-size: 13px;
+  color: #6a6a6a;
+  padding: 7px 14px 6px;
+  margin: 5px 0px;
+}
+.veryfiybtns {
+  width: 100%;
+  padding: 50px 0px 20px;
+  float: left;
+}
+.verfiylink {
+  color: #fff;
+  font-size: 22px;
+}
+.verfiylink:hover {
+  color: #dbe6eb;
+  font-size: 22px;
+}
+.verirfyicon {
+  font-size: 18px;
+  padding-right: 5px;
+}
+
+.verifyinner {
+  width: 100%;
+  float: left;
+}
+.verifyinner h2 {
+  width: 100%;
+  font-size: 25px;
+  color: #162333;
+  margin: 5px 0px 15px 0px;
+  font-family: "Poppins-Medium";
+  float: left;
+}
+.verifyinner p {
+  width: 100%;
+  font-size: 13px;
+  color: #57595b;
+  line-height: 25px;
+  float: left;
+}
+
+.contactdetials {
+  width: 100%;
+  background: #f6f6f6;
+  padding: 25px 20px;
+  float: left;
+}
+.contactdetials h3 {
+  width: 100%;
+  font-size: 25px;
+  color: #162333;
+  margin: 0px 0px 25px;
+  font-family: "Poppins-Medium";
+  float: left;
+}
+.contactdetials h5 {
+  width: 100%;
+  font-size: 13px;
+  color: #0f9be6;
+  margin: 5px 0px;
+  font-family: "Poppins-Medium";
+  float: left;
+}
+.contactdetials p {
+  width: 100%;
+  font-size: 13px;
+  color: #2a2a2a;
+  line-height: 22px;
+  float: left;
+}
+
+.contactformdiv {
+  width: 100%;
+  padding: 5px 0px 0px;
+  float: left;
+}
+.contactformdiv h4 {
+  width: 100%;
+  font-size: 25px;
+  color: #162333;
+  margin: 0px 0px 25px;
+  font-family: "Poppins-Medium";
+  padding-left: 15px;
+  float: left;
+}
+.forminputs {
+  width: 100%;
+  padding: 10px 20px;
+  border: solid 1px #d5d5d5;
+  box-shadow: inset 0px 1px 5px #d5d5d5;
+  background: none;
+  font-size: 13px;
+  color: #6c7275;
+  float: left;
+}
+.formmsgbox {
+  width: 100%;
+  padding: 10px 20px;
+  border: solid 1px #d5d5d5;
+  box-shadow: inset 0px 1px 5px #d5d5d5;
+  background: none;
+  font-size: 13px;
+  color: #6c7275;
+  height: 150px;
+  margin: 15px 0px;
+  float: left;
+}
+.sendbg {
+  background: #0f9be6;
+  padding: 13px 35px;
+  color: #fff;
+  border: none;
+  font-size: 13px;
+  font-family: "Poppins-Medium";
+  float: left;
+  border-radius: 5px;
+}
+.sendbg:hover {
+  background: #0a7ebc;
+  color: #fff;
+}
+
+.locationinfo {
+  width: 100%;
+  padding: 25px 0px 0px;
+  float: left;
+}
+.locationinfo h5 {
+  width: 100%;
+  font-size: 25px;
+  color: #162333;
+  margin: 0px 0px 25px;
+  font-family: "Poppins-Medium";
+  margin: 0px;
+  float: left;
+}
+.mapdivs {
+  width: 100%;
+  padding: 5px 0px 0px;
+  float: left;
+}
+
+.faqinfoshow {
+  width: 100%;
+  float: left;
+}
+
+.panel-heading .accordion-toggle:after {
+  font-family: "Glyphicons Halflings";
+  content: "\e114";
+  float: left;
+  background: #0f9be6;
+  font-size: 8px;
+  color: #fff;
+  padding: 3px 3px 0px 4px;
+  border-radius: 20px;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+.panel-heading .accordion-toggle.collapsed:after {
+  content: "\e080";
+}
+
+.panel-default > .panel-heading {
+  color: #162333;
+  font-size: 20px;
+  background: none;
+  border-top: solid 1px #d5d5d5;
+  padding: 15px 0px 11px;
+  margin: 5px 0px;
+  border-radius: 0px;
+}
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+  border-top: none;
+  border-bottom: solid 1px #d5d5d5;
+  margin-bottom: 20px;
+  padding: 1px 5px 10px 28px;
+}
+.panel-default {
+  border: none;
+  border-radius: 0px !important;
+}
+.panel-group .panel {
+  margin-bottom: 0;
+  border-radius: 0px !important;
+  box-shadow: none !important;
+}
+.faqansdetials {
+  width: 100%;
+  float: left;
+}
+.faqansdetials p {
+  width: 100%;
+  font-size: 13px;
+  color: #57595b;
+  line-height: 22px;
+  float: left;
+}
+.panel-title {
+  font-size: 20px;
+}
+
+.applyinner {
+  width: 100%;
+  padding: 80px 0px 0px 0px;
+  float: left;
+}
+.applybg {
+  width: 100%;
+  background: url(./images/applyimg.jpg) left top no-repeat;
+  height: 626px;
+  float: left;
+}
+.applyinfodiv {
+  width: 100%;
+  padding: 50px 50px;
+}
+.applybox {
+  width: 100%;
+  float: left;
+}
+.applyimgs {
+  text-align: center;
+  padding-top: 25px;
+  border: solid 15px #0f9be6;
+  border-radius: 50%;
+  height: 152px;
+  width: 152px;
+  display: table;
+  margin: 0px auto;
+  position: relative;
+  z-index: 99;
+}
+.appyshaldow {
+  width: 100%;
+  text-align: center;
+  margin-top: -7px;
+  position: relative;
+  z-index: 9;
+  float: left;
+}
+.applytext {
+  width: 100%;
+  padding: 10px 0px 0px;
+  float: left;
+}
+.applytext h3 {
+  width: 100%;
+  font-size: 16px;
+  color: #162333;
+  font-family: "Poppins-SemiBold";
+  text-align: center;
+  text-transform: uppercase;
+  margin: 2px 0px 10px;
+  float: left;
+}
+.applytext p {
+  width: 100%;
+  font-size: 13px;
+  color: #57595b;
+  text-align: center;
+  padding: 2px 10px;
+  line-height: 22px;
+  float: left;
+}
+
+.applicationbg {
+  background: #162333;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #fff;
+  margin: 0px auto;
+  padding: 10px 20px;
+  width: 25%;
+  font-family: "Poppins-SemiBold";
+  display: table;
+  box-shadow: 0px 0px 4px #253a55;
+}
+.applicationbg:hover {
+  background: #0f9be6;
+  font-size: 14px;
+  color: #fff;
+}
+a.applicationbg:focus,
+a.applicationbg:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.fulldimanddiv {
+  width: 100%;
+  background: #0f9be6;
+  float: left;
+}
+.fulltxtdiv {
+  width: 100%;
+  padding: 15px 0px;
+  float: left;
+}
+.fulltxtdiv p {
+  width: 100%;
+  font-size: 13px;
+  color: #fff;
+  line-height: 25px;
+  margin: 0px;
+  float: left;
+}
+
+.applyprize {
+  width: 100%;
+  margin: 25px 0px 15px;
+  float: left;
+}
+.applyprizebg {
+  width: 100%;
+  background: #f8f8f8;
+  padding: 13px 10px 10px;
+  float: left;
+}
+.applyprizebg h4 {
+  width: 100%;
+  font-size: 20px;
+  color: #162333;
+  margin: 5px 0px 11px 0px;
+  padding-left: 15px;
+  float: left;
+}
+.prizelist {
+  width: 100%;
+  font-size: 13px;
+  color: #505050;
+  padding: 8px 0px;
+  float: left;
+}
+.prizelist p {
+  width: 100%;
+  font-size: 13px;
+  color: #444444;
+  line-height: 22px;
+  margin: 2px 0px;
+  float: left;
+}
+.prizecolor {
+  color: #0f9be6;
+}
+
+.startbtn {
+  background: #0f9be6;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #fff;
+  float: left;
+  padding: 10px 20px;
+  width: 55%;
+  font-family: "Poppins-SemiBold";
+  box-shadow: 0px 0px 4px #253a55;
+  margin: 25px 0px 20px 0px;
+}
+.startbtn:hover {
+  background: #162333;
+  font-size: 14px;
+  color: #fff;
+}
+a.startbtn:focus,
+a.startbtn:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.privacyinfo {
+  width: 100%;
+  padding: 5px 0px 30px;
+  float: left;
+}
+.privacyinfo h2 {
+  width: 100%;
+  font-size: 14px;
+  color: #000;
+  line-height: 22px;
+  margin: 10px 0px;
+  float: left;
+}
+.privacyinfo h4 {
+  width: 100%;
+  font-size: 20px;
+  color: #000;
+  line-height: 22px;
+  margin: 10px 0px;
+  float: left;
+}
+.privacyinfo p {
+  width: 100%;
+  font-size: 14px;
+  color: #969494;
+  line-height: 22px;
+  float: left;
+}
+.privacyinfo ul {
+  width: 100%;
+  font-size: 14px;
+  color: #969494;
+  line-height: 22px;
+  float: left;
+  margin-left: 40px;
+}
+.refundtxt {
+  width: 100%;
+  margin: 10px 0px;
+  float: left;
+}
+.refundtxt ul {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  float: left;
+}
+.refundtxt ul li {
+  width: 100%;
+  background: url(./images/circleico.jpg) left 11px no-repeat;
+  font-size: 14px;
+  color: #918f8f;
+  line-height: 25px;
+  list-style-type: none;
+  padding: 2px 0px 2px 20px;
+  float: left;
+}
+.tramshead {
+  color: #918f8f;
+  font-size: 20px;
+}
+
+.newiddiv {
+  width: 100%;
+  padding: 5px 0px 30px;
+  float: left;
+}
+.newidmatter {
+  width: 100%;
+  float: left;
+}
+.newidmatter p {
+  width: 100%;
+  font-size: 14px;
+  color: #969494;
+  line-height: 22px;
+  float: left;
+}
+.newiddiv h4 {
+  width: 100%;
+  font-size: 20px;
+  color: #969494;
+  line-height: 22px;
+  margin: 10px 0px;
+  float: left;
+}
+.newiddiv h5 {
+  width: 100%;
+  font-size: 20px;
+  color: #000;
+  line-height: 22px;
+  margin: 10px 0px;
+  float: left;
+}
+.newiddiv h5 a {
+  font-size: 20px;
+  color: #000;
+  line-height: 22px;
+  margin: 10px 0px;
+  float: left;
+}
+.newiddiv h5 a:hover {
+  color: #0f9be6;
+}
+.newiddiv p {
+  width: 100%;
+  font-size: 14px;
+  color: #969494;
+  line-height: 22px;
+  float: left;
+}
+.newiddiv span {
+  width: 100%;
+  font-size: 14px;
+  color: #cecece;
+  line-height: 22px;
+  float: left;
+}
+
+.rightpoicebg {
+  width: 100%;
+  background: #ebebeb;
+  border-radius: 8px;
+  padding: 15px 15px;
+  float: left;
+}
+.rightpoicebg h6 {
+  width: 100%;
+  font-size: 14px;
+  color: #000;
+  margin: 10px 0px 10px 0px;
+  float: left;
+}
+.rightpoicebg p {
+  width: 100%;
+  font-size: 14px;
+  color: #969494;
+  line-height: 20px;
+  float: left;
+}
+.rightapply {
+  background: #0f9be6;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 15px 0px 0px;
+  float: left;
+}
+.rightapply:hover {
+  background: #0b81c1;
+  color: #fff;
+  float: left;
+}
+a.rightapply:focus,
+a.rightapply:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.stapdiv {
+  width: 100%;
+  float: left;
+}
+.stepbtnmain {
+  width: 100%;
+  float: left;
+}
+.stepbtninfo {
+  width: 15%;
+  background: #0f9be6;
+  position: relative;
+  text-align: center;
+  height: 60px;
+  padding: 5px 0px 0px 0px;
+  border-radius: 5px 0px 0px 5px;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  float: left;
+}
+.stepbtninfo:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 25px solid #0f9be6;
+  position: absolute;
+  right: -25px;
+  top: 0px;
+}
+.stepbtndis {
+  width: 15%;
+  background: #d8dadb;
+  position: relative;
+  text-align: center;
+  height: 60px;
+  padding: 5px 0px 0px 0px;
+  border-radius: 5px 0px 0px 5px;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  float: left;
+}
+.stepbtndis:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 25px solid #d8dadb;
+  position: absolute;
+  right: -25px;
+  top: 0px;
+}
+
+.stepbotomtxt {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  float: left;
+}
+
+.stepbtninfo02 {
+  width: 15%;
+  background: #d8dadb;
+  position: relative;
+  text-align: center;
+  height: 60px;
+  padding: 5px 0px 0px 0px;
+  margin: 0px 30px;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  float: left;
+}
+.stepbtninfo02:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 0px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-right: 25px solid #d8dadb;
+  position: absolute;
+  left: -25px;
+  top: 0px;
+}
+.stepbtninfo02:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 25px solid #d8dadb;
+  position: absolute;
+  right: -25px;
+  top: 0px;
+}
+
+.stepbtninfo03 {
+  width: 13%;
+  background: #d8dadb;
+  position: relative;
+  text-align: center;
+  height: 60px;
+  padding: 5px 0px 0px 0px;
+  margin-right: 30px;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  float: left;
+}
+.stepbtninfo03:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 0px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-right: 25px solid #d8dadb;
+  position: absolute;
+  left: -25px;
+  top: 0px;
+}
+.stepbtninfo03:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 25px solid #d8dadb;
+  position: absolute;
+  right: -25px;
+  top: 0px;
+}
+
+.stepbtninfo04 {
+  width: 13%;
+  background: #d8dadb;
+  position: relative;
+  text-align: center;
+  height: 60px;
+  padding: 5px 0px 0px 0px;
+  margin-right: 30px;
+  border-radius: 0px 5px 5px 0px;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  float: left;
+}
+.stepbtninfo04:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 0px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-right: 25px solid #d8dadb;
+  position: absolute;
+  left: -25px;
+  top: 0px;
+}
+
+.stepbtninfo05 {
+  width: 15%;
+  background: #0f9be6;
+  position: relative;
+  text-align: center;
+  height: 60px;
+  padding: 5px 0px 0px 0px;
+  margin: 0px 30px;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  float: left;
+}
+.stepbtninfo05:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 0px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-right: 25px solid #0f9be6;
+  position: absolute;
+  left: -25px;
+  top: 0px;
+}
+.stepbtninfo05:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 25px solid #0f9be6;
+  position: absolute;
+  right: -25px;
+  top: 0px;
+}
+
+.stepbtninfo06 {
+  width: 13%;
+  background: #0f9be6;
+  position: relative;
+  text-align: center;
+  height: 60px;
+  padding: 5px 0px 0px 0px;
+  margin-right: 30px;
+  border-radius: 0px 5px 5px 0px;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  float: left;
+}
+.stepbtninfo06:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 0px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-right: 25px solid #0f9be6;
+  position: absolute;
+  left: -25px;
+  top: 0px;
+}
+
+.forminformation {
+  width: 100%;
+  padding: 25px 50px 0px 15px;
+  float: left;
+}
+.forminformation h3 {
+  width: 100%;
+  font-size: 20px;
+  color: #000;
+  margin: 10px 0px;
+  padding: 0px 15px;
+  float: left;
+}
+.forminformation h4 {
+  width: 100%;
+  font-size: 14px;
+  color: #000;
+  margin: 0px;
+  line-height: 22px;
+  padding: 0px 15px;
+  float: left;
+}
+.forminformation h5 {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  color: #000;
+  margin: 25px 0px;
+  padding: 0px 15px;
+  float: left;
+}
+
+.formboxs {
+  width: 100%;
+  margin: 15px 0px 10px;
+  float: left;
+}
+.formboxs label {
+  font-weight: normal;
+  font-size: 14px;
+  color: #000;
+  float: left;
+  width: 100%;
+}
+.inpuststyles {
+  width: 100%;
+  border: solid 1px #c2c2c2;
+  padding: 10px 15px;
+  font-size: 13px;
+  color: #666;
+  float: left;
+}
+
+.radiobtn {
+  width: 100%;
+  padding: 5px 15px;
+  float: left;
+}
+.radiobtn {
+  width: 100%;
+  margin: 2px 0px;
+  float: left;
+}
+.radiobtn label {
+  width: auto;
+  font-size: 14px;
+  color: #000;
+  font-weight: normal;
+  float: left;
+  margin-right: 10px;
+}
+.radiobtn input[type="radio"],
+.formboxs input[type="radio"] {
+  margin-right: 5px;
+}
+.formboxs input[type="file"] {
+  margin-top: 7px;
+}
+
+.radioiconst {
+  font-size: 14px;
+  color: #000;
+  padding: 0px 0px 0px;
+  margin: 3px 3px 0px 0px !important;
+  float: left;
+}
+.radiotxt {
+  font-size: 14px;
+  color: #000;
+  padding-left: 10px;
+  font-weight: normal;
+  float: left;
+}
+.custom-control-input {
+  margin-top: 5px;
+}
+.forminformation p {
+  width: 100%;
+  font-size: 14px;
+  color: #000;
+  padding: 0px 15px;
+  float: left;
+}
+.selectsyless {
+  width: 100%;
+  border: solid 1px #c2c2c2;
+  padding: 8px 15px;
+  font-size: 13px;
+  color: #666;
+  float: left;
+}
+.submitbtns {
+  background: #0f9be6;
+  float: right;
+  padding: 15px 30px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 19px;
+  font-family: "Poppins-Medium";
+  border: none;
+  margin: 25px 0px 0px;
+}
+.submitbtns:hover {
+  background: #0b81c0;
+  color: #fff;
+}
+a.submitbtns:focus,
+a.submitbtns:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.backbtns {
+  background: #0f9be6;
+  float: left;
+  padding: 15px 30px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 19px;
+  font-family: "Poppins-Medium";
+  border: none;
+  margin: 25px 0px 0px;
+}
+.backbtns:hover {
+  background: #0b81c0;
+  color: #fff;
+}
+a.backbtns:focus,
+a.backbtns:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.tabpad {
+  margin: 0px 30px 0px 0px !important;
+  width: 14% !important;
+}
+
+.blogright {
+  width: 100%;
+  padding: 15px 10px;
+  float: left;
+}
+.blogright p {
+  width: 100%;
+  font-size: 14px;
+  color: #918f8f;
+  line-height: 20px;
+  float: left;
+}
+
+/*============29-11-18=================*/
+
+.prviousinfodiv {
+  width: 100%;
+  float: left;
+}
+.postaldivshow {
+  width: 100%;
+  padding: 15px 0px;
+  float: left;
+}
+
+.js .inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  width: 100% !important;
+  max-width: 100% !important;
+  font-size: 1.25rem;
+  /* 20px */
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+  /* 10px 20px */
+}
+
+.no-js .inputfile + label {
+  display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  /* 4px */
+  margin-right: 0.25em;
+  /* 4px */
+}
+
+/* style 6 */
+
+.inputfile-6 + label {
+  color: #2e2e2e;
+}
+
+.inputfile-6 + label {
+  border: 1px solid #565757;
+  background-color: #fff;
+  padding: 0;
+}
+
+.inputfile-6:focus + label,
+.inputfile-6.has-focus + label,
+.inputfile-6 + label:hover {
+  border-color: #565757;
+}
+
+.inputfile-6 + label span,
+.inputfile-6 + label strong {
+  padding: 0.625rem 1.25rem;
+  /* 10px 20px */
+}
+
+.inputfile-6 + label span {
+  width: 180px;
+  min-height: 1em;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.inputfile-6 + label strong {
+  height: 100%;
+  color: #fff;
+  background-color: #7a7b7b;
+  display: inline-block;
+  font-weight: normal;
+}
+
+.inputfile-6:focus + label strong,
+.inputfile-6.has-focus + label strong,
+.inputfile-6 + label:hover strong {
+  background-color: #565757;
+  font-weight: normal;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.take_snapshots {
+  padding: 8px 15px;
+  background: #0f9be6;
+  font-size: 14px;
+  color: #fff;
+  float: left;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+.take_snapshots:hover {
+  background: #0a7bb8;
+  color: #fff;
+}
+.persnalinfoshow {
+  width: 100%;
+  border: solid 1px #d5d5d5;
+  border-radius: 5px;
+  margin: 5px 0px 12px;
+  padding: 10px 5px;
+  float: left;
+}
+.persnalinfoshow label {
+  font-weight: bold;
+  color: #4d4d4d;
+}
+
+/*============================080219 css================*/
+
+.takecontnet {
+  width: 100%;
+  float: left;
+}
+.takeformmatter {
+  width: 100%;
+  float: left;
+}
+.takeformmatter h3 {
+  width: 100%;
+  font-size: 25px;
+  color: #0f9be6;
+  margin: 10px 0px;
+  padding: 0px 15px;
+  float: left;
+}
+.takeformmatter h4 {
+  width: 100%;
+  font-size: 14px;
+  color: #000;
+  margin: 0px;
+  line-height: 22px;
+  padding: 0px 15px;
+  float: left;
+}
+.takeformmatter h5 {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  color: #000;
+  margin: 25px 0px;
+  padding: 0px 15px;
+  float: left;
+}
+.pichead {
+  padding: 5px 0px;
+  display: block;
+}
+
+.camera {
+  width: 100%;
+  height: 255px !important;
+}
+.table-bordered {
+  border: 1px solid #0f9be6 !important;
+  float: left !important;
+  margin-top: 34px !important;
+}
+table.table.table-bordered img {
+  width: 100% !important;
+}
+.videoshowdiv {
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+}
+.imagpicpad {
+  padding: 0px;
+}
+
+.radiobuttonbox label {
+  width: auto;
+  margin-right: 10px;
+}
+
+.colnopadding {
+  padding: 0;
+}
+
+@media only screen and (min-width: 960px) and (max-width: 1140px) {
+  .banner-content h1 {
+    font-size: 55px;
+  }
+  .banner-content h2 {
+    font-size: 22px;
+  }
+  .banner-content p {
+    font-size: 16px;
+  }
+  .soutionpic {
+    padding-top: 40px;
+  }
+  .solutinfo h6 {
+    line-height: 20px;
+  }
+  .solutinfo p {
+    line-height: 20px;
+  }
+  .aboutimgdiv img {
+    width: 100%;
+  }
+
+  .applicationbg {
+    width: 40%;
+  }
+  .topright span {
+    font-size: 11px;
+  }
+  .contactdetials h3 {
+    font-size: 19px;
+  }
+  .contactdetials {
+    padding: 25px 10px;
+  }
+  .contactdetials p {
+    font-size: 11px;
+  }
+  .forminputs {
+    margin: 5px 0px;
+  }
+
+  .stepbtninfo:before {
+    border: none;
+  }
+  .stepbtninfo02 {
+    margin: 0px 10px;
+  }
+  .stepbtninfo02:before {
+    border: none;
+  }
+  .stepbtninfo02:after {
+    border: none;
+  }
+  .stepbtninfo03:before {
+    border: none;
+  }
+  .stepbtninfo03 {
+    margin-right: 10px;
+  }
+  .stepbtninfo03:after {
+    border: none;
+  }
+  .stepbtninfo04:before {
+    border: none;
+  }
+  .stepbtninfo05 {
+    margin: 0px 10px;
+  }
+  .stepbtninfo05:before {
+    border: none;
+  }
+  .stepbtninfo05:after {
+    border: none;
+  }
+  .stepbtndis:before {
+    border: none;
+  }
+  .stepbtninfo06:before {
+    border: none;
+  }
+
+  .tabpad {
+    margin: 0px 10px 0px 0px !important;
+  }
+
+  /*============================080219 css================*/
+
+  .camera {
+    height: 205px !important;
+  }
+  .inputfile-6 + label span {
+    width: 120px;
+  }
+  .takeformmatter h4 {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .navbar-nav > li > a {
+    padding: 12px 18px;
+  }
+  .banner-content {
+    bottom: 15px;
+  }
+
+  .logo {
+    padding: 15px 0px 0px;
+    text-align: center;
+    width: 100%;
+  }
+  .socinfo {
+    padding-bottom: 10px;
+  }
+  .topright span {
+    width: 100%;
+    text-align: center;
+  }
+  .padspce {
+    padding: 0px 15px;
+  }
+  .topnavdiv {
+    width: 100%;
+  }
+  .veryinput {
+    width: 100%;
+    margin: 10px 15px 0px 0px;
+  }
+  .submitvrifiy {
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+  }
+  .solutionfull {
+    padding: 0px 0px 0px;
+  }
+  .solutinfo h1 {
+    width: 100%;
+    text-align: center;
+  }
+  .solutinfo h6 {
+    text-align: center;
+  }
+  .solutinfo p {
+    text-align: center;
+  }
+  .readbg {
+    float: none;
+    margin: 0px auto;
+    display: table;
+  }
+  .soutionpic {
+    padding: 25px 0px 0px;
+    width: 100%;
+    text-align: center;
+  }
+  .whybox {
+    padding: 10px 0px;
+  }
+  .updatebox {
+    margin-bottom: 15px;
+  }
+  .policeinfodiv {
+    padding: 30px 0px 10px;
+  }
+  .agenydiv h4 {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .angypic {
+    min-width: 100%;
+  }
+  .angyctxts {
+    padding: 0px;
+    width: 100%;
+  }
+  .angyctxts p {
+    width: 100%;
+    text-align: center;
+    float: left;
+  }
+  .angyctxts h5 {
+    width: 100%;
+    text-align: center;
+  }
+  .angyctxts h5 a {
+    width: 100%;
+    text-align: center;
+  }
+  .followusdiv h5 {
+    text-align: left;
+  }
+  .followlinks {
+    float: left;
+  }
+  .endcopy {
+    text-align: center;
+  }
+
+  .banner-content h1 {
+    font-size: 33px;
+  }
+  .banner-content h2 {
+    font-size: 18px;
+  }
+  .banner-content p {
+    font-size: 12px;
+  }
+
+  .innerdetials {
+    padding-top: 30px;
+  }
+  .innerhead:before {
+    left: 41%;
+  }
+  .innerdetials h2 {
+    font-size: 22px;
+    text-align: center;
+    line-height: 26px;
+  }
+  .innerdetials h6 {
+    font-size: 14px;
+    text-align: center;
+  }
+  .innerdetials p {
+    text-align: center;
+  }
+
+  .verfiybg {
+    background: #0f9be6;
+  }
+  .verifyinner {
+    padding-top: 30px;
+  }
+  .verifyinner h2 {
+    font-size: 22px;
+    text-align: center;
+    line-height: 26px;
+  }
+  .verifyinner p {
+    text-align: center;
+  }
+
+  .panel-title {
+    font-size: 13px;
+  }
+  .applybg {
+    background: none;
+  }
+  .applyinfodiv {
+    width: 100%;
+    padding: 50px 0px;
+  }
+  .applicationbg {
+    display: inline-block;
+    margin: 50px 0px 0px;
+  }
+  .faqsinfos {
+    margin: 25px 0px 0px;
+  }
+  .forminputs {
+    margin: 5px 0px;
+  }
+  .contactformdiv {
+    padding: 25px 0px 0px;
+  }
+  .formmsgbox {
+    margin: 5px 0px;
+  }
+
+  .stepbtninfo {
+    width: 17%;
+  }
+  .stepbotomtxt {
+    font-size: 11px;
+  }
+  .stepbtninfo04 {
+    width: 15%;
+  }
+  .stepbtninfo:before {
+    border: none;
+  }
+  .stepbtninfo02 {
+    margin: 0px 10px;
+  }
+  .stepbtninfo02:before {
+    border: none;
+  }
+  .stepbtninfo02:after {
+    border: none;
+  }
+  .stepbtninfo03:before {
+    border: none;
+  }
+  .stepbtninfo03 {
+    margin-right: 10px;
+  }
+  .stepbtninfo03:after {
+    border: none;
+  }
+  .stepbtninfo04:before {
+    border: none;
+  }
+  .stepbtninfo05 {
+    margin: 0px 10px;
+  }
+  .stepbtninfo05:before {
+    border: none;
+  }
+  .stepbtninfo05:after {
+    border: none;
+  }
+  .stepbtndis:before {
+    border: none;
+  }
+  .stepbtninfo06:before {
+    border: none;
+  }
+
+  .submitbtns {
+    margin: 25px 15px 0px 0px;
+  }
+  .forminformation {
+    padding: 25px 0px 0px 0px;
+  }
+  .tabpad {
+    margin: 0px 10px 0px 0px !important;
+  }
+
+  .inputfile-6 + label strong {
+    float: right;
+  }
+  .padtablet {
+    padding: 0px;
+  }
+
+  .takeformmatter {
+    width: 100%;
+    padding-bottom: 15px;
+    float: left;
+  }
+  .takeformmatter h3 {
+    width: 100%;
+    padding: 0px 0px;
+    float: left;
+  }
+  .takeformmatter h4 {
+    width: 100%;
+    padding: 0px 0px;
+    float: left;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  .banner-content {
+    display: none;
+  }
+  .logo {
+    padding: 15px 0px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .header-info {
+    width: 100%;
+    text-align: center;
+  }
+  .header-info-top h3 {
+    padding-right: 0px;
+  }
+  .navbar-toggle {
+    margin-right: 0px;
+    background: #0f9be6;
+  }
+  .navbar-toggle .icon-bar {
+    background: #fff;
+  }
+
+  .socinfo {
+    padding-bottom: 10px;
+  }
+  .topright span {
+    width: 100%;
+    text-align: center;
+  }
+  .padspce {
+    padding: 0px 15px;
+  }
+  .topnavdiv {
+    width: 100%;
+  }
+  .veryinput {
+    width: 100%;
+    margin: 10px 15px 0px 0px;
+  }
+  .submitvrifiy {
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+  }
+  .solutionfull {
+    padding: 0px 0px 0px;
+  }
+  .solutinfo h1 {
+    width: 100%;
+    text-align: center;
+  }
+  .solutinfo h6 {
+    text-align: center;
+  }
+  .solutinfo p {
+    text-align: center;
+  }
+  .readbg {
+    float: none;
+    margin: 0px auto;
+    display: table;
+  }
+  .soutionpic {
+    padding: 25px 0px 0px;
+    width: 100%;
+    text-align: center;
+  }
+  .whybox {
+    padding: 10px 0px;
+  }
+  .updatebox {
+    margin-bottom: 15px;
+  }
+  .policeinfodiv {
+    padding: 30px 0px 10px;
+  }
+  .agenydiv h4 {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .angypic {
+    min-width: 100%;
+  }
+  .angyctxts {
+    padding: 0px;
+    width: 100%;
+  }
+  .angyctxts p {
+    width: 100%;
+    text-align: center;
+    float: left;
+  }
+  .angyctxts h5 {
+    width: 100%;
+    text-align: center;
+  }
+  .angyctxts h5 a {
+    width: 100%;
+    text-align: center;
+  }
+  .footerhead p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .followusdiv h5 {
+    text-align: left;
+  }
+  .followlinks {
+    float: left;
+  }
+  .endcopy {
+    text-align: center;
+  }
+
+  .innerdetials {
+    padding-top: 30px;
+  }
+  .innerhead:before {
+    left: 28%;
+  }
+  .innerdetials h2 {
+    font-size: 22px;
+    text-align: center;
+    line-height: 26px;
+  }
+  .innerdetials h6 {
+    font-size: 14px;
+    text-align: center;
+  }
+  .innerdetials p {
+    text-align: center;
+  }
+
+  .verfiybg {
+    background: #0f9be6;
+  }
+  .verifyinner {
+    padding-top: 30px;
+  }
+  .verifyinner h2 {
+    font-size: 22px;
+    text-align: center;
+    line-height: 26px;
+  }
+  .verifyinner p {
+    text-align: center;
+  }
+
+  .applybg {
+    background: none;
+    height: auto;
+  }
+  .faqsinfos {
+    margin: 25px 0px 0px;
+  }
+
+  .forminputs {
+    margin: 5px 0px;
+  }
+  .contactformdiv {
+    padding: 25px 0px 0px;
+  }
+  .formmsgbox {
+    margin: 5px 0px;
+  }
+  .padid {
+    padding: 0px;
+  }
+
+  .stepbtninfo {
+    width: 15%;
+  }
+  .stepbotomtxt {
+    font-size: 11px;
+  }
+  .stepbtninfo04 {
+    width: 16%;
+  }
+  .stepbtninfo:before {
+    border: none;
+  }
+  .stepbtninfo02 {
+    margin: 0px 5px;
+  }
+  .stepbtninfo02:before {
+    border: none;
+  }
+  .stepbtninfo02:after {
+    border: none;
+  }
+  .stepbtninfo03:before {
+    border: none;
+  }
+  .stepbtninfo03 {
+    margin-right: 5px;
+    width: 14%;
+  }
+  .stepbtninfo03:after {
+    border: none;
+  }
+  .stepbtninfo04:before {
+    border: none;
+  }
+  .stepbtninfo05 {
+    margin: 0px 5px;
+  }
+  .stepbtninfo05:before {
+    border: none;
+  }
+  .stepbtninfo05:after {
+    border: none;
+  }
+  .stepbtndis:before {
+    border: none;
+  }
+  .stepbtninfo06:before {
+    border: none;
+  }
+
+  .submitbtns {
+    margin: 25px 15px 0px 0px;
+  }
+  .forminformation {
+    padding: 25px 0px 0px 0px;
+  }
+  .tabpad {
+    margin: 0px 5px 0px 0px !important;
+  }
+
+  .inputfile-6 + label strong {
+    float: right;
+  }
+  .padtablet {
+    padding: 0px;
+  }
+
+  .takeformmatter {
+    width: 100%;
+    padding-bottom: 15px;
+    float: left;
+  }
+  .takeformmatter h3 {
+    width: 100%;
+    padding: 0px 0px;
+    float: left;
+  }
+  .takeformmatter h4 {
+    width: 100%;
+    padding: 0px 0px;
+    float: left;
+  }
+
+  .camera {
+    width: 100% !important;
+    height: 255px !important;
+  }
+  .backbtns {
+    padding: 12px 15px;
+    font-size: 16px;
+    margin: 0px 0px 0px;
+  }
+  .submitbtns {
+    margin: 0px 0px 0px 0px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+  }
+}
+@media only screen and (min-width: 480px) and (max-width: 599px) {
+  .banner-content {
+    display: none;
+  }
+  .logo {
+    padding: 15px 0px;
+    width: 100%;
+    text-align: center;
+  }
+  .navbar-toggle {
+    margin-right: 0px;
+    background: #0f9be6;
+  }
+  .navbar-toggle .icon-bar {
+    background: #fff;
+  }
+
+  .socinfo {
+    padding-bottom: 10px;
+  }
+  .topright span {
+    width: 100%;
+    text-align: center;
+  }
+  .padspce {
+    padding: 0px 15px;
+  }
+  .topnavdiv {
+    width: 100%;
+  }
+  .veryinput {
+    width: 100%;
+    margin: 10px 15px 0px 0px;
+  }
+  .submitvrifiy {
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+  }
+  .solutionfull {
+    padding: 0px 0px 0px;
+  }
+  .solutinfo h1 {
+    width: 100%;
+    text-align: center;
+  }
+  .solutinfo h6 {
+    text-align: center;
+  }
+  .solutinfo p {
+    text-align: center;
+  }
+  .readbg {
+    float: none;
+    margin: 0px auto;
+    display: table;
+  }
+  .soutionpic {
+    padding: 25px 0px 0px;
+    width: 100%;
+    text-align: center;
+  }
+  .whybox {
+    padding: 10px 0px;
+  }
+  .updatebox {
+    margin-bottom: 15px;
+  }
+  .policeinfodiv {
+    padding: 30px 0px 10px;
+  }
+  .agenydiv h4 {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .angypic {
+    min-width: 100%;
+  }
+  .angyctxts {
+    padding: 0px;
+    width: 100%;
+  }
+  .angyctxts p {
+    width: 100%;
+    text-align: center;
+    float: left;
+  }
+  .angyctxts h5 {
+    width: 100%;
+    text-align: center;
+  }
+  .angyctxts h5 a {
+    width: 100%;
+    text-align: center;
+  }
+  .footerhead p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .followusdiv h5 {
+    text-align: left;
+  }
+  .followlinks {
+    float: left;
+  }
+  .endcopy {
+    text-align: center;
+  }
+
+  .innerdetials {
+    padding-top: 30px;
+  }
+  .innerhead:before {
+    left: 36%;
+  }
+  .innerdetials h2 {
+    font-size: 22px;
+    text-align: center;
+    line-height: 26px;
+  }
+  .innerdetials h6 {
+    font-size: 14px;
+    text-align: center;
+  }
+  .innerdetials p {
+    text-align: center;
+  }
+
+  .verifyinner {
+    padding-top: 30px;
+  }
+  .verifyinner h2 {
+    font-size: 22px;
+    text-align: center;
+    line-height: 26px;
+  }
+  .verifyinner p {
+    text-align: center;
+  }
+  .verfiybg {
+    background: #0f9be6;
+  }
+  .innerdetialshead h1 {
+    font-size: 30px;
+  }
+
+  .applybg {
+    background: none;
+    height: auto;
+  }
+  .faqsinfos {
+    margin: 25px 0px 0px;
+  }
+  .applyinfodiv {
+    width: 100%;
+    padding: 10px 0px;
+  }
+  .applicationbg {
+    width: 60%;
+  }
+  .padid {
+    padding: 0px;
+  }
+
+  .stepbtninfo {
+    width: 15%;
+    height: 62px;
+  }
+  .stepbotomtxt {
+    font-size: 11px;
+  }
+  .stepbtninfo04 {
+    width: 16%;
+    height: 62px;
+  }
+  .stepbtninfo:before {
+    border: none;
+  }
+  .stepbtninfo02 {
+    margin: 0px 5px;
+    height: 62px;
+  }
+  .stepbtninfo02:before {
+    border: none;
+  }
+  .stepbtninfo02:after {
+    border: none;
+  }
+  .stepbtninfo03:before {
+    border: none;
+  }
+  .stepbtninfo03 {
+    margin-right: 5px;
+    width: 14%;
+    height: 62px;
+  }
+  .stepbtninfo03:after {
+    border: none;
+  }
+  .stepbtninfo04:before {
+    border: none;
+  }
+  .stepbtninfo05 {
+    margin: 0px 5px;
+  }
+  .stepbtninfo05:before {
+    border: none;
+  }
+  .stepbtninfo05:after {
+    border: none;
+  }
+  .stepbtndis:before {
+    border: none;
+  }
+  .stepbtninfo06:before {
+    border: none;
+  }
+
+  .forminformation {
+    padding: 25px 0px 0px 0px;
+  }
+  .tabpad {
+    margin: 0px 5px 0px 0px !important;
+  }
+
+  .inputfile-6 + label strong {
+    float: right;
+  }
+  .padtablet {
+    padding: 0px;
+  }
+
+  .takeformmatter {
+    width: 100%;
+    padding-bottom: 15px;
+    float: left;
+  }
+  .takeformmatter h3 {
+    width: 100%;
+    padding: 0px 0px;
+    float: left;
+  }
+  .takeformmatter h4 {
+    width: 100%;
+    padding: 0px 0px;
+    float: left;
+  }
+
+  .camera {
+    width: 100% !important;
+    height: 255px !important;
+  }
+  .backbtns {
+    padding: 12px 15px;
+    font-size: 16px;
+    margin: 0px 0px 0px;
+  }
+  .submitbtns {
+    margin: 0px 0px 0px 0px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 479px) {
+  .banner-content {
+    display: none;
+  }
+  .logo {
+    padding: 15px 0px;
+    width: 100%;
+    text-align: center;
+  }
+  .logo img {
+    width: 100%;
+  }
+  .navbar-toggle {
+    margin-right: 0px;
+    background: #0f9be6;
+  }
+  .navbar-toggle .icon-bar {
+    background: #fff;
+  }
+
+  .socinfo {
+    padding-bottom: 10px;
+  }
+  .topright span {
+    width: 100%;
+    text-align: center;
+  }
+  .padspce {
+    padding: 0px 15px;
+  }
+  .topnavdiv {
+    width: 100%;
+  }
+  .veryinput {
+    width: 100%;
+    margin: 10px 15px 0px 0px;
+  }
+  .submitvrifiy {
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+  }
+  .solutionfull {
+    padding: 0px 0px 0px;
+  }
+  .solutinfo h1 {
+    width: 100%;
+    text-align: center;
+  }
+  .solutinfo h6 {
+    text-align: center;
+  }
+  .solutinfo p {
+    text-align: center;
+  }
+  .readbg {
+    float: none;
+    margin: 0px auto;
+    display: table;
+  }
+  .soutionpic {
+    padding: 25px 0px 0px;
+  }
+  .whybox {
+    padding: 10px 0px;
+  }
+  .updatebox {
+    margin-bottom: 15px;
+  }
+  .policetxt h4 {
+    font-size: 13px;
+  }
+  .policeinfodiv {
+    padding: 30px 0px 10px;
+  }
+  .agenydiv h4 {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .angypic {
+    min-width: 100%;
+  }
+  .angyctxts {
+    padding: 0px;
+    width: 100%;
+  }
+  .angyctxts p {
+    width: 100%;
+    text-align: center;
+    float: left;
+  }
+  .angyctxts h5 {
+    width: 100%;
+    text-align: center;
+  }
+  .angyctxts h5 a {
+    width: 100%;
+    text-align: center;
+  }
+  .footerhead p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .followusdiv h5 {
+    text-align: left;
+  }
+  .followlinks {
+    float: left;
+  }
+  .endcopy {
+    text-align: center;
+  }
+
+  .innerdetials {
+    padding-top: 30px;
+  }
+  .innerhead:before {
+    left: 28%;
+  }
+  .innerdetials h2 {
+    font-size: 22px;
+    text-align: center;
+    line-height: 26px;
+  }
+  .innerdetials h6 {
+    font-size: 14px;
+    text-align: center;
+  }
+  .innerdetials p {
+    text-align: center;
+  }
+
+  .verifyinner {
+    padding-top: 30px;
+  }
+  .verifyinner h2 {
+    font-size: 22px;
+    text-align: center;
+    line-height: 26px;
+  }
+  .verifyinner p {
+    text-align: center;
+  }
+  .verfiybg {
+    background: #0f9be6;
+  }
+
+  .innerdetialshead h1 {
+    font-size: 30px;
+  }
+
+  .applybg {
+    background: none;
+    height: auto;
+  }
+  .faqsinfos {
+    margin: 25px 0px 0px;
+  }
+  .applyinfodiv {
+    width: 100%;
+    padding: 10px 0px;
+  }
+  .applicationbg {
+    width: 100%;
+  }
+
+  .forminputs {
+    margin: 5px 0px;
+  }
+  .contactformdiv {
+    padding: 25px 0px 0px;
+  }
+  .formmsgbox {
+    margin: 5px 0px;
+  }
+  .padid {
+    padding: 0px;
+  }
+
+  .stepbtninfo {
+    width: 100%;
+    margin: 5px 0px !important;
+    border-radius: 0px;
+  }
+  .stepbotomtxt {
+    font-size: 13px;
+  }
+  .stepbtninfo04 {
+    width: 100%;
+    border-radius: 0px;
+    margin: 5px 0px !important;
+  }
+  .stepbtninfo:before {
+    border: none;
+  }
+  .stepbtninfo02 {
+    margin: 5px 0px !important;
+    width: 100%;
+  }
+  .stepbtninfo02:before {
+    border: none;
+  }
+  .stepbtninfo02:after {
+    border: none;
+  }
+  .stepbtninfo03:before {
+    border: none;
+  }
+  .stepbtninfo03 {
+    margin: 5px 0px !important;
+    width: 100%;
+  }
+  .stepbtninfo03:after {
+    border: none;
+  }
+  .stepbtninfo04:before {
+    border: none;
+  }
+  .stepbtninfo05 {
+    width: 100% !important;
+    margin: 5px 0px !important;
+  }
+  .stepbtninfo05:before {
+    border: none;
+  }
+  .stepbtninfo05:after {
+    border: none;
+  }
+  .stepbtndis {
+    width: 100%;
+    border-radius: 0px;
+    margin: 5px 0px !important;
+  }
+  .stepbtndis:before {
+    border: none;
+  }
+  .stepbtninfo06 {
+    width: 100% !important;
+    border-radius: 0px;
+    margin: 5px 0px !important;
+  }
+  .stepbtninfo06:before {
+    border: none;
+  }
+
+  .submitbtns {
+    margin: 25px 0px 5px 0px;
+    width: 100%;
+    float: left;
+  }
+  .forminformation {
+    padding: 25px 0px 0px 0px;
+  }
+  .backbtns {
+    width: 100%;
+    margin: 5px 0px;
+    text-align: center;
+  }
+
+  .inputfile-6 + label span {
+    width: 130px;
+  }
+  .inputfile-6 + label strong {
+    float: right;
+  }
+  .padtablet {
+    padding: 0px;
+  }
+
+  .takeformmatter {
+    width: 100%;
+    padding-bottom: 15px;
+    float: left;
+  }
+  .takeformmatter h3 {
+    width: 100%;
+    padding: 0px 0px;
+    float: left;
+  }
+  .takeformmatter h4 {
+    width: 100%;
+    padding: 0px 0px;
+    float: left;
+  }
+
+  .camera {
+    width: 100% !important;
+    height: 255px !important;
+  }
+}
