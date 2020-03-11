@@ -22,7 +22,7 @@ const Home = () => {
                 way to apply for a Police Check online or on your mobile.
               </p>
               <div className="apply">
-                <a href="/applyonline" className="btnappy">
+                <a href="/Apply" className="btnappy">
                   APPLY NOW
                 </a>
               </div>
@@ -106,10 +106,7 @@ const Home = () => {
                       </p>
 
                       <p>
-                        <a
-                          className="applybgnow"
-                          href="https://ondemandchecks.com/applyonline"
-                        >
+                        <a className="applybgnow" href="/Apply">
                           apply now
                         </a>
                       </p>
@@ -138,10 +135,7 @@ const Home = () => {
                       </p>
 
                       <p>
-                        <a
-                          className="applybgnow"
-                          href="https://ondemandchecks.com/pages/contact_us"
-                        >
+                        <a className="applybgnow" href="/ContactUs">
                           contact us
                         </a>
                       </p>
@@ -209,10 +203,7 @@ const Home = () => {
                       </p>
 
                       <p>
-                        <a
-                          className="applybgnow"
-                          href="https://ondemandchecks.com/applyonline"
-                        >
+                        <a className="applybgnow" href="/Apply">
                           apply now
                         </a>
                       </p>

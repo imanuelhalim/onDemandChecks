@@ -3,10 +3,10 @@ import { SocialIcon } from "react-social-icons";
 import { MdCall } from "react-icons/md";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Logo from "./images/logo.png";
-import Home from "./LandingPage/Home";
-import AboutUs from "./LandingPage/AboutUs";
-import Apply from "./LandingPage/Apply";
-import ContactUs from "./LandingPage/ContactUs";
+import Home from "./MainPage/Home";
+import AboutUs from "./MainPage/AboutUs";
+import Apply from "./MainPage/Apply";
+import ContactUs from "./MainPage/ContactUs";
 
 function App() {
   return (
@@ -68,9 +68,9 @@ function App() {
               <div className="row">
                 <div className="col-md-4">
                   <div className="logo">
-                    <a href="https://ondemandchecks.com/">
+                    <Link to="/">
                       <img src={Logo} border="0" alt="" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="col-md-8 padspce">
@@ -225,10 +225,7 @@ function App() {
           <div className="container">
             <div className="col-md-12">
               <div className="endcopy">
-                &copy; Copyright 2020{" "}
-                <a href="https://ondemandchecks.com/" className="copylink">
-                  On Demand Checks
-                </a>
+                &copy; Copyright 2020 <Link to="/">On Demand Checks</Link>
               </div>
             </div>
           </div>
