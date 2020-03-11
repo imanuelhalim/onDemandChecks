@@ -75,7 +75,7 @@ a:hover {
   float: left;
   padding-right: 15px;
 }
-.fbicons {
+/* .fbicons {
   font-size: 14px;
   color: #fff;
   background: #277eac;
@@ -85,7 +85,7 @@ a:hover {
   height: 30px;
   border-radius: 50%;
   float: left;
-}
+} */
 .scialtxt {
   float: left;
   font-size: 14px;
@@ -316,7 +316,7 @@ a:hover {
   font-size: 13px;
   background: #162333;
 }
-.shadoweffe {
+.shadoweffect {
   width: 100%;
   text-align: right;
   float: left;

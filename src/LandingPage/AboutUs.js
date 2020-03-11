@@ -1,4 +1,5 @@
 import React from "react";
+import AboutImg from "../images/aboutimg.jpg";
 
 const AboutUs = () => {
   return (
@@ -16,10 +17,7 @@ const AboutUs = () => {
         <div className="container">
           <div className="col-md-3">
             <div className="aboutimgdiv">
-              <img
-                alt=""
-                src="https://ondemandchecks.com/images/aboutimg.jpg"
-              />
+              <img alt="" src={AboutImg} />
             </div>
           </div>
 

@@ -1,4 +1,8 @@
 import React from "react";
+import ApplyIcon1 from "../images/applyiocn01.png";
+import ApplyIcon2 from "../images/applyiocn02.png";
+import ApplyIcon3 from "../images/applyiocn03.png";
+import RoundShadowImg from "../images/roundshadow.png";
 
 const Apply = () => {
   return (
@@ -21,18 +25,12 @@ const Apply = () => {
                   <div className="applybox">
                     <div className="applyimgs">
                       <a href="#">
-                        <img
-                          alt=""
-                          src="https://ondemandchecks.com/images/applyiocn01.png"
-                        />
+                        <img alt="" src={ApplyIcon1} />
                       </a>
                     </div>
 
                     <div className="appyshaldow">
-                      <img
-                        alt=""
-                        src="https://ondemandchecks.com/images/roundshadow.png"
-                      />
+                      <img alt="" src={RoundShadowImg} />
                     </div>
 
                     <div className="applytext">
@@ -51,18 +49,12 @@ const Apply = () => {
                   <div className="applybox">
                     <div className="applyimgs">
                       <a href="#">
-                        <img
-                          alt=""
-                          src="https://ondemandchecks.com/images/applyiocn02.png"
-                        />
+                        <img alt="" src={ApplyIcon2} />
                       </a>
                     </div>
 
                     <div className="appyshaldow">
-                      <img
-                        alt=""
-                        src="https://ondemandchecks.com/images/roundshadow.png"
-                      />
+                      <img alt="" src={RoundShadowImg} />
                     </div>
 
                     <div className="applytext">
@@ -81,18 +73,12 @@ const Apply = () => {
                   <div className="applybox">
                     <div className="applyimgs">
                       <a href="#">
-                        <img
-                          alt=""
-                          src="https://ondemandchecks.com/images/applyiocn03.png"
-                        />
+                        <img alt="" src={ApplyIcon3} />
                       </a>
                     </div>
 
                     <div className="appyshaldow">
-                      <img
-                        alt=""
-                        src="https://ondemandchecks.com/images/roundshadow.png"
-                      />
+                      <img alt="" src={RoundShadowImg} />
                     </div>
 
                     <div className="applytext">
