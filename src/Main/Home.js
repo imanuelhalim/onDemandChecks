@@ -22,7 +22,7 @@ const Home = () => {
                 way to apply for a Police Check online or on your mobile.
               </p>
               <div className="apply">
-                <a href="/Apply" className="btnappy">
+                <a href="/ApplyOnline" className="btnappy">
                   APPLY NOW
                 </a>
               </div>
@@ -106,7 +106,7 @@ const Home = () => {
                       </p>
 
                       <p>
-                        <a className="applybgnow" href="/Apply">
+                        <a className="applybgnow" href="/ApplyOnline">
                           apply now
                         </a>
                       </p>
@@ -203,7 +203,7 @@ const Home = () => {
                       </p>
 
                       <p>
-                        <a className="applybgnow" href="/Apply">
+                        <a className="applybgnow" href="/ApplyOnline">
                           apply now
                         </a>
                       </p>

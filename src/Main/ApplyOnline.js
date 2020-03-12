@@ -1,15 +1,73 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ApplyIcon1 from "../images/applyiocn01.png";
 import ApplyIcon2 from "../images/applyiocn02.png";
 import ApplyIcon3 from "../images/applyiocn03.png";
 import RoundShadowImg from "../images/roundshadow.png";
 import CreditCardsImg from "../images/credit-cards.png";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Step1 from "./ApplyOnline/Step1_PersonalDetails";
+import Step2 from "./ApplyOnline/Step2_Address";
+import Step3 from "./ApplyOnline/Step3_Purpose";
+import Step4 from "./ApplyOnline/Step4_ProffIdentity";
+import Step5 from "./ApplyOnline/Step5_Confirm";
+import Step6 from "./ApplyOnline/Step6_ConsentForm";
 
-const Apply = () => {
-  return (
-    <div>
-      <Router>
+const ApplyOnline = () => {
+  const [currentPage, setCurrentPage] = React.useState("main");
+
+  useEffect(() => {
+    displayPage(currentPage);
+  }, [currentPage]);
+
+  const setPage = e => {
+    e.preventDefault();
+    setCurrentPage("Step1");
+  };
+
+  const displayPage = () => {
+    if (currentPage === "main") {
+      return mainPage();
+    } else if (currentPage === "Step1") {
+      return (
+        <div>
+          <Step1 />
+        </div>
+      );
+      // } else if (currentPage === "Step2") {
+      //   return (
+      //     <div>
+      //       <Step2 />
+      //     </div>
+      //   );
+      // } else if (currentPage === "Step3") {
+      //   return (
+      //     <div>
+      //       <Step3 />
+      //     </div>
+      //   );
+      // } else if (currentPage === "Step4") {
+      //   return (
+      //     <div>
+      //       <Step4 />
+      //     </div>
+      //   );
+      // } else if (currentPage === "Step5") {
+      //   return (
+      //     <div>
+      //       <Step5 />
+      //     </div>
+      //   );
+      // } else if (currentPage === "Step6") {
+      //   return (
+      //     <div>
+      //       <Step6 />
+      //     </div>
+      //   );
+    }
+  };
+
+  function mainPage() {
+    return (
+      <div>
         <div className="innerhead">
           <div className="container">
             <div className="row">
@@ -97,11 +155,8 @@ const Apply = () => {
                   </div>
 
                   <div className="col-md-12">
-                    <a
-                      className="applicationbg"
-                      href="https://ondemandchecks.com/applyonlines/step1"
-                    >
-                      Start Application{" "}
+                    <a onClick={setPage} className="applicationbg">
+                      Start Application
                     </a>
                   </div>
                 </div>
@@ -151,7 +206,7 @@ const Apply = () => {
                   <div className="col-md-12">
                     <p>All prices are in AUD and inc. GST.</p>
                     <p> We accept Visa and MasterCard payments.</p>
-                    <a href="/applyonline/step1" className="startbtn">
+                    <a href="/StartApplication" className="startbtn">
                       Start Application{" "}
                     </a>
                   </div>
@@ -249,11 +304,11 @@ const Apply = () => {
                               <li>
                                 Step 1: Complete an&nbsp;
                                 <strong>application</strong>&nbsp;form.{" "}
-                                <a href="https://ondemandchecks.com/applyonline">
-                                  https://ondemandchecks.com/applyonline
-                                </a>
-                                &nbsp;-&nbsp;&nbsp;3-step process and takes
-                                approximately 5 minutes to complete:
+                                <a onClick={setPage}>Start Application</a>
+                              </li>
+                              <li>
+                                3-step process and takes approximately 5 minutes
+                                to complete:
                               </li>
                               <li>
                                 Step 2:&nbsp;<strong>Check</strong>&nbsp;your
@@ -418,9 +473,11 @@ const Apply = () => {
             </div>
           </div>
         </div>
-      </Router>
-    </div>
-  );
+      </div>
+    );
+  }
+
+  return <div>{displayPage()}</div>;
 };
 
-export default Apply;
+export default ApplyOnline;

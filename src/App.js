@@ -3,10 +3,10 @@ import { SocialIcon } from "react-social-icons";
 import { MdCall } from "react-icons/md";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Logo from "./images/logo.png";
-import Home from "./MainPage/Home";
-import AboutUs from "./MainPage/AboutUs";
-import Apply from "./MainPage/Apply";
-import ContactUs from "./MainPage/ContactUs";
+import Home from "./Main/Home";
+import AboutUs from "./Main/AboutUs";
+import ApplyOnline from "./Main/ApplyOnline";
+import ContactUs from "./Main/ContactUs";
 
 function App() {
   return (
@@ -100,8 +100,9 @@ function App() {
                             <Link to="/AboutUs">About Us</Link>
                           </li>
                           <li>
-                            <Link to="/Apply">Apply</Link>
+                            <Link to="/ApplyOnline">Apply</Link>
                           </li>
+
                           {/* <li>
                             <a href="/pages/view/5/track">Track</a>
                           </li>
@@ -130,8 +131,8 @@ function App() {
           <Route path="/AboutUs" component={AboutUs}>
             <AboutUs />
           </Route>
-          <Route path="/Apply" component={Apply}>
-            <Apply />
+          <Route path="/ApplyOnline" component={ApplyOnline}>
+            <ApplyOnline />
           </Route>
           <Route path="/ContactUs" component={ContactUs}>
             <ContactUs />
