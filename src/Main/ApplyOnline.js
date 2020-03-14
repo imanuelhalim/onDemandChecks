@@ -32,36 +32,6 @@ const ApplyOnline = () => {
           <Step1 />
         </div>
       );
-      // } else if (currentPage === "Step2") {
-      //   return (
-      //     <div>
-      //       <Step2 />
-      //     </div>
-      //   );
-      // } else if (currentPage === "Step3") {
-      //   return (
-      //     <div>
-      //       <Step3 />
-      //     </div>
-      //   );
-      // } else if (currentPage === "Step4") {
-      //   return (
-      //     <div>
-      //       <Step4 />
-      //     </div>
-      //   );
-      // } else if (currentPage === "Step5") {
-      //   return (
-      //     <div>
-      //       <Step5 />
-      //     </div>
-      //   );
-      // } else if (currentPage === "Step6") {
-      //   return (
-      //     <div>
-      //       <Step6 />
-      //     </div>
-      //   );
     }
   };
 
