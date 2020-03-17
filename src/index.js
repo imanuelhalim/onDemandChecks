@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "./App.css";
 import "./style.css";
+import "react-phone-number-input/style.css";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

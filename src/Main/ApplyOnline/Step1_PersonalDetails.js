@@ -1,5 +1,7 @@
-import React from "react";
-import validator from "validator";
+import React, { useEffect } from "react";
+import AllCountries from "../../Data/Countries.json";
+import PhoneInput from "react-phone-number-input";
+import DatePicker from "react-date-picker";
 
 const Step1_PersonalDetails = () => {
   const [firstName, setFirstName] = React.useState("");
@@ -16,7 +18,8 @@ const Step1_PersonalDetails = () => {
   const [mobilePhone, setMobilePhone] = React.useState("");
   const [selectPrefContactNum, setSelectPrefContactNum] = React.useState("");
   const [email, setEmail] = React.useState("");
-  const [dOB, setDOB] = React.useState(Date);
+  const [confrimEmail, setConfirmEmail] = React.useState("");
+  const [dOB, setDOB] = React.useState("");
   const [birthplace, setBirthPlace] = React.useState("");
 
   const handleSetFirstName = e => {
@@ -44,7 +47,9 @@ const Step1_PersonalDetails = () => {
         <div>
           <div className="col-md-4">
             <div className="formboxs">
-              <label>Name Type</label>
+              <label>
+                Name Type<span className="required">* </span>
+              </label>
               <div className="input select">
                 <select
                   name="newnametype"
@@ -62,7 +67,9 @@ const Step1_PersonalDetails = () => {
           </div>
           <div className="col-md-4">
             <div className="formboxs">
-              <label>First Name </label>
+              <label>
+                First Name<span className="required">* </span>
+              </label>
               <div className="input text">
                 <input
                   type="text"
@@ -97,7 +104,9 @@ const Step1_PersonalDetails = () => {
           <div className="clearfix"></div>
           <div className="col-md-4">
             <div className="formboxs">
-              <label>Last Name </label>
+              <label>
+                Last Name<span className="required">* </span>
+              </label>
               <div className="input text">
                 <input
                   type="text"
@@ -140,28 +149,62 @@ const Step1_PersonalDetails = () => {
   };
 
   const handleSetHomePhone = e => {
-    if (validator.isMobilePhone(e.target.value)) {
-      setHomePhone(e.target.value);
-    }
-    console.log(e.target.value);
+    e.preventDefault();
+    setHomePhone(e.target.value);
+    console.log("home phone " + e.target.value);
   };
 
   const handleSetWorkPhone = e => {
-    if (validator.isMobilePhone(e.target.value)) {
-      setWorkPhone(e.target.value);
-    }
-    console.log(e.target.value);
+    e.preventDefault();
+    setWorkPhone(e.target.value);
+    console.log("work phone " + e.target.value);
   };
 
-  const handleSetMobilePhone = e => {
-    if (validator.isMobilePhone(e.target.value)) {
-      setMobilePhone(e.target.value);
-    }
-    console.log(e.target.value);
+  const handleSetEmail = e => {
+    e.preventDefault();
+    setEmail(e.target.value);
+  };
+
+  const handleSetConfirmEmail = e => {
+    e.preventDefault();
+    setConfirmEmail(e.target.value);
   };
 
   const handleSelectPrefContactNum = e => {
     setSelectPrefContactNum(e.target.value);
+  };
+
+  const handleSetDOB = date => {
+    setDOB(date);
+  };
+
+  const listCountries = () => {
+    return (
+      <div>
+        <div className="input select required">
+          <select
+            name="countrybirth"
+            className="selectsyless"
+            required="required"
+            id="countrybirth"
+            onChange={handleSelectCountry}
+          >
+            <option value="">Please Select Country</option>
+            {AllCountries.map((text, index) => {
+              return (
+                <option key={text + index} value={text.CountryName}>
+                  {text.CountryName}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+      </div>
+    );
+  };
+
+  const handleSelectCountry = e => {
+    setBirthPlace(e.target.value);
   };
 
   return (
@@ -225,7 +268,9 @@ const Step1_PersonalDetails = () => {
 
               <div className="col-md-4">
                 <div className="formboxs">
-                  <label>First Name</label>
+                  <label>
+                    First Name<span className="required">* </span>
+                  </label>
                   <div className="input text required">
                     <input
                       type="text"
@@ -259,7 +304,9 @@ const Step1_PersonalDetails = () => {
               </div>
               <div className="col-md-4">
                 <div className="formboxs">
-                  <label>Last Name</label>
+                  <label>
+                    Last Name<span className="required">* </span>
+                  </label>
                   <div className="input text required">
                     <input
                       type="text"
@@ -283,6 +330,7 @@ const Step1_PersonalDetails = () => {
                   <label>
                     Have you ever been known by another name (including
                     previous, maiden name, etc)?
+                    <span className="required">* </span>
                   </label>
                   <label for="anothername-yes">
                     <input
@@ -312,6 +360,7 @@ const Step1_PersonalDetails = () => {
 
               <h3>
                 <strong>Gender</strong>
+                <span className="required">* </span>
               </h3>
 
               <div className="radiobtn">
@@ -355,6 +404,7 @@ const Step1_PersonalDetails = () => {
                       id="phone-3"
                       value={homePhone}
                       onChange={handleSetHomePhone}
+                      placeholder="Enter home phone number"
                     />
                   </div>{" "}
                 </div>
@@ -371,15 +421,25 @@ const Step1_PersonalDetails = () => {
                       id="phone-2"
                       value={workPhone}
                       onChange={handleSetWorkPhone}
+                      placeholder="Enter work phone number"
                     />
                   </div>{" "}
                 </div>
               </div>
               <div className="col-md-4">
                 <div className="formboxs">
-                  <label>Mobile Phone </label>
+                  <label>
+                    Mobile Phone<span className="required">* </span>
+                  </label>
                   <div className="input text required">
-                    <input
+                    <PhoneInput
+                      className="inpuststyles"
+                      required
+                      value={mobilePhone}
+                      onChange={setMobilePhone}
+                      placeholder="Enter mobile phone number"
+                    />
+                    {/* <input
                       type="text"
                       name="phone_1"
                       className="inpuststyles"
@@ -388,7 +448,8 @@ const Step1_PersonalDetails = () => {
                       id="phone-1"
                       value={mobilePhone}
                       onChange={handleSetMobilePhone}
-                    />
+                      placeholder="Enter mobile phone number"
+                    /> */}
                   </div>{" "}
                 </div>
               </div>
@@ -437,7 +498,10 @@ const Step1_PersonalDetails = () => {
               <div className="clearfix"></div>
               <div className="col-md-6">
                 <div className="formboxs">
-                  <label>Email </label>
+                  <label>
+                    Email
+                    <span className="required">* </span>
+                  </label>
                   <div className="input email required">
                     <input
                       type="email"
@@ -446,13 +510,18 @@ const Step1_PersonalDetails = () => {
                       required="required"
                       maxLength="50"
                       id="email"
+                      value={email}
+                      onChange={handleSetEmail}
+                      placeholder="Enter email"
                     />
                   </div>{" "}
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="formboxs">
-                  <label>Confirm your Email </label>
+                  <label>
+                    Confirm your Email<span className="required">* </span>
+                  </label>
                   <div className="input text required">
                     <input
                       type="text"
@@ -461,6 +530,9 @@ const Step1_PersonalDetails = () => {
                       required="required"
                       maxLength="50"
                       id="secondaryemail"
+                      value={confrimEmail}
+                      onChange={handleSetConfirmEmail}
+                      placeholder="Enter confirm email"
                     />
                   </div>{" "}
                 </div>
@@ -472,35 +544,40 @@ const Step1_PersonalDetails = () => {
               </h3>
               <div className="col-md-4">
                 <div className="formboxs">
-                  <label>Date of birth</label>
+                  <label>
+                    Date of birth<span className="required">* </span>
+                  </label>
                   <div className="input text required">
-                    <input
+                    <DatePicker
+                      dateFormat="dd/MM/yyyy"
+                      className="inpuststyles datepicker"
+                      required
+                      selected={dOB}
+                      onChange={handleSetDOB}
+                      value={dOB}
+                      placeholderText="dd/MM/yyyy"
+                    />
+                    {/* <input
                       type="text"
                       name="date_of_birth"
                       className="inpuststyles datepicker"
-                      required="required"
-                      maxLength="100"
+                      required
+                      maxLength="10"
                       id="date-of-birth"
-                    />
+                      value={dOB}
+                      onClick={handleSetDOB}
+                      placeholder="Enter date of birth (DD/MM/YYYY)"
+                    /> */}
                   </div>
                 </div>
               </div>
 
               <div className="col-md-4">
                 <div className="formboxs">
-                  <label>Birthplace </label>
-                  <div className="input select required">
-                    <select
-                      name="countrybirth"
-                      className="selectsyless"
-                      required="required"
-                      id="countrybirth"
-                    >
-                      <option value="">Please Select Country</option>
-                      <option value="Nicaragua">Nicaragua</option>
-                    <ngambil dari JSON file countries
-                    </select>
-                  </div>
+                  <label>
+                    Birthplace<span className="required">* </span>
+                  </label>
+                  {listCountries()}
                 </div>
               </div>
 

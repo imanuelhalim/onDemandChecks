@@ -43,6 +43,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;
 }
+
+.required {
+  color: red;
+}
+
 a {
   text-decoration: none !important;
   -moz-transition: all 0.3s ease-in-out;
@@ -1718,7 +1723,7 @@ a.rightapply:hover {
   border: solid 1px #c2c2c2;
   padding: 10px 15px;
   font-size: 13px;
-  color: #666;
+  color: rgb(0, 0, 0);
   float: left;
 }
 
@@ -1772,12 +1777,13 @@ a.rightapply:hover {
   padding: 0px 15px;
   float: left;
 }
+
 .selectsyless {
   width: 100%;
-  border: solid 1px #c2c2c2;
+  border: solid 6px #c2c2c2;
   padding: 8px 15px;
   font-size: 13px;
-  color: #666;
+  color: rgb(0, 0, 0);
   float: left;
 }
 .submitbtns {
