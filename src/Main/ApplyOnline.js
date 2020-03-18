@@ -29,6 +29,8 @@ const ApplyOnline = () => {
   const [email, setEmail] = React.useState("");
   const [dOB, setDOB] = React.useState("");
   const [birthplace, setBirthPlace] = React.useState("");
+  const [residentialAdd, setResidentialAdd] = React.useState("");
+  const [postalAdd, setPostalAdd] = React.useState("");
 
   useEffect(() => {
     displayPage(currentPage);
@@ -36,7 +38,7 @@ const ApplyOnline = () => {
 
   const setPage = e => {
     e.preventDefault();
-    setCurrentPage("Step1");
+    setCurrentPage("Step2");
   };
 
   const displayPage = () => {
@@ -82,19 +84,6 @@ const ApplyOnline = () => {
               setDOB(getDOB);
               setBirthPlace(getBirthplace);
               setCurrentPage(getCurrentPage);
-              console.log(getFirstName);
-              console.log(getMiddleName);
-              console.log(getSurname);
-              console.log(getSelectPreviousName);
-              console.log(getGender);
-              console.log(getHomePhone);
-              console.log(getWorkPhone);
-              console.log(getMobilePhone);
-              console.log(getSelectPrefContactNum);
-              console.log(getEmail);
-              console.log(getDOB);
-              console.log(getBirthplace);
-              console.log(getCurrentPage);
             }}
           />
         </div>
@@ -102,19 +91,38 @@ const ApplyOnline = () => {
     } else if (currentPage === "Step2") {
       return (
         <div>
-          <Step2 />
+          <Step2
+            onSuccess={(getResidentialAdd, getPostalAdd, getCurrentPage) => {
+              setResidentialAdd(getResidentialAdd);
+              setPostalAdd(getPostalAdd);
+              setCurrentPage(getCurrentPage);
+            }}
+            onPostponed={getCurrentPage => {
+              setCurrentPage(getCurrentPage);
+            }}
+          />
         </div>
       );
     } else if (currentPage === "Step3") {
       return (
         <div>
-          <Step3 />
+          <Step3
+            onSuccess={() => {}}
+            onPostponed={getCurrentPage => {
+              setCurrentPage(getCurrentPage);
+            }}
+          />
         </div>
       );
     } else if (currentPage === "Step4") {
       return (
         <div>
-          <Step4 />
+          <Step4
+            onSuccess={() => {}}
+            onPostponed={getCurrentPage => {
+              setCurrentPage(getCurrentPage);
+            }}
+          />
         </div>
       );
     } else if (currentPage === "Step5") {
