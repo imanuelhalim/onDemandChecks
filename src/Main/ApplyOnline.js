@@ -13,6 +13,22 @@ import Step6 from "./ApplyOnline/Step6_ConsentForm";
 
 const ApplyOnline = () => {
   const [currentPage, setCurrentPage] = React.useState("main");
+  const [firstName, setFirstName] = React.useState("");
+  const [middleName, setMiddleName] = React.useState("");
+  const [surname, setSurname] = React.useState("");
+  const [selectPreviousName, setSelectPreviousName] = React.useState("");
+  const [prevNameType, setPrevNameType] = React.useState("");
+  const [prevFirstName, setPrevFirstName] = React.useState("");
+  const [prevMiddleName, setPrevMiddleName] = React.useState("");
+  const [prevSurname, setPrevSurname] = React.useState("");
+  const [gender, setGender] = React.useState("");
+  const [homePhone, setHomePhone] = React.useState("");
+  const [workPhone, setWorkPhone] = React.useState("");
+  const [mobilePhone, setMobilePhone] = React.useState("");
+  const [selectPrefContactNum, setSelectPrefContactNum] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [dOB, setDOB] = React.useState("");
+  const [birthplace, setBirthPlace] = React.useState("");
 
   useEffect(() => {
     displayPage(currentPage);
@@ -29,7 +45,88 @@ const ApplyOnline = () => {
     } else if (currentPage === "Step1") {
       return (
         <div>
-          <Step1 />
+          <Step1
+            onSuccess={(
+              getFirstName,
+              getMiddleName,
+              getSurname,
+              getSelectPreviousName,
+              getPrevNameType,
+              getPrevFirstName,
+              getPrevMiddleName,
+              getPrevSurname,
+              getGender,
+              getHomePhone,
+              getWorkPhone,
+              getMobilePhone,
+              getSelectPrefContactNum,
+              getEmail,
+              getDOB,
+              getBirthplace,
+              getCurrentPage
+            ) => {
+              setFirstName(getFirstName);
+              setMiddleName(getMiddleName);
+              setSurname(getSurname);
+              setSelectPreviousName(getSelectPreviousName);
+              setPrevNameType(getPrevNameType);
+              setPrevFirstName(getPrevFirstName);
+              setPrevMiddleName(getPrevMiddleName);
+              setPrevSurname(getPrevSurname);
+              setGender(getGender);
+              setHomePhone(getHomePhone);
+              setWorkPhone(getWorkPhone);
+              setMobilePhone(getMobilePhone);
+              setSelectPrefContactNum(getSelectPrefContactNum);
+              setEmail(getEmail);
+              setDOB(getDOB);
+              setBirthPlace(getBirthplace);
+              setCurrentPage(getCurrentPage);
+              console.log(getFirstName);
+              console.log(getMiddleName);
+              console.log(getSurname);
+              console.log(getSelectPreviousName);
+              console.log(getGender);
+              console.log(getHomePhone);
+              console.log(getWorkPhone);
+              console.log(getMobilePhone);
+              console.log(getSelectPrefContactNum);
+              console.log(getEmail);
+              console.log(getDOB);
+              console.log(getBirthplace);
+              console.log(getCurrentPage);
+            }}
+          />
+        </div>
+      );
+    } else if (currentPage === "Step2") {
+      return (
+        <div>
+          <Step2 />
+        </div>
+      );
+    } else if (currentPage === "Step3") {
+      return (
+        <div>
+          <Step3 />
+        </div>
+      );
+    } else if (currentPage === "Step4") {
+      return (
+        <div>
+          <Step4 />
+        </div>
+      );
+    } else if (currentPage === "Step5") {
+      return (
+        <div>
+          <Step5 />
+        </div>
+      );
+    } else if (currentPage === "Step6") {
+      return (
+        <div>
+          <Step6 />
         </div>
       );
     }

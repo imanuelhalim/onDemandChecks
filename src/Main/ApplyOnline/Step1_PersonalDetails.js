@@ -3,7 +3,7 @@ import AllCountries from "../../Data/Countries.json";
 import PhoneInput from "react-phone-number-input";
 import DatePicker from "react-date-picker";
 
-const Step1_PersonalDetails = () => {
+const Step1_PersonalDetails = props => {
   const [firstName, setFirstName] = React.useState("");
   const [middleName, setMiddleName] = React.useState("");
   const [surname, setSurname] = React.useState("");
@@ -18,9 +18,11 @@ const Step1_PersonalDetails = () => {
   const [mobilePhone, setMobilePhone] = React.useState("");
   const [selectPrefContactNum, setSelectPrefContactNum] = React.useState("");
   const [email, setEmail] = React.useState("");
-  const [confrimEmail, setConfirmEmail] = React.useState("");
+  const [confirmEmail, setConfirmEmail] = React.useState("");
+  const [statusConfirmEmail, setStatusConfirmEmail] = React.useState(true);
   const [dOB, setDOB] = React.useState("");
   const [birthplace, setBirthPlace] = React.useState("");
+  const [currentPage, setCurrentPage] = React.useState("");
 
   const handleSetFirstName = e => {
     e.preventDefault();
@@ -53,7 +55,7 @@ const Step1_PersonalDetails = () => {
               <div className="input select">
                 <select
                   name="newnametype"
-                  className="selectsyless"
+                  className="inpuststyles"
                   id="newnametype"
                   placeholder="Select name type"
                   onClick={handleSelectPrevNameType}
@@ -77,6 +79,7 @@ const Step1_PersonalDetails = () => {
                   className="inpuststyles"
                   maxLength="50"
                   id="newfirstname"
+                  required
                   value={prevFirstName}
                   onChange={handleSetPrevFirstName}
                   placeholder="Enter Previous First Name"
@@ -114,6 +117,7 @@ const Step1_PersonalDetails = () => {
                   className="inpuststyles"
                   maxLength="50"
                   id="newsurname"
+                  required
                   value={prevSurname}
                   onChange={handleSetPrevSurname}
                   placeholder="Enter Previous Surname"
@@ -151,13 +155,11 @@ const Step1_PersonalDetails = () => {
   const handleSetHomePhone = e => {
     e.preventDefault();
     setHomePhone(e.target.value);
-    console.log("home phone " + e.target.value);
   };
 
   const handleSetWorkPhone = e => {
     e.preventDefault();
     setWorkPhone(e.target.value);
-    console.log("work phone " + e.target.value);
   };
 
   const handleSetEmail = e => {
@@ -207,6 +209,50 @@ const Step1_PersonalDetails = () => {
     setBirthPlace(e.target.value);
   };
 
+  const displayErrorConfirmEmail = () => {
+    if (email !== confirmEmail && !statusConfirmEmail) {
+      return (
+        <div>
+          <span className="required">Confirm Email is Invalid</span>
+        </div>
+      );
+    }
+  };
+
+  const handleFormError = () => {
+    if (email === confirmEmail && email !== "") {
+      setCurrentPage("Step2");
+    } else if (email !== confirmEmail || email === "") {
+      setStatusConfirmEmail(false);
+    }
+  };
+
+  const handleFormSubmit = e => {
+    e.preventDefault();
+    console.log(currentPage);
+    if (currentPage === "Step2") {
+      props.onSuccess(
+        firstName,
+        middleName,
+        surname,
+        selectPreviousName,
+        prevNameType,
+        prevFirstName,
+        prevMiddleName,
+        prevSurname,
+        gender,
+        homePhone,
+        workPhone,
+        mobilePhone,
+        selectPrefContactNum,
+        email,
+        dOB,
+        birthplace,
+        currentPage
+      );
+    }
+  };
+
   return (
     <div>
       <div className="innerhead">
@@ -246,16 +292,14 @@ const Step1_PersonalDetails = () => {
           </div>
 
           <form
-          // enctype="multipart/form-data"
-          // method="post"
-          // accept-charset="utf-8"
-          // onsubmit="return checkform();"
-          // autocomplete="off"
-          // action="/applyonlines/step1"
+            onSubmit={handleFormSubmit}
+            // enctype="multipart/form-data"
+            // method="post"
+            // accept-charset="utf-8"
+            // onsubmit="return checkform();"
+            // autocomplete="off"
+            // action="/applyonlines/step1"
           >
-            {/* <div style={{ display: "none" }}>
-              <input type="hidden" name="_method" value="POST" />
-            </div> */}
             <div className="forminformation">
               <h3>
                 <strong>Personal Details</strong>
@@ -332,7 +376,7 @@ const Step1_PersonalDetails = () => {
                     previous, maiden name, etc)?
                     <span className="required">* </span>
                   </label>
-                  <label for="anothername-yes">
+                  <label htmlFor="anothername-yes">
                     <input
                       type="radio"
                       name="anothername"
@@ -343,7 +387,7 @@ const Step1_PersonalDetails = () => {
                     />
                     Yes
                   </label>
-                  <label for="anothername-no">
+                  <label htmlFor="anothername-no">
                     <input
                       type="radio"
                       name="anothername"
@@ -365,7 +409,7 @@ const Step1_PersonalDetails = () => {
 
               <div className="radiobtn">
                 <input type="hidden" name="gender" value="" />
-                <label for="gender-male">
+                <label htmlFor="gender-male">
                   <input
                     type="radio"
                     name="gender"
@@ -376,7 +420,7 @@ const Step1_PersonalDetails = () => {
                   />
                   Male
                 </label>
-                <label for="gender-female">
+                <label htmlFor="gender-female">
                   <input
                     type="radio"
                     name="gender"
@@ -400,7 +444,7 @@ const Step1_PersonalDetails = () => {
                       type="text"
                       name="phone_3"
                       className="inpuststyles"
-                      maxLength="50"
+                      maxLength="20"
                       id="phone-3"
                       value={homePhone}
                       onChange={handleSetHomePhone}
@@ -417,7 +461,7 @@ const Step1_PersonalDetails = () => {
                       type="text"
                       name="phone_2"
                       className="inpuststyles"
-                      maxLength="50"
+                      maxLength="20"
                       id="phone-2"
                       value={workPhone}
                       onChange={handleSetWorkPhone}
@@ -439,17 +483,6 @@ const Step1_PersonalDetails = () => {
                       onChange={setMobilePhone}
                       placeholder="Enter mobile phone number"
                     />
-                    {/* <input
-                      type="text"
-                      name="phone_1"
-                      className="inpuststyles"
-                      required
-                      maxLength="50"
-                      id="phone-1"
-                      value={mobilePhone}
-                      onChange={handleSetMobilePhone}
-                      placeholder="Enter mobile phone number"
-                    /> */}
                   </div>{" "}
                 </div>
               </div>
@@ -459,7 +492,7 @@ const Step1_PersonalDetails = () => {
                 <div className="formboxs">
                   <label>Select your perferred contact number</label>
                   <input type="hidden" name="preferred_contact" value="" />
-                  <label for="preferred-contact-3">
+                  <label htmlFor="preferred-contact-3">
                     <input
                       type="radio"
                       name="preferred_contact"
@@ -470,7 +503,7 @@ const Step1_PersonalDetails = () => {
                     />
                     Home
                   </label>
-                  <label for="preferred-contact-2">
+                  <label htmlFor="preferred-contact-2">
                     <input
                       type="radio"
                       name="preferred_contact"
@@ -481,7 +514,7 @@ const Step1_PersonalDetails = () => {
                     />
                     Work
                   </label>
-                  <label for="preferred-contact-1">
+                  <label htmlFor="preferred-contact-1">
                     <input
                       type="radio"
                       name="preferred_contact"
@@ -530,10 +563,11 @@ const Step1_PersonalDetails = () => {
                       required="required"
                       maxLength="50"
                       id="secondaryemail"
-                      value={confrimEmail}
+                      value={confirmEmail}
                       onChange={handleSetConfirmEmail}
                       placeholder="Enter confirm email"
                     />
+                    {displayErrorConfirmEmail()}
                   </div>{" "}
                 </div>
               </div>
@@ -586,99 +620,24 @@ const Step1_PersonalDetails = () => {
                   type="submit"
                   value="Save &amp; Continue"
                   className="submitbtns"
+                  onClick={handleFormError}
                 />
+                {/* <button type="button" className="submitbtns">
+                  Save &amp; Continue
+                </button> */}
               </div>
             </div>
-            <div style={{ display: "none" }}>
+            {/* <div style={{ display: "none" }}>
               <input
                 type="hidden"
                 name="_Token[fields]"
                 value="aff0b2c7671c7cacdd0bc187846fc34f0fe7353d%3A"
               />
               <input type="hidden" name="_Token[unlocked]" value="" />
-            </div>
+            </div> */}
           </form>
         </div>
       </div>
-      {/* <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-<script type="text/javascript">
-    jQuery(document).ready(function () {
-        jQuery(".datepicker").datepicker({
-            dateFormat: "yy/mm/dd/",
-            maxDate: 0,
-            changeMonth: true,
-            changeYear: true,
-        });
-        jQuery("input[name='anothername']").click(function () {
-            var nameOptVal = jQuery("input[name='anothername']:checked").val();
-            if (nameOptVal == "Yes") {
-                jQuery(".anothername_field").show();
-            } else {
-                jQuery(".anothername_field").hide();
-            }
-        });
-
-    });
-
-    function checkalphabets(value) {
-        if (value != value.match(/^[a-zA-Z]*$/)) {
-            return false;
-        }
-    }
-    function checkphonenumber(value) {
-        if (value != value.match(/^[- +()]*[0-9][- +()0-9]*$/)) {
-            return false;
-        }
-    }
-    function checkform() {
-        var firstname = document.getElementById('firstname').value;
-        var secondname = document.getElementById('secondname').value;
-        var surname = document.getElementById('surname').value;
-        var newfirstname = document.getElementById('newfirstname').value;
-        var newsecondname = document.getElementById('newsecondname').value;
-        var newsurname = document.getElementById('newsurname').value;
-        var phone_3 = document.getElementById('phone-3').value;
-        var phone_2 = document.getElementById('phone-2').value;
-        var phone_1 = document.getElementById('phone-1').value;
-        if (checkalphabets(firstname) == false) {
-            alert("First name inccorect");
-            return false;
-        } else
-        if (checkalphabets(secondname) == false) {
-            alert("Middle name inccorect");
-            return false;
-        } else
-        if (checkalphabets(surname) == false) {
-            alert("Last name inccorect");
-            return false;
-        } else
-        if (checkalphabets(newfirstname) == false) {
-            alert("Another first name inccorect");
-            return false;
-        } else
-        if (checkalphabets(newsecondname) == false) {
-            alert("Another middle name inccorect");
-            return false;
-        } else
-        if (checkalphabets(newsurname) == false) {
-            alert("Another last name inccorect");
-            return false;
-        } else
-        if (checkphonenumber(phone_3) == false) {
-            alert("Home phone inccorect");
-            return false;
-        } else
-        if (checkphonenumber(phone_2) == false) {
-            alert("Work phone inccorect");
-            return false;
-        } else
-        if (checkphonenumber(phone_1) == false) {
-            alert("Mobile phone inccorect");
-            return false;
-        }
-    }
-</script>         */}
     </div>
   );
 };
