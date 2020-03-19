@@ -12,7 +12,7 @@ import Step5 from "./ApplyOnline/Step5_Confirm";
 import Step6 from "./ApplyOnline/Step6_ConsentForm";
 
 const ApplyOnline = () => {
-  const [currentPage, setCurrentPage] = React.useState("main");
+  const [currentPage, setCurrentPage] = React.useState("Step5");
   const [firstName, setFirstName] = React.useState("");
   const [middleName, setMiddleName] = React.useState("");
   const [surname, setSurname] = React.useState("");
@@ -31,6 +31,14 @@ const ApplyOnline = () => {
   const [birthplace, setBirthPlace] = React.useState("");
   const [residentialAdd, setResidentialAdd] = React.useState("");
   const [postalAdd, setPostalAdd] = React.useState("");
+  const [postal, setCheckType] = React.useState("");
+  const [positionTitle, setPositionTitle] = React.useState("");
+  const [proposedPlaceOfWork, setProposedPlaceOfWork] = React.useState("");
+  const [contactGroupsOfPeople, setContactGroupsOfPeople] = React.useState("");
+  const [hardCopyPoliceCheck, setHardCopyPoliceCheck] = React.useState("");
+  const [digitalCopyPoliceCheck, setDigitalCopyPoliceCheck] = React.useState(
+    ""
+  );
 
   useEffect(() => {
     displayPage(currentPage);
@@ -38,7 +46,7 @@ const ApplyOnline = () => {
 
   const setPage = e => {
     e.preventDefault();
-    setCurrentPage("Step2");
+    setCurrentPage("Step1");
   };
 
   const displayPage = () => {
@@ -107,7 +115,23 @@ const ApplyOnline = () => {
       return (
         <div>
           <Step3
-            onSuccess={() => {}}
+            onSuccess={(
+              getSelectCheckType,
+              getSelectPositionTitle,
+              getSelectProposedPlaceOfWork,
+              getSelectContactGroupsOfPeople,
+              getHardCopyPoliceCheck,
+              getDigitalCopyPoliceCheck,
+              getCurrentPage
+            ) => {
+              setCheckType(getSelectCheckType);
+              setPositionTitle(getSelectPositionTitle);
+              setProposedPlaceOfWork(getSelectProposedPlaceOfWork);
+              setContactGroupsOfPeople(getSelectContactGroupsOfPeople);
+              setHardCopyPoliceCheck(getHardCopyPoliceCheck);
+              setDigitalCopyPoliceCheck(getDigitalCopyPoliceCheck);
+              setCurrentPage(getCurrentPage);
+            }}
             onPostponed={getCurrentPage => {
               setCurrentPage(getCurrentPage);
             }}
@@ -118,7 +142,37 @@ const ApplyOnline = () => {
       return (
         <div>
           <Step4
-            onSuccess={() => {}}
+            onSuccess={(
+              getDoc1,
+              getDoc2,
+              getDoc3,
+              getDoc4,
+              getDoc5,
+              getDoc6,
+              getDoc7,
+              getDoc8,
+              getDoc9,
+              getDoc10,
+              getDoc11,
+              getDoc12,
+              getDoc13,
+              getDoc14,
+              getDoc15,
+              getDoc16,
+              getDoc17,
+              getDoc18,
+              getDoc19,
+              getDoc20,
+              getDoc21,
+              getDoc22,
+              getDoc23,
+              getDoc24,
+              getDoc25,
+              getDoc26,
+              getCurrentPage
+            ) => {
+              setCurrentPage(getCurrentPage);
+            }}
             onPostponed={getCurrentPage => {
               setCurrentPage(getCurrentPage);
             }}
@@ -160,9 +214,7 @@ const ApplyOnline = () => {
                   <div className="col-md-4 col-sm-4">
                     <div className="applybox">
                       <div className="applyimgs">
-                        <a href="#">
-                          <img alt="" src={ApplyIcon1} />
-                        </a>
+                        <img alt="" src={ApplyIcon1} />
                       </div>
 
                       <div className="appyshaldow">
@@ -184,9 +236,7 @@ const ApplyOnline = () => {
                   <div className="col-md-4 col-sm-4">
                     <div className="applybox">
                       <div className="applyimgs">
-                        <a href="#">
-                          <img alt="" src={ApplyIcon2} />
-                        </a>
+                        <img alt="" src={ApplyIcon2} />
                       </div>
 
                       <div className="appyshaldow">
