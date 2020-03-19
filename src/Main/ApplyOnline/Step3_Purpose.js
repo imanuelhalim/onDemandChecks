@@ -2,7 +2,7 @@ import React from "react";
 
 const Step3_Purpose = props => {
   const [selectCheckType, setSelectCheckType] = React.useState("");
-  const [selectpositionTitle, setSelectPositionTitle] = React.useState("");
+  const [selectPositionTitle, setSelectPositionTitle] = React.useState("");
   const [
     selectProposedPlaceOfWork,
     setSelectProposedPlaceOfWork
@@ -54,7 +54,7 @@ const Step3_Purpose = props => {
     if (currentPage === "Step4") {
       props.onSuccess(
         selectCheckType,
-        selectpositionTitle,
+        selectPositionTitle,
         selectProposedPlaceOfWork,
         selectContactGroupsOfPeople,
         hardCopyPoliceCheck,
