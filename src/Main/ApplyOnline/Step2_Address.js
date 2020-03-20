@@ -18,6 +18,7 @@ const Step2_Address = props => {
   const [postcodePost, setPostcodePost] = React.useState("");
   const [countryPost, setCountryPost] = React.useState("");
   const [residentialAdd, setResidentialAdd] = React.useState("");
+  const [residentFrom, setResidentFrom] = React.useState("");
   const [postalAdd, setPostalAdd] = React.useState("");
   const [currentPage, setCurrentPage] = React.useState("Step1");
 
@@ -294,6 +295,7 @@ const Step2_Address = props => {
     setResidentialAdd(
       `${addressRes} ", " ${suburbRes} ", " ${stateRes} " " ${postcodeRes} ", " ${countryRes}`
     );
+    setResidentFrom(`${selectMonthRes} "/" ${selectYearRes}`);
     setPostalAdd(
       `${addressPost} ", " ${suburbPost} ", " ${statePost} " " ${postcodePost} ", " ${countryPost}`
     );
@@ -302,7 +304,7 @@ const Step2_Address = props => {
   const handleFormSubmit = e => {
     e.preventDefault();
     if (currentPage === "Step3") {
-      props.onSuccess(residentialAdd, postalAdd, currentPage);
+      props.onSuccess(residentialAdd, residentFrom, postalAdd, currentPage);
     }
   };
 
@@ -329,7 +331,7 @@ const Step2_Address = props => {
                   Step 5<span className="stepbotomtxt">Confirm</span>
                 </div>
                 <div className="stepbtninfo04">
-                  Step 6<span className="stepbotomtxt">Consent From</span>
+                  Step 6<span className="stepbotomtxt">Payment</span>
                 </div>
               </div>
             </div>
