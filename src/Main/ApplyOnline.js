@@ -9,12 +9,12 @@ import Step2 from "./ApplyOnline/Step2_Address";
 import Step3 from "./ApplyOnline/Step3_Purpose";
 import Step4 from "./ApplyOnline/Step4_ProffIdentity";
 import Step5 from "./ApplyOnline/Step5_Confirm";
-import Step6 from "./ApplyOnline/Step6_ConsentForm";
+import Step6 from "./ApplyOnline/Step6_Payment";
 
 const ApplyOnline = () => {
   const [currentPage, setCurrentPage] = React.useState("Step5");
-  const [firstName, setFirstName] = React.useState("");
-  const [middleName, setMiddleName] = React.useState("");
+  const [firstName, setFirstName] = React.useState("Adam");
+  const [middleName, setMiddleName] = React.useState("Brandon");
   const [surname, setSurname] = React.useState("");
   const [selectPreviousName, setSelectPreviousName] = React.useState("");
   const [prevNameType, setPrevNameType] = React.useState("");
@@ -30,8 +30,9 @@ const ApplyOnline = () => {
   const [dOB, setDOB] = React.useState("");
   const [birthplace, setBirthPlace] = React.useState("");
   const [residentialAdd, setResidentialAdd] = React.useState("");
+  const [residentFrom, setResidentFrom] = React.useState("");
   const [postalAdd, setPostalAdd] = React.useState("");
-  const [postal, setCheckType] = React.useState("");
+  const [checkType, setCheckType] = React.useState("");
   const [positionTitle, setPositionTitle] = React.useState("");
   const [proposedPlaceOfWork, setProposedPlaceOfWork] = React.useState("");
   const [contactGroupsOfPeople, setContactGroupsOfPeople] = React.useState("");
@@ -39,6 +40,33 @@ const ApplyOnline = () => {
   const [digitalCopyPoliceCheck, setDigitalCopyPoliceCheck] = React.useState(
     ""
   );
+  const [doc1, setDoc1] = React.useState([]);
+  const [doc2, setDoc2] = React.useState([]);
+  const [doc3, setDoc3] = React.useState([]);
+  const [doc4, setDoc4] = React.useState([]);
+  const [doc5, setDoc5] = React.useState([]);
+  const [doc6, setDoc6] = React.useState([]);
+  const [doc7, setDoc7] = React.useState([]);
+  const [doc8, setDoc8] = React.useState([]);
+  const [doc9, setDoc9] = React.useState([]);
+  const [doc10, setDoc10] = React.useState([]);
+  const [doc11, setDoc11] = React.useState([]);
+  const [doc12, setDoc12] = React.useState([]);
+  const [doc13, setDoc13] = React.useState([]);
+  const [doc14, setDoc14] = React.useState([]);
+  const [doc15, setDoc15] = React.useState([]);
+  const [doc16, setDoc16] = React.useState([]);
+  const [doc17, setDoc17] = React.useState([]);
+  const [doc18, setDoc18] = React.useState([]);
+  const [doc19, setDoc19] = React.useState([]);
+  const [doc20, setDoc20] = React.useState([]);
+  const [doc21, setDoc21] = React.useState([]);
+  const [doc22, setDoc22] = React.useState([]);
+  const [doc23, setDoc23] = React.useState([]);
+  const [doc24, setDoc24] = React.useState([]);
+  const [doc25, setDoc25] = React.useState([]);
+  const [doc26, setDoc26] = React.useState([]);
+  const [userDetails, setUserDetails] = React.useState([]);
 
   useEffect(() => {
     displayPage(currentPage);
@@ -171,7 +199,88 @@ const ApplyOnline = () => {
               getDoc26,
               getCurrentPage
             ) => {
+              setDoc1(getDoc1);
+              setDoc2(getDoc2);
+              setDoc3(getDoc3);
+              setDoc4(getDoc4);
+              setDoc5(getDoc5);
+              setDoc6(getDoc6);
+              setDoc7(getDoc7);
+              setDoc8(getDoc8);
+              setDoc9(getDoc9);
+              setDoc10(getDoc10);
+              setDoc11(getDoc11);
+              setDoc12(getDoc12);
+              setDoc13(getDoc13);
+              setDoc14(getDoc14);
+              setDoc15(getDoc15);
+              setDoc16(getDoc16);
+              setDoc17(getDoc17);
+              setDoc18(getDoc18);
+              setDoc19(getDoc19);
+              setDoc20(getDoc20);
+              setDoc21(getDoc21);
+              setDoc22(getDoc22);
+              setDoc23(getDoc23);
+              setDoc24(getDoc24);
+              setDoc25(getDoc25);
+              setDoc26(getDoc26);
               setCurrentPage(getCurrentPage);
+              setUserDetails(
+                userDetails.concat(
+                  [`${firstName}`], //0
+                  [`${middleName}`], //1
+                  [`${surname}`], //2
+                  [`${selectPreviousName}`],
+                  [`${prevNameType}`],
+                  [`${prevFirstName}`], //5
+                  [`${prevMiddleName}`],
+                  [`${prevSurname}`],
+                  [`${gender}`],
+                  [`${homePhone}`],
+                  [`${workPhone}`], //10
+                  [`${mobilePhone}`],
+                  [`${selectPrefContactNum}`],
+                  [`${email}`],
+                  [`${dOB}`],
+                  [`${birthplace}`], //15
+                  [`${residentialAdd}`],
+                  [`${residentFrom}`],
+                  [`${postalAdd}`],
+                  [`${checkType}`],
+                  [`${positionTitle}`], //20
+                  [`${proposedPlaceOfWork}`],
+                  [`${contactGroupsOfPeople}`],
+                  [`${hardCopyPoliceCheck}`],
+                  [`${digitalCopyPoliceCheck}`],
+                  [`${doc1}`], //25
+                  [`${doc2}`],
+                  [`${doc3}`],
+                  [`${doc4}`],
+                  [`${doc5}`],
+                  [`${doc6}`], //30
+                  [`${doc7}`],
+                  [`${doc8}`],
+                  [`${doc9}`],
+                  [`${doc10}`],
+                  [`${doc11}`],
+                  [`${doc12}`],
+                  [`${doc13}`],
+                  [`${doc14}`],
+                  [`${doc15}`],
+                  [`${doc16}`],
+                  [`${doc17}`],
+                  [`${doc18}`],
+                  [`${doc19}`],
+                  [`${doc20}`],
+                  [`${doc21}`],
+                  [`${doc22}`],
+                  [`${doc23}`],
+                  [`${doc24}`],
+                  [`${doc25}`],
+                  [`${doc26}`]
+                )
+              );
             }}
             onPostponed={getCurrentPage => {
               setCurrentPage(getCurrentPage);
@@ -182,13 +291,30 @@ const ApplyOnline = () => {
     } else if (currentPage === "Step5") {
       return (
         <div>
-          <Step5 />
+          <Step5
+            onDisplay={() => {
+              return userDetails;
+            }}
+            onSuccess={getCurrentPage => {
+              setCurrentPage(getCurrentPage);
+            }}
+            onPostponed={getCurrentPage => {
+              setCurrentPage(getCurrentPage);
+            }}
+          />
         </div>
       );
     } else if (currentPage === "Step6") {
       return (
         <div>
-          <Step6 />
+          <Step6
+            onSuccess={getCurrentPage => {
+              setCurrentPage(getCurrentPage);
+            }}
+            onPostponed={getCurrentPage => {
+              setCurrentPage(getCurrentPage);
+            }}
+          />
         </div>
       );
     }
