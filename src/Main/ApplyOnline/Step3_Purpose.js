@@ -96,7 +96,7 @@ const Step3_Purpose = props => {
                   Step 5<span className="stepbotomtxt">Confirm</span>
                 </div>
                 <div className="stepbtninfo04">
-                  Step 6<span className="stepbotomtxt">Consent From</span>
+                  Step 6<span className="stepbotomtxt">Payment</span>
                 </div>
               </div>
             </div>
@@ -468,7 +468,7 @@ const Step3_Purpose = props => {
                 />
               </div>
             </div>
-          </form>{" "}
+          </form>
         </div>
       </div>
     </div>
