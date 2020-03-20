@@ -1,6 +1,88 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const Step5_Confirm = () => {
+const Step5_Confirm = props => {
+  const [userDetails, setUserDetails] = React.useState([]);
+  const [currentPage, setCurrentPage] = React.useState("Step3");
+
+  useEffect(() => {
+    setUserDetails(props.onDisplay());
+  }, [userDetails]);
+
+  const checkPostalAddress = () => {
+    if (userDetails[18] === "") {
+      return (
+        <div className="col-md-10">
+          <div className="formboxs">
+            <label>Postal Address</label>
+            Same with residental address
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="col-md-10">
+          <div className="formboxs">
+            <label>Postal Address</label>
+            {userDetails[18]}
+          </div>
+        </div>
+      );
+    }
+  };
+
+  const checkPreviousName = () => {
+    if (userDetails[3] === "Yes") {
+      return (
+        <div>
+          <div className="col-md-12">
+            <div className="formboxs">
+              <label>Name Type</label>
+              {userDetails[4]}
+            </div>
+          </div>
+
+          <div className="col-md-4">
+            <div className="formboxs">
+              <label>First Name</label>
+              {userDetails[5]}
+            </div>
+          </div>
+
+          <div className="col-md-4">
+            <div className="formboxs">
+              <label>Middle Name</label>
+              {userDetails[6]}
+            </div>
+          </div>
+
+          <div className="col-md-4">
+            <div className="formboxs">
+              <label>Surname</label>
+              {userDetails[7]}
+            </div>
+          </div>
+        </div>
+      );
+    }
+  };
+
+  const handleAllDocs = () => {};
+
+  const handleBackButton = () => {
+    props.onPostponed(currentPage);
+  };
+
+  const handleSubmitButton = () => {
+    setCurrentPage("Step6");
+  };
+
+  const handleFormSubmit = e => {
+    e.preventDefault();
+    if (currentPage === "Step6") {
+      props.onSuccess(currentPage);
+    }
+  };
+
   return (
     <div>
       <div className="innerhead">
@@ -33,187 +115,191 @@ const Step5_Confirm = () => {
                   Step 5<span className="stepbotomtxt">Confirm</span>
                 </div>
                 <div className="stepbtninfo04">
-                  Step 6<span className="stepbotomtxt">Consent From</span>
+                  Step 6<span className="stepbotomtxt">Payment</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="forminformation">
-            <div className="persnalinfoshow">
-              <h3>Personal Details:</h3>
+          <form onSubmit={handleFormSubmit}>
+            <div className="forminformation">
+              <div className="persnalinfoshow">
+                <h3>
+                  <strong>Personal Details:</strong>
+                </h3>
 
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>First Name</label>
-                  adasd{" "}
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>First Name</label>
+                    {userDetails[0]}
+                  </div>
+                </div>
+
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Middle Name</label>
+                    {userDetails[1]}
+                  </div>
+                </div>
+
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Surname</label>
+                    {userDetails[2]}
+                  </div>
+                </div>
+                <div className="col-md-12">
+                  <div className="formboxs">
+                    <label>
+                      Have you ever been known by another name(including
+                      previous, maiden, name)?
+                    </label>
+                    {userDetails[3]}
+                  </div>
+                </div>
+                {checkPreviousName()}
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Gender</label>
+                    {userDetails[8]}
+                  </div>
+                </div>
+
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Date Of Birth</label>
+                    {userDetails[14]}
+                  </div>
+                </div>
+
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Birth Place</label>
+                    {userDetails[15]}
+                  </div>
                 </div>
               </div>
+              <div className="persnalinfoshow">
+                <h3>
+                  <strong>Contact Details:</strong>
+                </h3>
+                <div className="col-md-12">
+                  <div className="formboxs">
+                    <label>Email</label>
+                    {userDetails[13]}
+                  </div>
+                </div>
 
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Middle Name</label>
-                  adsasd{" "}
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Home Phone</label>
+                    {userDetails[9]}
+                  </div>
+                </div>
+
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Work Phone</label>
+                    {userDetails[10]}
+                  </div>
+                </div>
+
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Mobile Phone</label>
+                    {userDetails[11]}
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Preferred Contact Phone</label>
+                    {userDetails[12]}
+                  </div>
                 </div>
               </div>
-
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Surname</label>
-                  adsasd{" "}
+              <div className="persnalinfoshow">
+                <h3>
+                  <strong> Address:</strong>
+                </h3>
+                <div className="col-md-10">
+                  <div className="formboxs">
+                    <label>Residential Address</label>
+                    {userDetails[16]}
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Resident Form</label>
+                    {userDetails[17]}
+                  </div>
+                </div>
+                {checkPostalAddress()}
+              </div>
+              <div className="persnalinfoshow">
+                <h3>
+                  <strong>Purpose of Check:</strong>
+                </h3>
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Check Type</label>
+                    {userDetails[19]}
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Position Title</label>
+                    {userDetails[20]}
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Place of work</label>
+                    {userDetails[21]}
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Will you have contact with children?</label>
+                    {userDetails[22]}
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>Hard Copy</label>
+                    {userDetails[23]}
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="formboxs">
+                    <label>
+                      Digital Copy Forwarded To Employer/Organization?
+                    </label>
+                    {userDetails[24]}
+                  </div>
                 </div>
               </div>
-
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Gender</label>
-                  Female{" "}
-                </div>
+              <div className="persnalinfoshow">
+                <h3>
+                  <strong>Uploaded Documents</strong>
+                </h3>
+                {handleAllDocs()}
               </div>
-
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Date Of Birth</label>
-                  2020/03/13/{" "}
-                </div>
-              </div>
-
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Birth Place</label>
-                  Nigeria{" "}
-                </div>
-              </div>
-            </div>
-            <div className="persnalinfoshow">
-              <h3>Contact Details:</h3>
               <div className="col-md-12">
-                <div className="formboxs">
-                  <label>Email</label>
-                  imanuel@email.com{" "}
-                </div>
-              </div>
-
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Home Phone</label>
-                  122354{" "}
-                </div>
-              </div>
-
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Work Phone</label>
-                  13243{" "}
-                </div>
-              </div>
-
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Mobile Phone</label>
-                  132{" "}
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Preferred Contact Phone</label>
-                  Mobile{" "}
-                </div>
+                <input
+                  type="button"
+                  value="Previous Step"
+                  className="backbtns"
+                  onClick={handleBackButton}
+                />
+                <input
+                  type="submit"
+                  value="Confirm"
+                  className="backbtns pull-right"
+                  onClick={handleSubmitButton}
+                />
               </div>
             </div>
-            <div className="persnalinfoshow">
-              <h3>Residential Address:</h3>
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Address</label>
-                  280 Spencer St{" "}
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Suburb/Town/Locality</label>
-                  Melbourne{" "}
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>State</label>
-                  Victoria{" "}
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Postcode</label>
-                  3000{" "}
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Country</label>
-                  Australia{" "}
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Resident Form</label>
-                  February/ 2012{" "}
-                </div>
-              </div>
-            </div>
-            <div className="persnalinfoshow">
-              <h3>Purpose of Check:</h3>
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Check Type</label>
-                  Employment (Work for the Dole){" "}
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Position Title</label>
-                  Ambulance Attendant{" "}
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Place of work</label>
-                  Automotive Dealership{" "}
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Will you have contact with children?</label>
-                  Unsupervised contact - Direct or indirect contact with
-                  children or vulnerable groups, without supervision{" "}
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>Hard Copy</label>
-                  No{" "}
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="formboxs">
-                  <label>
-                    Digital Copy Forwarded To Employer/Organization?
-                  </label>
-                  No{" "}
-                </div>
-              </div>
-            </div>
-            <div className="col-md-12">
-              <a href="/applyonline/step4" className="backbtns">
-                Previous Step
-              </a>
-              <a
-                href="/applyonlines/pay_paypal"
-                className="backbtns pull-right"
-              >
-                Confirm
-              </a>
-            </div>
-          </div>
+          </form>
         </div>
       </div>{" "}
     </div>
