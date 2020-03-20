@@ -299,7 +299,7 @@ const Step4_ProffIdentity = props => {
   };
 
   const handleSubmitButton = () => {
-    setCurrentPage("Step4");
+    setCurrentPage("Step5");
   };
 
   const handleFormSubmit = e => {
@@ -369,7 +369,7 @@ const Step4_ProffIdentity = props => {
                   Step 5<span className="stepbotomtxt">Confirm</span>
                 </div>
                 <div className="stepbtninfo04">
-                  Step 6<span className="stepbotomtxt">Consent From</span>
+                  Step 6<span className="stepbotomtxt">Payment</span>
                 </div>
               </div>
             </div>
