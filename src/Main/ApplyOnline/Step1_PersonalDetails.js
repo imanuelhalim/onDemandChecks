@@ -285,7 +285,7 @@ const Step1_PersonalDetails = props => {
                   Step 5<span className="stepbotomtxt">Confirm</span>
                 </div>
                 <div className="stepbtninfo04">
-                  Step 6<span className="stepbotomtxt">Consent From</span>
+                  Step 6<span className="stepbotomtxt">Payment</span>
                 </div>
               </div>
             </div>
