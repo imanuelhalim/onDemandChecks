@@ -5,6 +5,7 @@ import ApplyOnlineImg from "../images/chooseicon01.png";
 import ContactUsImg from "../images/chooseicon02.png";
 import PriceImg from "../images/chooseicon04.png";
 import RoundShadowImg from "../images/roundshadow.png";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -22,9 +23,9 @@ const Home = () => {
                 way to apply for a Police Check online or on your mobile.
               </p>
               <div className="apply">
-                <a href="/ApplyOnline" className="btnappy">
+                <Link to="/ApplyOnline" className="btnappy">
                   APPLY NOW
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -106,9 +107,9 @@ const Home = () => {
                       </p>
 
                       <p>
-                        <a className="applybgnow" href="/ApplyOnline">
+                        <Link className="applybgnow" to="/ApplyOnline">
                           apply now
-                        </a>
+                        </Link>
                       </p>
                     </div>
                   </div>
@@ -135,9 +136,9 @@ const Home = () => {
                       </p>
 
                       <p>
-                        <a className="applybgnow" href="/ContactUs">
+                        <Link className="applybgnow" to="/ContactUs">
                           contact us
-                        </a>
+                        </Link>
                       </p>
                     </div>
                   </div>
@@ -171,12 +172,12 @@ const Home = () => {
                       </p>
 
                       <p>
-                        <a
+                        <Link
                           className="applybgnow"
-                          href="https://ondemandchecks.com/pages/view/5/track"
+                          to="/Track"
                         >
                           track progress
-                        </a>
+                        </Link>
                       </p>
                     </div>
                   </div>
@@ -203,9 +204,9 @@ const Home = () => {
                       </p>
 
                       <p>
-                        <a className="applybgnow" href="/ApplyOnline">
+                        <Link className="applybgnow" to="/ApplyOnline">
                           apply now
-                        </a>
+                        </Link>
                       </p>
                     </div>
                   </div>
