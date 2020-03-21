@@ -457,8 +457,9 @@ const ApplyOnline = () => {
                   <div className="col-md-12">
                     <p>All prices are in AUD and inc. GST.</p>
                     <p> We accept Visa and MasterCard payments.</p>
-                    <a href="/StartApplication" className="startbtn">
-                      Start Application{" "}
+
+                    <a onClick={setPage} className="startbtn">
+                      Start Application
                     </a>
                   </div>
                 </div>
