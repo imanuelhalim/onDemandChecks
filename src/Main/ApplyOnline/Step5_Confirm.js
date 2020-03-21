@@ -68,10 +68,6 @@ const Step5_Confirm = props => {
 
   const handleAllDocs = () => {};
 
-  const handleBackButton = () => {
-    props.onPostponed(currentPage);
-  };
-
   const handleSubmitButton = () => {
     setCurrentPage("Step6");
   };
@@ -285,12 +281,6 @@ const Step5_Confirm = props => {
                 {handleAllDocs()}
               </div>
               <div className="col-md-12">
-                <input
-                  type="button"
-                  value="Previous Step"
-                  className="backbtns"
-                  onClick={handleBackButton}
-                />
                 <input
                   type="submit"
                   value="Confirm"
