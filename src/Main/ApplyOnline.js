@@ -12,7 +12,7 @@ import Step5 from "./ApplyOnline/Step5_Confirm";
 import Step6 from "./ApplyOnline/Step6_Payment";
 
 const ApplyOnline = () => {
-  const [currentPage, setCurrentPage] = React.useState("Step4");
+  const [currentPage, setCurrentPage] = React.useState("main");
   const [firstName, setFirstName] = React.useState("Adam");
   const [middleName, setMiddleName] = React.useState("Brandon");
   const [surname, setSurname] = React.useState("");
