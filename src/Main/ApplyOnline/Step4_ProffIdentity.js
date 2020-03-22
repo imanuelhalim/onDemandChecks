@@ -83,6 +83,8 @@ const Step4_ProffIdentity = props => {
   const [doc26Status, setDoc26Status] = React.useState("Incomplete");
   const [totalPoints, setTotalPoints] = React.useState(0);
   const [currentPage, setCurrentPage] = React.useState("Step3");
+  const [errorInformation, setErrorInformation] = React.useState("");
+  const [disabledButton, setDisabledButton] = React.useState("disabled");
 
   let points = totalPoints;
 
@@ -299,12 +301,19 @@ const Step4_ProffIdentity = props => {
   };
 
   const handleSubmitButton = () => {
-    setCurrentPage("Step5");
+    if (totalPoints > 99) {
+      setDisabledButton("");
+      setCurrentPage("Step5");
+    } else {
+      setErrorInformation(
+        "Total points is not enough, Please upload more documents"
+      );
+    }
   };
 
   const handleFormSubmit = e => {
     e.preventDefault();
-    if (currentPage === "Step5") {
+    if (currentPage === "Step5" && totalPoints > 69) {
       props.onSuccess(
         doc1,
         doc2,
@@ -1019,7 +1028,9 @@ const Step4_ProffIdentity = props => {
                         </tr>
                         <tr style={{ backgroundColor: "#D3D3D3" }}>
                           <td colSpan="5">
-                            <strong>Total Points</strong>
+                            <strong>Total Points </strong>
+                            <br />
+                            <span className="required">{errorInformation}</span>
                           </td>
                           <td>{totalPoints}</td>
                         </tr>
