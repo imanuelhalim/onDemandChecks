@@ -12,12 +12,6 @@ function App() {
   return (
     <div>
       <Router>
-        <div className="pageLoader loader" style={{ display: "none" }}>
-          <div className="pageLoaderBg"></div>
-          <div className="pageloaderGif">
-            <img src="/img/pageloader.gif" alt="" className="" />
-          </div>
-        </div>
         <div className="header">
           <div className="topheader">
             <div className="container">
@@ -56,7 +50,7 @@ function App() {
                   <div className="topright">
                     <span>
                       New Identity Documents 1 July 2018{" "}
-                      <a href="/blogs/view/3"> Read more</a>{" "}
+                      <a href=""> Read more</a>{" "}
                     </span>
                   </div>
                 </div>
@@ -69,7 +63,7 @@ function App() {
                 <div className="col-md-4">
                   <div className="logo">
                     <Link to="/">
-                      <img src={Logo} border="0" alt="" />
+                      <img src={Logo} alt="" />
                     </Link>
                   </div>
                 </div>
