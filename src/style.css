@@ -178,6 +178,7 @@ a:hover {
   color: #fff;
   text-transform: uppercase;
   font-family: "Poppins-Medium";
+  text-align: right;
 }
 .navbar-nav > li > a:hover,
 .navbar-nav > li > a.active {
@@ -194,7 +195,6 @@ a:hover {
   background-color: #162333;
   color: #0f9be6;
 }
-
 .bannerfull {
   float: left;
   width: 100%;
