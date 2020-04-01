@@ -126,6 +126,7 @@ a:hover {
   width: 100%;
   background: #162333;
   float: left;
+  padding-bottom: 5px;
 }
 .logo {
   width: 100%;
@@ -2162,21 +2163,22 @@ table.table.table-bordered img {
 
   .logo {
     padding: 15px 0px 0px;
-    text-align: center;
-    width: 100%;
+    text-align: left;
+    width: 44%;
   }
   .socinfo {
     padding-bottom: 10px;
   }
   .topright span {
     width: 100%;
-    text-align: center;
+    text-align: right;
   }
   .padspce {
     padding: 0px 15px;
   }
   .topnavdiv {
-    width: 100%;
+    width: 56%;
+    text-align: right;
   }
   .veryinput {
     width: 100%;
@@ -2412,8 +2414,8 @@ table.table.table-bordered img {
   }
   .logo {
     padding: 15px 0px;
-    text-align: center;
-    width: 100%;
+    text-align: left;
+    width: 50%;
   }
 
   .header-info {
@@ -2436,13 +2438,13 @@ table.table.table-bordered img {
   }
   .topright span {
     width: 100%;
-    text-align: center;
+    text-align: left;
   }
   .padspce {
     padding: 0px 15px;
   }
   .topnavdiv {
-    width: 100%;
+    width: 50%;
   }
   .veryinput {
     width: 100%;
@@ -2684,8 +2686,8 @@ table.table.table-bordered img {
   }
   .logo {
     padding: 15px 0px;
-    width: 100%;
-    text-align: center;
+    width: 50%;
+    text-align: left;
   }
   .navbar-toggle {
     margin-right: 0px;
@@ -2694,19 +2696,19 @@ table.table.table-bordered img {
   .navbar-toggle .icon-bar {
     background: #fff;
   }
-
   .socinfo {
     padding-bottom: 10px;
+    text-align: center;
   }
   .topright span {
     width: 100%;
-    text-align: center;
+    text-align: left;
   }
   .padspce {
     padding: 0px 15px;
   }
   .topnavdiv {
-    width: 100%;
+    width: 50%;
   }
   .veryinput {
     width: 100%;
@@ -2949,7 +2951,7 @@ table.table.table-bordered img {
   }
   .logo {
     padding: 15px 0px;
-    width: 100%;
+    width: 50%;
     text-align: center;
   }
   .logo img {
@@ -2962,19 +2964,18 @@ table.table.table-bordered img {
   .navbar-toggle .icon-bar {
     background: #fff;
   }
-
   .socinfo {
     padding-bottom: 10px;
   }
   .topright span {
     width: 100%;
-    text-align: center;
+    text-align: left;
   }
   .padspce {
     padding: 0px 15px;
   }
   .topnavdiv {
-    width: 100%;
+    width: 50%;
   }
   .veryinput {
     width: 100%;
