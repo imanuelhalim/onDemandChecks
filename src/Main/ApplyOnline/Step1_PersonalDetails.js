@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import AllCountries from "../../Data/Countries.json";
 import PhoneInput from "react-phone-number-input";
 import DatePicker from "react-date-picker";
@@ -291,15 +291,7 @@ const Step1_PersonalDetails = props => {
             </div>
           </div>
 
-          <form
-            onSubmit={handleFormSubmit}
-            // enctype="multipart/form-data"
-            // method="post"
-            // accept-charset="utf-8"
-            // onsubmit="return checkform();"
-            // autocomplete="off"
-            // action="/applyonlines/step1"
-          >
+          <form onSubmit={handleFormSubmit}>
             <div className="forminformation">
               <h3>
                 <strong>Personal Details</strong>
@@ -622,19 +614,8 @@ const Step1_PersonalDetails = props => {
                   className="submitbtns"
                   onClick={handleFormError}
                 />
-                {/* <button type="button" className="submitbtns">
-                  Save &amp; Continue
-                </button> */}
               </div>
             </div>
-            {/* <div style={{ display: "none" }}>
-              <input
-                type="hidden"
-                name="_Token[fields]"
-                value="aff0b2c7671c7cacdd0bc187846fc34f0fe7353d%3A"
-              />
-              <input type="hidden" name="_Token[unlocked]" value="" />
-            </div> */}
           </form>
         </div>
       </div>
