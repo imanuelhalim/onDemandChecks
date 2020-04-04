@@ -8,6 +8,11 @@ const Step6_Payment = props => {
 
   const handlePayment = e => {
     setPaymentMethod(e.target.value);
+    if (paymentMethod === "PayPal") {
+      setPayPalAcc("");
+    } else if (paymentMethod === "Bank Transfer") {
+      setPayPalAcc("");
+    }
   };
 
   const displayPaymentMethod = () => {
@@ -39,7 +44,6 @@ const Step6_Payment = props => {
               No
             </label>
           </div>
-          {displayOptionPayPal()}
         </div>
       );
     } else if (paymentMethod === "Bank Transfer") {
@@ -72,7 +76,7 @@ const Step6_Payment = props => {
   };
 
   const displayOptionPayPal = e => {
-    if (payPalAcc == "No") {
+    if (payPalAcc === "No") {
       return (
         <div>
           To make PayPal payment, you must register PayPal account. To register
@@ -86,12 +90,12 @@ const Step6_Payment = props => {
       return (
         <div>
           <div>Please click the PayPal logo to make a payment</div>
-          <a
-            href="https://paypal.me/imanuelhalim?locale.x=en_AU"
+          {/* <a
+            href=""
             target="_blank"
-          >
-            <img alt="" src={PayPal} />
-          </a>
+          > */}
+          <img alt="" src={PayPal} />
+          {/* </a> */}
           <div>
             Once you finished do payment, please send the receipt to
             email@email.com.
@@ -154,23 +158,23 @@ const Step6_Payment = props => {
             <div className="col-md-12 radiobuttonbox">
               <label>Please select the payment method</label>
               <div className="formboxs">
-                <label htmlFor="anothername-yes">
+                <label htmlFor="paymentMethod-paypal">
                   <input
                     type="radio"
                     name="paymentMethod"
                     value="PayPal"
-                    id="anothername-yes"
+                    id="paymentMethod-paypal"
                     required
                     onClick={handlePayment}
                   />
                   PayPal
                 </label>
-                <label htmlFor="anothername-no">
+                <label htmlFor="paymentMethod-banktransfer">
                   <input
                     type="radio"
                     name="paymentMethod"
                     value="Bank Transfer"
-                    id="anothername-no"
+                    id="paymentMethod-banktransfer"
                     required
                     onClick={handlePayment}
                   />
@@ -178,6 +182,7 @@ const Step6_Payment = props => {
                 </label>
               </div>
               {displayPaymentMethod()}
+              {displayOptionPayPal()}
               <div className="col-md-12">
                 <input
                   type="button"
