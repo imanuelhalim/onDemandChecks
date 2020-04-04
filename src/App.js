@@ -7,6 +7,7 @@ import Home from "./Main/Home";
 import AboutUs from "./Main/AboutUs";
 import ApplyOnline from "./Main/ApplyOnline";
 import ContactUs from "./Main/ContactUs";
+import Faq from "./Main/Faq";
 
 function App() {
   return (
@@ -96,16 +97,9 @@ function App() {
                           <li>
                             <Link to="/ApplyOnline">Apply</Link>
                           </li>
-
-                          {/* <li>
-                            <a href="/pages/view/5/track">Track</a>
-                          </li>
                           <li>
-                            <a href="/pages/view/6/verify">Verify</a>
+                            <Link to="/Faq">FAQ</Link>
                           </li>
-                          <li>
-                            <a href="/faq">FAQ</a>
-                          </li> */}
                           <li>
                             <Link to="/ContactUs">Contact Us</Link>
                           </li>
@@ -127,6 +121,9 @@ function App() {
           </Route>
           <Route path="/ApplyOnline" component={ApplyOnline}>
             <ApplyOnline />
+          </Route>
+          <Route path="/Faq" component={Faq}>
+            <Faq />
           </Route>
           <Route path="/ContactUs" component={ContactUs}>
             <ContactUs />
