@@ -1,5 +1,4 @@
 import React from "react";
-import Mailto from "reactv16-mailto";
 
 const ContactUs = () => {
   const [name, setName] = React.useState("");
