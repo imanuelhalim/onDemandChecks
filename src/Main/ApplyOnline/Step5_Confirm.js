@@ -291,7 +291,7 @@ const Step5_Confirm = props => {
             </div>
           </form>
         </div>
-      </div>{" "}
+      </div>
     </div>
   );
 };
