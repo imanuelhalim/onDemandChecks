@@ -336,44 +336,12 @@ const Step2_Address = props => {
               </div>
             </div>
           </div>
-          <form
-            onSubmit={handleFormSubmit}
-            // enctype="multipart/form-data"
-            // method="post"
-            // accept-charset="utf-8"
-            // action="/applyonline/step2"
-          >
-            {/* <div style={{ display: "none" }}>
-              <input type="hidden" name="_method" value="PUT" />
-            </div> */}
+          <form onSubmit={handleFormSubmit}>
             <div className="forminformation">
               <h3>
                 <strong>Current Residential Address</strong>
               </h3>
-              {/* <div className="col-md-12">
-                <div className="formboxs">
-                  <label>Search Your Address</label>
-                  <Autocomplete
-                    style={{ width: "100%" }}
-                    onPlaceSelected={place => {
-                      console.log(place);
-                    }}
-                    types={["(regions)"]}
-                    // componentRestrictions={{ country: "ru" }}
-                  />
-                  <input
-                    type="text"
-                    name="searchaddress"
-                    className="inpuststyles"
-                    autoFocus
-                    required
-                    maxLength="50"
-                    id="searchaddress"
-                    placeholder="Search Your Address"
-                    // autoComplete={true}
-                  />
-                </div>
-              </div> */}
+
               <div className="col-md-8">
                 <div className="formboxs">
                   <label>
@@ -542,15 +510,8 @@ const Step2_Address = props => {
                 </div>
                 {handleSelectPostalAddress()}
               </div>
-              {/* <div className="clearfix"></div> */}
 
               <div className="col-md-12">
-                {/* <a href="/applyonline/step1" className="backbtns">
-                  Previous Step
-                </a> */}
-                {/* <a onClick={handleBackButton} className="backbtns">
-                  Previous Step
-                </a> */}
                 <input
                   type="button"
                   value="Previous Step"
