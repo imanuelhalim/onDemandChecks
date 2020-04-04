@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const Faq = () => {
   return (
@@ -98,9 +99,9 @@ const Faq = () => {
                           <li>
                             Step 1: Complete an&nbsp;
                             <strong>application</strong>&nbsp;form.{" "}
-                            <a href="https://ondemandchecks.com/applyonline">
+                            <Link to="/ApplyOnline">
                               https://ondemandchecks.com/applyonline
-                            </a>
+                            </Link>
                             &nbsp;-&nbsp;&nbsp;3-step process and takes
                             approximately 5 minutes to complete:
                           </li>
