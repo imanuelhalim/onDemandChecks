@@ -583,17 +583,6 @@ const Step1_PersonalDetails = props => {
                       value={dOB}
                       placeholderText="dd/MM/yyyy"
                     />
-                    {/* <input
-                      type="text"
-                      name="date_of_birth"
-                      className="inpuststyles datepicker"
-                      required
-                      maxLength="10"
-                      id="date-of-birth"
-                      value={dOB}
-                      onClick={handleSetDOB}
-                      placeholder="Enter date of birth (DD/MM/YYYY)"
-                    /> */}
                   </div>
                 </div>
               </div>
