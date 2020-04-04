@@ -101,16 +101,7 @@ const Step3_Purpose = props => {
               </div>
             </div>
           </div>
-          <form
-            onSubmit={handleFormSubmit}
-            // enctype="multipart/form-data"
-            // method="post"
-            // accept-charset="utf-8"
-            // action="/applyonline/step3"
-          >
-            {/* <div style={{ display: "none" }}>
-              <input type="hidden" name="_method" value="PUT" />
-            </div>{" "} */}
+          <form onSubmit={handleFormSubmit}>
             <div className="forminformation">
               <h3>
                 <strong>
