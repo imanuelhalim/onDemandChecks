@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Table } from "react-bootstrap";
 import Dropzone from "react-dropzone";
 
@@ -387,20 +387,10 @@ const Step4_ProffIdentity = props => {
           <form onSubmit={handleFormSubmit}>
             <div className="forminformation">
               <div className="takecontnet">
-                {/* <div className="takeformmatter"> */}
                 <h3>
                   <strong>Proof of Identity</strong>
                 </h3>
-                {/* <h4>
-                  You must provide a photograph of yourself as well as three
-                  identity documents with your Incompleted form to confirm your
-                  identity:
-                </h4>
-                <h4>
-                  one commencement document to confirm your birth in Australia
-                  or arrival in Australia one primary and two secondary
-                  documents to show the use of your identity in the community
-                </h4> */}
+
                 <h4>
                   <strong>Note: </strong>Documents in a language other than
                   English must be accompanied by an official translation. If
@@ -412,7 +402,6 @@ const Step4_ProffIdentity = props => {
                   identification documents totalling 100 points must be provided
                   with your application.
                 </h4>
-                {/* </div> */}
 
                 <div className="formboxs">
                   <div className="col-sm-12">
