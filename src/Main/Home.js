@@ -32,44 +32,11 @@ const Home = () => {
         </div>
       </div>
 
-      {/* <div className="verifiyfull">
-        <div className="verifiyinfo">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-4">
-                <div className="verifiytxt">
-                  <h3>Verify Police Check</h3>
-                  <h5>Verify the authenticity of a Police Check</h5>
-                </div>
-              </div>
-              <div className="col-md-8">
-                <div className="formverydiv">
-                  <input
-                    type="text"
-                    placeholder="Certificate Number"
-                    className="veryinput"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Access Code"
-                    className="veryinput"
-                  />
-                  <input
-                    type="button"
-                    value="VERIFY"
-                    className="submitvrifiy"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
       <div className="container">
         <div className="shadoweffect">
           <img src={ShadowEffectImg} border="0" alt="" />
         </div>
       </div>
-      {/* </div> */}
 
       <div className="whyusfull">
         <div className="container">
@@ -143,45 +110,6 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* <div className="col-md-3 col-sm-6">
-                  <div className="whybox">
-                    <div className="whycriceldiv">
-                      <div className="whyiocnbg">
-                        <img
-                          alt=""
-                          src="https://ondemandchecks.com/images/chooseicon03.png"
-                        />
-                      </div>
-
-                      <div className="roundshadow">
-                        <img
-                          alt=""
-                          src="https://ondemandchecks.com/images/roundshadow.png"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="applywhydiv">
-                      <h2>fast results</h2>
-
-                      <p>
-                        We promise fast delivery of the results of your
-                        application. We understand and apprecaite the value lf
-                        your time.&nbsp;
-                      </p>
-
-                      <p>
-                        <Link
-                          className="applybgnow"
-                          to="/Track"
-                        >
-                          track progress
-                        </Link>
-                      </p>
-                    </div>
-                  </div>
-                </div> */}
 
                 <div className="col-md-4 col-sm-4">
                   <div className="whybox">
