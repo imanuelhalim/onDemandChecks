@@ -228,37 +228,37 @@ const ApplyOnline = () => {
               setCurrentPage(getCurrentPage);
               setUserDetails(
                 userDetails.concat(
-                  [`${firstName}`], //0
-                  [`${middleName}`], //1
-                  [`${surname}`], //2
+                  [`${firstName}`],
+                  [`${middleName}`],
+                  [`${surname}`],
                   [`${selectPreviousName}`],
                   [`${prevNameType}`],
-                  [`${prevFirstName}`], //5
+                  [`${prevFirstName}`],
                   [`${prevMiddleName}`],
                   [`${prevSurname}`],
                   [`${gender}`],
                   [`${homePhone}`],
-                  [`${workPhone}`], //10
+                  [`${workPhone}`],
                   [`${mobilePhone}`],
                   [`${selectPrefContactNum}`],
                   [`${email}`],
                   [`${dOB}`],
-                  [`${birthplace}`], //15
+                  [`${birthplace}`],
                   [`${residentialAdd}`],
                   [`${residentFrom}`],
                   [`${postalAdd}`],
                   [`${checkType}`],
-                  [`${positionTitle}`], //20
+                  [`${positionTitle}`],
                   [`${proposedPlaceOfWork}`],
                   [`${contactGroupsOfPeople}`],
                   [`${hardCopyPoliceCheck}`],
                   [`${digitalCopyPoliceCheck}`],
-                  [`${doc1}`], //25
+                  [`${doc1}`],
                   [`${doc2}`],
                   [`${doc3}`],
                   [`${doc4}`],
                   [`${doc5}`],
-                  [`${doc6}`], //30
+                  [`${doc6}`],
                   [`${doc7}`],
                   [`${doc8}`],
                   [`${doc9}`],
