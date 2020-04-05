@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { SocialIcon } from "react-social-icons";
 import { MdCall } from "react-icons/md";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -9,109 +9,129 @@ import ApplyOnline from "./Main/ApplyOnline";
 import ContactUs from "./Main/ContactUs";
 import Faq from "./Main/Faq";
 
-function App() {
+const App = () => {
+  const [isSticky, setSticky] = useState(false);
+  const ref = useRef(null);
+  const handleScroll = () => {
+    setSticky(ref.current.getBoundingClientRect().top <= 0);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", () => handleScroll);
+    };
+  }, []);
+
   return (
     <div>
       <Router>
-        <div className="header">
-          <div className="topheader">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-6">
-                  <div className="socialtop">
-                    <div className="socinfo">
-                      <SocialIcon
-                        network="facebook"
-                        style={{
-                          width: "30px",
-                          height: "30px",
-                          float: "left"
-                        }}
-                      />
-                      <a href="#" className="scialtxt">
-                        Like Us on Facebook
-                      </a>
+        <div className={`sticky-wrapper${isSticky ? " sticky" : ""}`} ref={ref}>
+          <div className="sticky-inner">
+            <div className="header">
+              <div className="topheader">
+                <div className="container">
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div className="socialtop">
+                        <div className="socinfo">
+                          <SocialIcon
+                            network="facebook"
+                            style={{
+                              width: "30px",
+                              height: "30px",
+                              float: "left",
+                            }}
+                          />
+                          <a href="#" className="scialtxt">
+                            Like Us on Facebook
+                          </a>
+                        </div>
+                        <div className="socinfo">
+                          <MdCall
+                            style={{
+                              color: "rgb(59, 89, 152)",
+                              width: "30px",
+                              height: "30px",
+                              float: "left",
+                            }}
+                          />
+                          <a href="tel:+61 423 296 250" className="scialtxt">
+                            Call: +61 423 296 250
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                    <div className="socinfo">
-                      <MdCall
-                        style={{
-                          color: "rgb(59, 89, 152)",
-                          width: "30px",
-                          height: "30px",
-                          float: "left"
-                        }}
-                      />
-                      <a href="tel:+61 423 296 250" className="scialtxt">
-                        Call: +61 423 296 250
-                      </a>
+                    <div className="col-md-6 col-sm-12">
+                      <div className="topright">
+                        <span>
+                          New Identity Documents 1 July 2018{" "}
+                          <a href=""> Read more</a>{" "}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div className="col-md-6 col-sm-12">
-                  <div className="topright">
-                    <span>
-                      New Identity Documents 1 July 2018{" "}
-                      <a href=""> Read more</a>{" "}
-                    </span>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="navheader">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-4">
-                  <div className="logo">
-                    <Link to="/">
-                      <img src={Logo} alt="" />
-                    </Link>
-                  </div>
-                </div>
-                <div className="col-md-8 padspce">
-                  <div className="topnavdiv">
-                    <nav className="navbar">
-                      <div className="navbar-header">
-                        <button
-                          type="button"
-                          className="navbar-toggle collapsed"
-                          data-toggle="collapse"
-                          data-target="#navbar"
-                          aria-expanded="false"
-                          aria-controls="navbar"
-                        >
-                          <span className="sr-only">Toggle navigation</span>
-                          <span className="icon-bar"></span>
-                          <span className="icon-bar"></span>
-                          <span className="icon-bar"></span>
-                        </button>
+
+              <div className="navheader">
+                <div className="container">
+                  <div className="row">
+                    <div className="col-md-4">
+                      <div className="logo">
+                        <Link to="/">
+                          <img src={Logo} alt="" />
+                        </Link>
                       </div>
-                      <div id="navbar" className="collapse navbar-collapse">
-                        <ul className="nav navbar-nav">
-                          <li>
-                            <Link to="/">Home</Link>
-                          </li>
-                          <li>
-                            <Link to="/AboutUs">About Us</Link>
-                          </li>
-                          <li>
-                            <Link to="/ApplyOnline">Apply</Link>
-                          </li>
-                          <li>
-                            <Link to="/Faq">FAQ</Link>
-                          </li>
-                          <li>
-                            <Link to="/ContactUs">Contact Us</Link>
-                          </li>
-                        </ul>
+                    </div>
+                    <div className="col-md-8 padspce">
+                      <div className="topnavdiv">
+                        <nav className="navbar">
+                          <div className="navbar-header">
+                            <button
+                              type="button"
+                              className="navbar-toggle collapsed"
+                              data-toggle="collapse"
+                              data-target="#navbar"
+                              aria-expanded="false"
+                              aria-controls="navbar"
+                            >
+                              <span className="sr-only">Toggle navigation</span>
+                              <span className="icon-bar"></span>
+                              <span className="icon-bar"></span>
+                              <span className="icon-bar"></span>
+                            </button>
+                          </div>
+                          <div id="navbar" className="collapse navbar-collapse">
+                            <ul className="nav navbar-nav">
+                              <li>
+                                <Link to="/">Home</Link>
+                              </li>
+                              <li>
+                                <Link to="/AboutUs">About Us</Link>
+                              </li>
+                              <li>
+                                <Link to="/ApplyOnline">Apply</Link>
+                              </li>
+                              <li>
+                                <Link to="/Faq">FAQ</Link>
+                              </li>
+                              <li>
+                                <Link to="/ContactUs">Contact Us</Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </nav>
                       </div>
-                    </nav>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
         <Switch>
           <Route exact path="/" component={Home}>
             <Home />
@@ -225,6 +245,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;
