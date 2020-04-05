@@ -61,7 +61,17 @@ a:hover {
   margin: 0px;
   padding: 0px;
 }
-
+.sticky-wrapper {
+  position: relative;
+  height: 11.5rem;
+}
+.sticky .sticky-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
 .header {
   float: left;
   width: 100%;
@@ -2143,30 +2153,33 @@ table.table.table-bordered img {
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 959px) {
+  .sticky-wrapper {
+    position: relative;
+    height: 14.5rem;
+  }
   .navbar-nav > li > a {
     padding: 12px 18px;
   }
   .banner-content {
     bottom: 15px;
   }
-
   .logo {
     padding: 15px 0px 0px;
     text-align: left;
-    width: 44%;
+    width: 34%;
   }
   .socinfo {
     padding-bottom: 10px;
   }
   .topright span {
     width: 100%;
-    text-align: right;
+    text-align: left;
   }
   .padspce {
     padding: 0px 15px;
   }
   .topnavdiv {
-    width: 56%;
+    width: 66%;
     text-align: right;
   }
   .veryinput {
@@ -2398,6 +2411,10 @@ table.table.table-bordered img {
   }
 }
 @media only screen and (min-width: 600px) and (max-width: 767px) {
+  .sticky-wrapper {
+    position: relative;
+    height: 16rem;
+  }
   .banner-content {
     display: none;
   }
@@ -2670,6 +2687,10 @@ table.table.table-bordered img {
   }
 }
 @media only screen and (min-width: 480px) and (max-width: 599px) {
+  .sticky-wrapper {
+    position: relative;
+    height: 16rem;
+  }
   .banner-content {
     display: none;
   }
@@ -2935,6 +2956,10 @@ table.table.table-bordered img {
   }
 }
 @media only screen and (max-width: 479px) {
+  .sticky-wrapper {
+    position: relative;
+    height: 22rem;
+  }
   .banner-content {
     display: none;
   }
