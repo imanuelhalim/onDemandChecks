@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PaypalButton from "react-paypal-express-checkout";
 
 const Step6_Payment = (props) => {
