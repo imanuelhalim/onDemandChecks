@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 
-const Step5_Confirm = props => {
+const Step5_Confirm = (props) => {
   const [userDetails, setUserDetails] = React.useState([]);
-  const [currentPage, setCurrentPage] = React.useState("Step3");
+  const [currentPage, setCurrentPage] = React.useState("Step4");
 
   useEffect(() => {
     setUserDetails(props.onDisplay());
@@ -68,11 +68,15 @@ const Step5_Confirm = props => {
 
   const handleAllDocs = () => {};
 
+  const handleBackButton = () => {
+    props.onPostponed(currentPage);
+  };
+
   const handleSubmitButton = () => {
     setCurrentPage("Step6");
   };
 
-  const handleFormSubmit = e => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
     if (currentPage === "Step6") {
       props.onSuccess(currentPage);
@@ -281,6 +285,12 @@ const Step5_Confirm = props => {
                 {handleAllDocs()}
               </div>
               <div className="col-md-12">
+                <input
+                  type="button"
+                  value="Previous Step"
+                  className="backbtns"
+                  onClick={handleBackButton}
+                />
                 <input
                   type="submit"
                   value="Confirm"
