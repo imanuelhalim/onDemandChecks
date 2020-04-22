@@ -1,12 +1,42 @@
 import React from "react";
-import PayPal from "../../images/paypal.jpg";
+import PaypalButton from "react-paypal-express-checkout";
 
-const Step6_Payment = props => {
+const Step6_Payment = (props) => {
+  const [userDetails, setUserDetails] = React.useState([]);
   const [paymentMethod, setPaymentMethod] = React.useState("");
   const [payPalAcc, setPayPalAcc] = React.useState("");
   const [currentPage, setCurrentPage] = React.useState("Step5");
+  const [isPaid, setIsPaid] = React.useState(false);
+  const [totalAmount, setTotalAmount] = React.useState(53);
 
-  const handlePayment = e => {
+  useEffect(() => {
+    setUserDetails(props.onDisplay());
+    if (userDetails[23] === "Yes") {
+      setTotalAmount(62.95);
+    }
+  }, [userDetails]);
+
+  const client = {
+    sandbox:
+      "ASuVO_UICx0matcciCCXjbfSslVVFjkN147BZjY4N66SEcTJJ_KzJvpr-OHpfCiIrvuT_bCqO41dgAtR",
+    production:
+      "EMes96g4ApE4N2e3Q9ZatBkU8Xww8pAeeHlfQdilVNoobOxthDPQYW_uZxT5HAz3Rs1_3ZvRtfH-hwWW",
+  };
+
+  const onCancel = (data) => {
+    console.log("The payment was cancelled", data);
+  };
+
+  const onSuccess = (payment) => {
+    console.log("the payment was succeeded", payment);
+    setIsPaid(true);
+  };
+
+  const onError = (err) => {
+    console.log("Error", err);
+  };
+
+  const handlePayment = (e) => {
     setPaymentMethod(e.target.value);
     if (paymentMethod === "PayPal") {
       setPayPalAcc("");
@@ -64,18 +94,26 @@ const Step6_Payment = props => {
           </div>
           <div>
             Once you finished do payment, please send the receipt to
-            email@email.com.
+            email@email.com and click button below
           </div>
+          <input
+            className="paymentBankTransfer"
+            type="submit"
+            value="Paid by Bank Transfer"
+            onClick={handlePaymentBankTransfer}
+          />
         </div>
       );
     }
   };
 
-  const checkPayPalAcc = e => {
+  const handlePaymentBankTransfer = () => {};
+
+  const checkPayPalAcc = (e) => {
     setPayPalAcc(e.target.value);
   };
 
-  const displayOptionPayPal = e => {
+  const displayOptionPayPal = (e) => {
     if (payPalAcc === "No") {
       return (
         <div>
@@ -88,19 +126,22 @@ const Step6_Payment = props => {
       );
     } else if (payPalAcc === "Yes") {
       return (
-        <div>
-          <div>Please click the PayPal logo to make a payment</div>
-          {/* <a
-            href=""
-            target="_blank"
-          > */}
-          <img alt="" src={PayPal} />
-          {/* </a> */}
-          <div>
-            Once you finished do payment, please send the receipt to
-            email@email.com.
-          </div>
-        </div>
+        // <PaypalButton
+        //   client={client}
+        //   currency={"AUD"}
+        //   total={totalAmount}
+        //   onSuccess={onSuccess}
+        //   onCancel={onCancel}
+        //   onError={onError}
+        // />
+        <PaypalButton
+          client={client}
+          currency={"AUD"}
+          total={0.5}
+          onSuccess={onSuccess}
+          onCancel={onCancel}
+          onError={onError}
+        />
       );
     }
   };
@@ -111,7 +152,88 @@ const Step6_Payment = props => {
 
   const handleSubmitButton = () => {
     setCurrentPage("main");
-    props.onSuccess(currentPage);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (currentPage === "main") {
+      props.onSuccess(currentPage);
+    }
+  };
+
+  const displayHowToPay = () => {
+    return (
+      <div>
+        <div className="forminformation">
+          <h3>
+            <strong>Payment Details</strong>
+          </h3>
+          <div className="col-md-12 radiobuttonbox">
+            <label>
+              Total amount for National Police Checks certificate is AUD
+              {totalAmount}
+            </label>
+            <br />
+            <label>Please select the payment method</label>
+            <div className="formboxs">
+              <label htmlFor="paymentMethod-paypal">
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="PayPal"
+                  id="paymentMethod-paypal"
+                  required
+                  onClick={handlePayment}
+                />
+                PayPal
+              </label>
+              <label htmlFor="paymentMethod-banktransfer">
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="Bank Transfer"
+                  id="paymentMethod-banktransfer"
+                  required
+                  onClick={handlePayment}
+                />
+                Bank Transfer
+              </label>
+            </div>
+            {displayPaymentMethod()}
+            {displayOptionPayPal()}
+            <div className="col-md-12">
+              <input
+                type="button"
+                value="Previous Step"
+                className="backbtns"
+                onClick={handleBackButton}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const displayResult = () => {
+    return (
+      <div>
+        <form onSubmit={handleFormSubmit}>
+          <div className="forminformation">
+            Thank you for using our services. We will give you confirmation,
+            once we received your payment.
+            <div className="col-md-12">
+              <input
+                type="submit"
+                value="Confirm"
+                className="backbtns pull-right"
+                onClick={handleSubmitButton}
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    );
   };
 
   return (
@@ -151,54 +273,7 @@ const Step6_Payment = props => {
               </div>
             </div>
           </div>
-          <div className="forminformation">
-            <h3>
-              <strong>Payment Details</strong>
-            </h3>
-            <div className="col-md-12 radiobuttonbox">
-              <label>Please select the payment method</label>
-              <div className="formboxs">
-                <label htmlFor="paymentMethod-paypal">
-                  <input
-                    type="radio"
-                    name="paymentMethod"
-                    value="PayPal"
-                    id="paymentMethod-paypal"
-                    required
-                    onClick={handlePayment}
-                  />
-                  PayPal
-                </label>
-                <label htmlFor="paymentMethod-banktransfer">
-                  <input
-                    type="radio"
-                    name="paymentMethod"
-                    value="Bank Transfer"
-                    id="paymentMethod-banktransfer"
-                    required
-                    onClick={handlePayment}
-                  />
-                  Bank Transfer
-                </label>
-              </div>
-              {displayPaymentMethod()}
-              {displayOptionPayPal()}
-              <div className="col-md-12">
-                <input
-                  type="button"
-                  value="Previous Step"
-                  className="backbtns"
-                  onClick={handleBackButton}
-                />
-                <input
-                  type="submit"
-                  value="Confirm"
-                  className="backbtns pull-right"
-                  onClick={handleSubmitButton}
-                />
-              </div>
-            </div>
-          </div>
+          {isPaid ? displayResult() : displayHowToPay()}
         </div>
       </div>
     </div>
