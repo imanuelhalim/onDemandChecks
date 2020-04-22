@@ -12,7 +12,7 @@ import Step5 from "./ApplyOnline/Step5_Confirm";
 import Step6 from "./ApplyOnline/Step6_Payment";
 
 const ApplyOnline = () => {
-  const [currentPage, setCurrentPage] = React.useState("main");
+  const [currentPage, setCurrentPage] = React.useState("Step6");
   const [firstName, setFirstName] = React.useState("Adam");
   const [middleName, setMiddleName] = React.useState("Brandon");
   const [surname, setSurname] = React.useState("");
@@ -72,7 +72,7 @@ const ApplyOnline = () => {
     displayPage(currentPage);
   }, [currentPage]);
 
-  const setPage = e => {
+  const setPage = (e) => {
     e.preventDefault();
     setCurrentPage("Step1");
   };
@@ -133,7 +133,7 @@ const ApplyOnline = () => {
               setPostalAdd(getPostalAdd);
               setCurrentPage(getCurrentPage);
             }}
-            onPostponed={getCurrentPage => {
+            onPostponed={(getCurrentPage) => {
               setCurrentPage(getCurrentPage);
             }}
           />
@@ -160,7 +160,7 @@ const ApplyOnline = () => {
               setDigitalCopyPoliceCheck(getDigitalCopyPoliceCheck);
               setCurrentPage(getCurrentPage);
             }}
-            onPostponed={getCurrentPage => {
+            onPostponed={(getCurrentPage) => {
               setCurrentPage(getCurrentPage);
             }}
           />
@@ -282,7 +282,7 @@ const ApplyOnline = () => {
                 )
               );
             }}
-            onPostponed={getCurrentPage => {
+            onPostponed={(getCurrentPage) => {
               setCurrentPage(getCurrentPage);
             }}
           />
@@ -295,10 +295,10 @@ const ApplyOnline = () => {
             onDisplay={() => {
               return userDetails;
             }}
-            onSuccess={getCurrentPage => {
+            onSuccess={(getCurrentPage) => {
               setCurrentPage(getCurrentPage);
             }}
-            onPostponed={getCurrentPage => {
+            onPostponed={(getCurrentPage) => {
               setCurrentPage(getCurrentPage);
             }}
           />
@@ -308,10 +308,13 @@ const ApplyOnline = () => {
       return (
         <div>
           <Step6
-            onSuccess={getCurrentPage => {
+            onDisplay={() => {
+              return userDetails;
+            }}
+            onSuccess={(getCurrentPage) => {
               setCurrentPage(getCurrentPage);
             }}
-            onPostponed={getCurrentPage => {
+            onPostponed={(getCurrentPage) => {
               setCurrentPage(getCurrentPage);
             }}
           />
@@ -495,7 +498,7 @@ const ApplyOnline = () => {
                                 style={{
                                   color: "rgb(34, 34, 34)",
                                   fontFamily: "arial,sans-serif",
-                                  fontSize: "16px"
+                                  fontSize: "16px",
                                 }}
                               >
                                 A&nbsp;
@@ -507,7 +510,7 @@ const ApplyOnline = () => {
                                 style={{
                                   color: "rgb(34, 34, 34)",
                                   fontFamily: "arial,sans-serif",
-                                  fontSize: "16px"
+                                  fontSize: "16px",
                                 }}
                               >
                                 &nbsp;is conducted with your informed consent to
@@ -517,7 +520,7 @@ const ApplyOnline = () => {
                                 style={{
                                   color: "rgb(34, 34, 34)",
                                   fontFamily: "arial,sans-serif",
-                                  fontSize: "16px"
+                                  fontSize: "16px",
                                 }}
                               >
                                 &nbsp;your suitability for a position of trust,
@@ -643,7 +646,7 @@ const ApplyOnline = () => {
                                   color: "rgb(102, 102, 102)",
                                   fontFamily:
                                     "open sans,helvetica,arial,sans-serif",
-                                  fontSize: "16px"
+                                  fontSize: "16px",
                                 }}
                               >
                                 Police Checks cover&nbsp;
@@ -656,7 +659,7 @@ const ApplyOnline = () => {
                                   color: "rgb(102, 102, 102)",
                                   fontFamily:
                                     "open sans,helvetica,arial,sans-serif",
-                                  fontSize: "16px"
+                                  fontSize: "16px",
                                 }}
                               >
                                 &nbsp;and are accepted Australia Wide.
@@ -711,7 +714,7 @@ const ApplyOnline = () => {
                                   boxSizing: "border-box",
                                   height: "auto",
                                   maxWidth: "100%",
-                                  width: "106px"
+                                  width: "106px",
                                 }}
                               />
                             </p>
