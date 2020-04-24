@@ -8,6 +8,8 @@ import AboutUs from "./Main/AboutUs";
 import ApplyOnline from "./Main/ApplyOnline";
 import ContactUs from "./Main/ContactUs";
 import Faq from "./Main/Faq";
+import TermsAndConditions from "./Main/TermsAndConditions";
+import PrivacyAndPolicy from "./Main/PrivacyAndPolicy";
 
 const App = () => {
   const [isSticky, setSticky] = useState(false);
@@ -148,6 +150,12 @@ const App = () => {
           <Route path="/ContactUs" component={ContactUs}>
             <ContactUs />
           </Route>
+          <Route path="/TermsAndConditions" component={TermsAndConditions}>
+            <TermsAndConditions />
+          </Route>
+          <Route path="/PrivacyAndPolicy" component={PrivacyAndPolicy}>
+            <PrivacyAndPolicy />
+          </Route>
         </Switch>
         <div className="footerfull">
           <div className="container">
@@ -181,14 +189,12 @@ const App = () => {
                   <div className="foterlinks">
                     <ul>
                       <li>
-                        <a href="/pages/view/9/privacy-policy">
-                          Privacy Policy
-                        </a>
+                        <Link to="/PrivacyAndPolicy">Privacy Policy</Link>
                       </li>
                       <li>
-                        <a href="/pages/view/7/terms-conditions">
+                        <Link to="/TermsAndConditions">
                           Terms &amp; Conditions
-                        </a>
+                        </Link>
                       </li>
                       <li>
                         <Link to="/AboutUs">About Us</Link>
