@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BannerImg from "../images/banner.jpg";
 import ShadowEffectImg from "../images/shadoweffect.jpg";
 import ApplyOnlineImg from "../images/chooseicon01.png";
@@ -8,6 +8,10 @@ import RoundShadowImg from "../images/roundshadow.png";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <div className="bannerfull">
