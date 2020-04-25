@@ -70,6 +70,7 @@ const ApplyOnline = () => {
 
   useEffect(() => {
     displayPage(currentPage);
+    window.scrollTo(0, 0);
   }, [currentPage]);
 
   const setPage = (e) => {
@@ -128,8 +129,14 @@ const ApplyOnline = () => {
       return (
         <div>
           <Step2
-            onSuccess={(getResidentialAdd, getPostalAdd, getCurrentPage) => {
+            onSuccess={(
+              getResidentialAdd,
+              getResidentFrom,
+              getPostalAdd,
+              getCurrentPage
+            ) => {
               setResidentialAdd(getResidentialAdd);
+              setResidentFrom(getResidentFrom);
               setPostalAdd(getPostalAdd);
               setCurrentPage(getCurrentPage);
             }}
