@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const Faq = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <div className="innerhead">
@@ -39,7 +43,7 @@ const Faq = () => {
                             style={{
                               color: "rgb(34, 34, 34",
                               fontFamily: "arial,sans-serif",
-                              fontSize: "16px"
+                              fontSize: "16px",
                             }}
                           >
                             A&nbsp;
@@ -51,7 +55,7 @@ const Faq = () => {
                             style={{
                               color: "rgb(34, 34, 34",
                               fontFamily: "arial,sans-serif",
-                              fontSize: "16px"
+                              fontSize: "16px",
                             }}
                           >
                             &nbsp;is conducted with your informed consent to
@@ -61,7 +65,7 @@ const Faq = () => {
                             style={{
                               color: "rgb(34, 34, 34",
                               fontFamily: "arial,sans-serif",
-                              fontSize: "16px"
+                              fontSize: "16px",
                             }}
                           >
                             &nbsp;your suitability for a position of trust, a
@@ -183,7 +187,7 @@ const Faq = () => {
                               color: "rgb(102, 102, 102)",
                               fontFamily:
                                 "open sans,helvetica,arial,sans-serif",
-                              fontSize: "16px"
+                              fontSize: "16px",
                             }}
                           >
                             Police Checks cover&nbsp;
@@ -194,7 +198,7 @@ const Faq = () => {
                               color: "rgb(102, 102, 102)",
                               fontFamily:
                                 "open sans,helvetica,arial,sans-serif",
-                              fontSize: "16px"
+                              fontSize: "16px",
                             }}
                           >
                             &nbsp;and are accepted Australia Wide.
@@ -246,7 +250,7 @@ const Faq = () => {
                               boxSizing: "border-box",
                               height: "auto",
                               maxWidth: "100%",
-                              width: "106px"
+                              width: "106px",
                             }}
                           />
                         </p>
@@ -300,7 +304,7 @@ const Faq = () => {
                             style={{
                               color: "rgb(34, 34, 34)",
                               fontFamily: "arial,sans-serif",
-                              fontSize: "16px"
+                              fontSize: "16px",
                             }}
                           >
                             You must be at least 16 years old to undergo a&nbsp;
@@ -310,7 +314,7 @@ const Faq = () => {
                             style={{
                               color: "rgb(34, 34, 34)",
                               fontFamily: "arial,sans-serif",
-                              fontSize: "16px"
+                              fontSize: "16px",
                             }}
                           >
                             &nbsp;through our service
@@ -319,7 +323,7 @@ const Faq = () => {
                             style={{
                               color: "rgb(34, 34, 34)",
                               fontFamily: "arial,sans-serif",
-                              fontSize: "16px"
+                              fontSize: "16px",
                             }}
                           >
                             . Anyone under&nbsp;
@@ -329,7 +333,7 @@ const Faq = () => {
                             style={{
                               color: "rgb(34, 34, 34)",
                               fontFamily: "arial,sans-serif",
-                              fontSize: "16px"
+                              fontSize: "16px",
                             }}
                           >
                             &nbsp;of 18 must have consent of a parent, guardian
