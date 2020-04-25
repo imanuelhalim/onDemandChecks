@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import AllCountries from "../../Data/Countries.json";
 
-const Step2_Address = props => {
+const Step2_Address = (props) => {
   const [addressRes, setAddressRes] = React.useState("");
   const [suburbRes, setSuburbRes] = React.useState("");
   const [stateRes, setStateRes] = React.useState("");
@@ -11,7 +11,7 @@ const Step2_Address = props => {
   const [years, setYears] = React.useState([]);
   const [selectMonthRes, setSelectMonthRes] = React.useState("");
   const [selectYearRes, setSelectYearRes] = React.useState("");
-  const [samePostalAdd, setSamePostalAdd] = React.useState("");
+  const [samePostalAdd, setSamePostalAdd] = React.useState("Yes");
   const [addressPost, setAddressPost] = React.useState("");
   const [suburbPost, setSuburbPost] = React.useState("");
   const [statePost, setStatePost] = React.useState("");
@@ -26,22 +26,22 @@ const Step2_Address = props => {
     setYearsOption(recentYear);
   }, [recentYear]);
 
-  const handleAddressRes = e => {
+  const handleAddressRes = (e) => {
     e.preventDefault();
     setAddressRes(e.target.value);
   };
 
-  const handleSuburbRes = e => {
+  const handleSuburbRes = (e) => {
     e.preventDefault();
     setSuburbRes(e.target.value);
   };
 
-  const handleStateRes = e => {
+  const handleStateRes = (e) => {
     e.preventDefault();
     setStateRes(e.target.value);
   };
 
-  const handlePostcodeRes = e => {
+  const handlePostcodeRes = (e) => {
     e.preventDefault();
     setPostcodeRes(e.target.value);
   };
@@ -71,11 +71,11 @@ const Step2_Address = props => {
     );
   };
 
-  const handleSelectCountryResidential = e => {
+  const handleSelectCountryResidential = (e) => {
     setCountryRes(e.target.value);
   };
 
-  const handleSelectMonthRes = e => {
+  const handleSelectMonthRes = (e) => {
     setSelectMonthRes(e.target.value);
   };
 
@@ -104,7 +104,7 @@ const Step2_Address = props => {
     );
   };
 
-  const setYearsOption = yearnow => {
+  const setYearsOption = (yearnow) => {
     let listYears = [];
     const currentYear = yearnow;
     const pastYear = currentYear - 70;
@@ -114,11 +114,11 @@ const Step2_Address = props => {
     setYears(listYears);
   };
 
-  const handleSelectYearRes = e => {
+  const handleSelectYearRes = (e) => {
     setSelectYearRes(e.target.value);
   };
 
-  const handleSamePostalAddress = e => {
+  const handleSamePostalAddress = (e) => {
     setSamePostalAdd(e.target.value);
   };
 
@@ -237,22 +237,22 @@ const Step2_Address = props => {
     }
   };
 
-  const handleAddressPost = e => {
+  const handleAddressPost = (e) => {
     e.preventDefault();
     setAddressPost(e.target.value);
   };
 
-  const handleSuburbPost = e => {
+  const handleSuburbPost = (e) => {
     e.preventDefault();
     setSuburbPost(e.target.value);
   };
 
-  const handleStatePost = e => {
+  const handleStatePost = (e) => {
     e.preventDefault();
     setStatePost(e.target.value);
   };
 
-  const handlePostcodePost = e => {
+  const handlePostcodePost = (e) => {
     e.preventDefault();
     setPostcodePost(e.target.value);
   };
@@ -282,7 +282,7 @@ const Step2_Address = props => {
     );
   };
 
-  const handleSelectCountryPostal = e => {
+  const handleSelectCountryPostal = (e) => {
     setCountryPost(e.target.value);
   };
 
@@ -293,15 +293,19 @@ const Step2_Address = props => {
   const handleSubmitButton = () => {
     setCurrentPage("Step3");
     setResidentialAdd(
-      `${addressRes} ", " ${suburbRes} ", " ${stateRes} " " ${postcodeRes} ", " ${countryRes}`
+      `${addressRes}, ${suburbRes}, ${stateRes} ${postcodeRes}, ${countryRes}`
     );
-    setResidentFrom(`${selectMonthRes} "/" ${selectYearRes}`);
-    setPostalAdd(
-      `${addressPost} ", " ${suburbPost} ", " ${statePost} " " ${postcodePost} ", " ${countryPost}`
-    );
+    setResidentFrom(`${selectMonthRes} ${selectYearRes}`);
+    if (samePostalAdd == "Yes") {
+      setPostalAdd("Postal address same with residential address");
+    } else {
+      setPostalAdd(
+        `${addressPost}, ${suburbPost}, ${statePost} ${postcodePost}, ${countryPost}`
+      );
+    }
   };
 
-  const handleFormSubmit = e => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
     if (currentPage === "Step3") {
       props.onSuccess(residentialAdd, residentFrom, postalAdd, currentPage);
@@ -420,7 +424,7 @@ const Step2_Address = props => {
                       onChange={handlePostcodeRes}
                       placeholder="Enter postcode"
                     />
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
               <div className="col-md-4">
@@ -428,7 +432,7 @@ const Step2_Address = props => {
                   <label>
                     Select country<span className="required">* </span>
                   </label>
-                  {listCountriesResidential()}{" "}
+                  {listCountriesResidential()}
                 </div>
               </div>
 
@@ -526,7 +530,7 @@ const Step2_Address = props => {
                 />
               </div>
             </div>
-          </form>{" "}
+          </form>
         </div>
       </div>
     </div>
