@@ -178,8 +178,8 @@ const Step1_PersonalDetails = (props) => {
   };
 
   const handleSetDOB = (date) => {
-    setDOB(date);
     setFormatDOB(new Intl.DateTimeFormat("en-GB").format(date));
+    setDOB(date);
   };
 
   const listCountries = () => {
