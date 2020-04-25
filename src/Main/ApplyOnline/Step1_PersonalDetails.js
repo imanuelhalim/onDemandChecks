@@ -3,7 +3,7 @@ import AllCountries from "../../Data/Countries.json";
 import PhoneInput from "react-phone-number-input";
 import DatePicker from "react-date-picker";
 
-const Step1_PersonalDetails = props => {
+const Step1_PersonalDetails = (props) => {
   const [firstName, setFirstName] = React.useState("");
   const [middleName, setMiddleName] = React.useState("");
   const [surname, setSurname] = React.useState("");
@@ -21,25 +21,26 @@ const Step1_PersonalDetails = props => {
   const [confirmEmail, setConfirmEmail] = React.useState("");
   const [statusConfirmEmail, setStatusConfirmEmail] = React.useState(true);
   const [dOB, setDOB] = React.useState("");
+  const [formatDOB, setFormatDOB] = React.useState("");
   const [birthplace, setBirthPlace] = React.useState("");
   const [currentPage, setCurrentPage] = React.useState("");
 
-  const handleSetFirstName = e => {
+  const handleSetFirstName = (e) => {
     e.preventDefault();
     setFirstName(e.target.value);
   };
 
-  const handleSetMiddleName = e => {
+  const handleSetMiddleName = (e) => {
     e.preventDefault();
     setMiddleName(e.target.value);
   };
 
-  const handleSetSurname = e => {
+  const handleSetSurname = (e) => {
     e.preventDefault();
     setSurname(e.target.value);
   };
 
-  const handleSelectPreviousName = e => {
+  const handleSelectPreviousName = (e) => {
     setSelectPreviousName(e.target.value);
   };
 
@@ -84,9 +85,9 @@ const Step1_PersonalDetails = props => {
                   onChange={handleSetPrevFirstName}
                   placeholder="Enter Previous First Name"
                 />
-              </div>{" "}
+              </div>
             </div>
-          </div>{" "}
+          </div>
           <div className="col-md-4">
             <div className="formboxs">
               <label>Middle Name(if applicable) </label>
@@ -101,7 +102,7 @@ const Step1_PersonalDetails = props => {
                   onChange={handleSetPrevMiddleName}
                   placeholder="Enter Previous Middle Name"
                 />
-              </div>{" "}
+              </div>
             </div>
           </div>
           <div className="clearfix"></div>
@@ -122,7 +123,7 @@ const Step1_PersonalDetails = props => {
                   onChange={handleSetPrevSurname}
                   placeholder="Enter Previous Surname"
                 />
-              </div>{" "}
+              </div>
             </div>
           </div>
         </div>
@@ -130,54 +131,55 @@ const Step1_PersonalDetails = props => {
     }
   };
 
-  const handleSelectPrevNameType = e => {
+  const handleSelectPrevNameType = (e) => {
     setPrevNameType(e.target.value);
   };
 
-  const handleSetPrevFirstName = e => {
+  const handleSetPrevFirstName = (e) => {
     e.preventDefault();
     setPrevFirstName(e.target.value);
   };
-  const handleSetPrevMiddleName = e => {
+  const handleSetPrevMiddleName = (e) => {
     e.preventDefault();
     setPrevMiddleName(e.target.value);
   };
 
-  const handleSetPrevSurname = e => {
+  const handleSetPrevSurname = (e) => {
     e.preventDefault();
     setPrevSurname(e.target.value);
   };
 
-  const handleSelectGender = e => {
+  const handleSelectGender = (e) => {
     setGender(e.target.value);
   };
 
-  const handleSetHomePhone = e => {
+  const handleSetHomePhone = (e) => {
     e.preventDefault();
     setHomePhone(e.target.value);
   };
 
-  const handleSetWorkPhone = e => {
+  const handleSetWorkPhone = (e) => {
     e.preventDefault();
     setWorkPhone(e.target.value);
   };
 
-  const handleSetEmail = e => {
+  const handleSetEmail = (e) => {
     e.preventDefault();
     setEmail(e.target.value);
   };
 
-  const handleSetConfirmEmail = e => {
+  const handleSetConfirmEmail = (e) => {
     e.preventDefault();
     setConfirmEmail(e.target.value);
   };
 
-  const handleSelectPrefContactNum = e => {
+  const handleSelectPrefContactNum = (e) => {
     setSelectPrefContactNum(e.target.value);
   };
 
-  const handleSetDOB = date => {
+  const handleSetDOB = (date) => {
     setDOB(date);
+    setFormatDOB(new Intl.DateTimeFormat("en-GB").format(date));
   };
 
   const listCountries = () => {
@@ -205,7 +207,7 @@ const Step1_PersonalDetails = props => {
     );
   };
 
-  const handleSelectCountry = e => {
+  const handleSelectCountry = (e) => {
     setBirthPlace(e.target.value);
   };
 
@@ -219,7 +221,7 @@ const Step1_PersonalDetails = props => {
     }
   };
 
-  const handleFormError = () => {
+  const handleSubmitButton = () => {
     if (email === confirmEmail && email !== "") {
       setCurrentPage("Step2");
     } else if (email !== confirmEmail || email === "") {
@@ -227,9 +229,8 @@ const Step1_PersonalDetails = props => {
     }
   };
 
-  const handleFormSubmit = e => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(currentPage);
     if (currentPage === "Step2") {
       props.onSuccess(
         firstName,
@@ -246,7 +247,7 @@ const Step1_PersonalDetails = props => {
         mobilePhone,
         selectPrefContactNum,
         email,
-        dOB,
+        formatDOB,
         birthplace,
         currentPage
       );
@@ -319,7 +320,7 @@ const Step1_PersonalDetails = props => {
                       id="firstname"
                       placeholder="Enter first name"
                     />
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
               <div className="col-md-4">
@@ -335,7 +336,7 @@ const Step1_PersonalDetails = props => {
                       id="secondname"
                       placeholder="Enter middle name"
                     />
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
               <div className="col-md-4">
@@ -354,7 +355,7 @@ const Step1_PersonalDetails = props => {
                       id="surname"
                       placeholder="Enter last name"
                     />
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
 
@@ -442,7 +443,7 @@ const Step1_PersonalDetails = props => {
                       onChange={handleSetHomePhone}
                       placeholder="Enter home phone number"
                     />
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
               <div className="col-md-4">
@@ -459,7 +460,7 @@ const Step1_PersonalDetails = props => {
                       onChange={handleSetWorkPhone}
                       placeholder="Enter work phone number"
                     />
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
               <div className="col-md-4">
@@ -475,7 +476,7 @@ const Step1_PersonalDetails = props => {
                       onChange={setMobilePhone}
                       placeholder="Enter mobile phone number"
                     />
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
               <div className="clearfix"></div>
@@ -539,7 +540,7 @@ const Step1_PersonalDetails = props => {
                       onChange={handleSetEmail}
                       placeholder="Enter email"
                     />
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
               <div className="col-md-6">
@@ -560,7 +561,7 @@ const Step1_PersonalDetails = props => {
                       placeholder="Enter confirm email"
                     />
                     {displayErrorConfirmEmail()}
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
 
@@ -601,7 +602,7 @@ const Step1_PersonalDetails = props => {
                   type="submit"
                   value="Save &amp; Continue"
                   className="submitbtns"
-                  onClick={handleFormError}
+                  onClick={handleSubmitButton}
                 />
               </div>
             </div>
