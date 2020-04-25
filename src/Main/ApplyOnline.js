@@ -69,8 +69,8 @@ const ApplyOnline = () => {
   const [userDetails, setUserDetails] = React.useState([]);
 
   useEffect(() => {
-    displayPage(currentPage);
     window.scrollTo(0, 0);
+    displayPage(currentPage);
   }, [currentPage]);
 
   const setPage = (e) => {
