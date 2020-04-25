@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const ContactUs = () => {
   const [name, setName] = React.useState("");
@@ -7,22 +7,26 @@ const ContactUs = () => {
   const [message, setMessage] = React.useState("");
   const [statusSend, setStatusSend] = React.useState(false);
 
-  const handleName = e => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleName = (e) => {
     e.preventDefault();
     setName(e.target.value);
   };
 
-  const handleEmail = e => {
+  const handleEmail = (e) => {
     e.preventDefault();
     setEmail(e.target.value);
   };
 
-  const handlePhone = e => {
+  const handlePhone = (e) => {
     e.preventDefault();
     setPhone(e.target.value);
   };
 
-  const handleMessage = e => {
+  const handleMessage = (e) => {
     e.preventDefault();
     setMessage(e.target.value);
   };
