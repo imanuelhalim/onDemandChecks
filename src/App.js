@@ -68,8 +68,8 @@ const App = () => {
                     <div className="col-md-6 col-sm-12">
                       <div className="topright">
                         <span>
-                          New Identity Documents 1 July 2018{" "}
-                          <a href=""> Read more</a>{" "}
+                          New Identity Documents 1 July 2018
+                          <a href=""> Read more</a>
                         </span>
                       </div>
                     </div>
@@ -164,21 +164,21 @@ const App = () => {
                 <div className="footerhead">
                   <h5>Contact Us</h5>
                   <p>
-                    <i className="fa fa-user icnpads" aria-hidden="true"></i>{" "}
+                    <i className="fa fa-user icnpads" aria-hidden="true"></i>
                     Building 28, 266 Osborne Avenue, Clayton South VIC 3169,
-                    Australia{" "}
+                    Australia
                   </p>
                   <p>
                     <i
                       className="fa fa-envelope-o icnpads"
                       aria-hidden="true"
                     ></i>
-                    hamud@ondemandchecks.com &nbsp; &nbsp;{" "}
-                    <i className="fa fa-phone icnpads" aria-hidden="true"></i>{" "}
+                    support@ondemandchecks.com.au &nbsp; &nbsp;
+                    <i className="fa fa-phone icnpads" aria-hidden="true"></i>
                     Mobile: +61 423 296 250
                   </p>
                   <p>
-                    <i className="fa fa-phone icnpads" aria-hidden="true"></i>{" "}
+                    <i className="fa fa-phone icnpads" aria-hidden="true"></i>
                     Phone: p. 1300 85 65 25 f. (03) 9551 1166
                   </p>
                 </div>
