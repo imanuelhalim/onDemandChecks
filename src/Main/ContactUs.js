@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
+import axios from "axios";
 
 const ContactUs = () => {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phone, setPhone] = React.useState("");
   const [message, setMessage] = React.useState("");
-  const [statusSend, setStatusSend] = React.useState(false);
+  const [statusSend, setStatusSend] = React.useState("");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,18 +32,54 @@ const ContactUs = () => {
     setMessage(e.target.value);
   };
 
-  const sendEmail = () => {
+  const sendEmail = (e) => {
+    e.preventDefault();
     if (name !== "" && email !== "" && phone !== "" && message !== "") {
-      setStatusSend(true);
+      axios
+        .post(
+          "https://bx1pxkxsud.execute-api.ap-southeast-2.amazonaws.com/dev/contact",
+          {
+            name: `${name}`,
+            email: `${email}`,
+            phone: `${phone}`,
+            message: `${message}`,
+          }
+        )
+        .then((response) => {
+          setStatusSend("true");
+          setName("");
+          setEmail("");
+          setPhone("");
+          setMessage("");
+          setTimeout(() => {
+            setStatusSend("");
+          }, 5000);
+        })
+        .catch((error) => {
+          setStatusSend("false");
+          setTimeout(() => {
+            setStatusSend("");
+          }, 5000);
+        });
     }
   };
 
-  // const displayMessageSent = () => {
-  //   if (statusSend) {
-
-  //     );
-  //   }
-  // };
+  const displayResultSendRequest = () => {
+    if (statusSend === "true") {
+      return (
+        <div className="SuccessSent">
+          Your request message sent successfully, we will contact you shortly.
+        </div>
+      );
+    }
+    if (statusSend === "false") {
+      return (
+        <div className="FailureSent">
+          Sending message error, please try again
+        </div>
+      );
+    }
+  };
 
   return (
     <div>
@@ -57,26 +94,36 @@ const ContactUs = () => {
       </div>
       <div className="innerpage">
         <div className="container">
-          <div className="col-md-3">
+          <div className="col-md-4">
             <div className="contactdetials">
               <h3>Contact Details</h3>
 
               <h5>Address</h5>
 
               <p>
-                Building 28, 266 Osborne Avenue, Clayton South VIC 3169,
-                Australia
+                Building 28, 266 Osborne Avenue
+                <br />
+                Clayton South VIC 3169, Australia
               </p>
               <h5>Phone</h5>
-              <p>p. 1300 85 65 25 f. (03) 9551 1166</p>
+              <p>
+                <a href="tel:1300 85 65 25">p. 1300 85 65 25</a>
+              </p>
+              <p>
+                <a href="tel:0395511166"> f. (03) 9551 1166</a>
+              </p>
               <h5>Mobile</h5>
-              <p>+61 423 296 250&nbsp;</p>
-              <p>+61 425 104 105</p>
+              <p>
+                <a href="tel:+61 423 296 250">+61 423 296 250</a>
+              </p>
+              <p>
+                <a href="tel:+61 425 104 105">+61 425 104 105</a>
+              </p>
               <h5>Mail address</h5>
-              <p>hamud@ondemandchecks.com</p>
+              <p>support@ondemandchecks.com.au</p>
             </div>
           </div>
-          <div className="col-md-9 padspce">
+          <div className="col-md-8 padspce">
             <form className="contact-form">
               <div className="contactformdiv">
                 <h4>
@@ -134,6 +181,7 @@ const ContactUs = () => {
                   />
                 </div>
               </div>
+              <div>{displayResultSendRequest()}</div>
             </form>
           </div>
 
