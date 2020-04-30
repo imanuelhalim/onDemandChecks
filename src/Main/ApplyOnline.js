@@ -10,12 +10,14 @@ import Step3 from "./ApplyOnline/Step3_Purpose";
 import Step4 from "./ApplyOnline/Step4_ProffIdentity";
 import Step5 from "./ApplyOnline/Step5_Confirm";
 import Step6 from "./ApplyOnline/Step6_Payment";
+import axios from "axios";
 
 const ApplyOnline = () => {
   const [currentPage, setCurrentPage] = React.useState("main");
   const [firstName, setFirstName] = React.useState("");
   const [middleName, setMiddleName] = React.useState("");
   const [surname, setSurname] = React.useState("");
+  const [fullName, setFullName] = React.useState("");
   const [selectPreviousName, setSelectPreviousName] = React.useState("");
   const [prevNameType, setPrevNameType] = React.useState("");
   const [prevFirstName, setPrevFirstName] = React.useState("");
@@ -66,7 +68,63 @@ const ApplyOnline = () => {
   const [doc24, setDoc24] = React.useState([]);
   const [doc25, setDoc25] = React.useState([]);
   const [doc26, setDoc26] = React.useState([]);
-  const [userDetails, setUserDetails] = React.useState([]);
+  const [userDetails, setUserDetails] = React.useState({});
+  const [payment, setPayment] = React.useState("");
+  const [statusSend, setStatusSend] = React.useState("");
+  // const [userDetails, setUserDetails] = React.useState({
+  //   firstName: "",
+  //   middleName: "",
+  //   surname: "",
+  //   fullName: "",
+  //   selectPreviousName: "",
+  //   prevNameType: "",
+  //   prevFirstName: "",
+  //   prevMiddleName: "",
+  //   prevSurname: "",
+  //   gender: "",
+  //   homePhone: "",
+  //   workPhone: "",
+  //   mobilePhone: "",
+  //   selectPrefContactNum: "",
+  //   email: "",
+  //   dOB: "",
+  //   birthplace: "",
+  //   residentialAdd: "",
+  //   residentFrom: "",
+  //   postalAdd: "",
+  //   checkType: "",
+  //   positionTitle: "",
+  //   proposedPlaceOfWork: "",
+  //   contactGroupsOfPeople: "",
+  //   hardCopyPoliceCheck: "",
+  //   digitalCopyPoliceCheck: "",
+  //   doc1: [],
+  //   doc2: [],
+  //   doc3: [],
+  //   doc4: [],
+  //   doc5: [],
+  //   doc6: [],
+  //   doc7: [],
+  //   doc8: [],
+  //   doc9: [],
+  //   doc10: [],
+  //   doc11: [],
+  //   doc12: [],
+  //   doc13: [],
+  //   doc14: [],
+  //   doc15: [],
+  //   doc16: [],
+  //   doc17: [],
+  //   doc18: [],
+  //   doc19: [],
+  //   doc20: [],
+  //   doc21: [],
+  //   doc22: [],
+  //   doc23: [],
+  //   doc24: [],
+  //   doc25: [],
+  //   doc26: [],
+  // });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -76,6 +134,14 @@ const ApplyOnline = () => {
   const setPage = (e) => {
     e.preventDefault();
     setCurrentPage("Step1");
+  };
+
+  const concatUserFullName = (givenName, midName, familyName) => {
+    if (midName.trim() === "") {
+      setFullName(givenName + " " + familyName);
+    } else {
+      setFullName(givenName + " " + midName + " " + familyName);
+    }
   };
 
   const displayPage = () => {
@@ -107,6 +173,7 @@ const ApplyOnline = () => {
               setFirstName(getFirstName);
               setMiddleName(getMiddleName);
               setSurname(getSurname);
+              concatUserFullName(getFirstName, getMiddleName, getSurname);
               setSelectPreviousName(getSelectPreviousName);
               setPrevNameType(getPrevNameType);
               setPrevFirstName(getPrevFirstName);
@@ -233,61 +300,60 @@ const ApplyOnline = () => {
               setDoc25(getDoc25);
               setDoc26(getDoc26);
               setCurrentPage(getCurrentPage);
-              setUserDetails(
-                userDetails.concat(
-                  [`${firstName}`],
-                  [`${middleName}`],
-                  [`${surname}`],
-                  [`${selectPreviousName}`],
-                  [`${prevNameType}`],
-                  [`${prevFirstName}`],
-                  [`${prevMiddleName}`],
-                  [`${prevSurname}`],
-                  [`${gender}`],
-                  [`${homePhone}`],
-                  [`${workPhone}`],
-                  [`${mobilePhone}`],
-                  [`${selectPrefContactNum}`],
-                  [`${email}`],
-                  [`${dOB}`],
-                  [`${birthplace}`],
-                  [`${residentialAdd}`],
-                  [`${residentFrom}`],
-                  [`${postalAdd}`],
-                  [`${checkType}`],
-                  [`${positionTitle}`],
-                  [`${proposedPlaceOfWork}`],
-                  [`${contactGroupsOfPeople}`],
-                  [`${hardCopyPoliceCheck}`],
-                  [`${digitalCopyPoliceCheck}`],
-                  [`${doc1}`],
-                  [`${doc2}`],
-                  [`${doc3}`],
-                  [`${doc4}`],
-                  [`${doc5}`],
-                  [`${doc6}`],
-                  [`${doc7}`],
-                  [`${doc8}`],
-                  [`${doc9}`],
-                  [`${doc10}`],
-                  [`${doc11}`],
-                  [`${doc12}`],
-                  [`${doc13}`],
-                  [`${doc14}`],
-                  [`${doc15}`],
-                  [`${doc16}`],
-                  [`${doc17}`],
-                  [`${doc18}`],
-                  [`${doc19}`],
-                  [`${doc20}`],
-                  [`${doc21}`],
-                  [`${doc22}`],
-                  [`${doc23}`],
-                  [`${doc24}`],
-                  [`${doc25}`],
-                  [`${doc26}`]
-                )
-              );
+              setUserDetails({
+                firstName: `${firstName}`,
+                middleName: `${middleName}`,
+                surname: `${surname}`,
+                fullName: `${fullName}`,
+                selectPreviousName: `${selectPreviousName}`,
+                prevNameType: `${prevNameType}`,
+                prevFirstName: `${prevFirstName}`,
+                prevMiddleName: `${prevMiddleName}`,
+                prevSurname: `${prevSurname}`,
+                gender: `${gender}`,
+                homePhone: `${homePhone}`,
+                workPhone: `${workPhone}`,
+                mobilePhone: `${mobilePhone}`,
+                selectPrefContactNum: `${selectPrefContactNum}`,
+                email: `${email}`,
+                dOB: `${dOB}`,
+                birthplace: `${birthplace}`,
+                residentialAdd: `${residentialAdd}`,
+                residentFrom: `${residentFrom}`,
+                postalAdd: `${postalAdd}`,
+                checkType: `${checkType}`,
+                positionTitle: `${positionTitle}`,
+                proposedPlaceOfWork: `${proposedPlaceOfWork}`,
+                contactGroupsOfPeople: `${contactGroupsOfPeople}`,
+                hardCopyPoliceCheck: `${hardCopyPoliceCheck}`,
+                digitalCopyPoliceCheck: `${digitalCopyPoliceCheck}`,
+                doc1: getDoc1,
+                doc2: getDoc2,
+                doc3: getDoc3,
+                doc4: getDoc4,
+                doc5: getDoc5,
+                doc6: getDoc6,
+                doc7: getDoc7,
+                doc8: getDoc8,
+                doc9: getDoc9,
+                doc10: getDoc10,
+                doc11: getDoc11,
+                doc12: getDoc12,
+                doc13: getDoc13,
+                doc14: getDoc14,
+                doc15: getDoc15,
+                doc16: getDoc16,
+                doc17: getDoc17,
+                doc18: getDoc18,
+                doc19: getDoc19,
+                doc20: getDoc20,
+                doc21: getDoc21,
+                doc22: getDoc22,
+                doc23: getDoc23,
+                doc24: getDoc24,
+                doc25: getDoc25,
+                doc26: getDoc26,
+              });
             }}
             onPostponed={(getCurrentPage) => {
               setCurrentPage(getCurrentPage);
@@ -318,8 +384,74 @@ const ApplyOnline = () => {
             onDisplay={() => {
               return userDetails;
             }}
-            onSuccess={(getCurrentPage) => {
+            onSuccess={(getCurrentPage, payment) => {
               setCurrentPage(getCurrentPage);
+              setPayment(payment);
+              axios
+                .post(
+                  "https://bx1pxkxsud.execute-api.ap-southeast-2.amazonaws.com/dev/applyonline",
+                  {
+                    firstName: `${firstName}`,
+                    middleName: `${middleName}`,
+                    surname: `${surname}`,
+                    fullName: `${fullName}`,
+                    selectPreviousName: `${selectPreviousName}`,
+                    prevNameType: `${prevNameType}`,
+                    prevFirstName: `${prevFirstName}`,
+                    prevMiddleName: `${prevMiddleName}`,
+                    prevSurname: `${prevSurname}`,
+                    gender: `${gender}`,
+                    homePhone: `${homePhone}`,
+                    workPhone: `${workPhone}`,
+                    mobilePhone: `${mobilePhone}`,
+                    selectPrefContactNum: `${selectPrefContactNum}`,
+                    email: `${email}`,
+                    dOB: `${dOB}`,
+                    birthplace: `${birthplace}`,
+                    residentialAdd: `${residentialAdd}`,
+                    residentFrom: `${residentFrom}`,
+                    postalAdd: `${postalAdd}`,
+                    checkType: `${checkType}`,
+                    positionTitle: `${positionTitle}`,
+                    proposedPlaceOfWork: `${proposedPlaceOfWork}`,
+                    contactGroupsOfPeople: `${contactGroupsOfPeople}`,
+                    hardCopyPoliceCheck: `${hardCopyPoliceCheck}`,
+                    digitalCopyPoliceCheck: `${digitalCopyPoliceCheck}`,
+                    payment: `${payment}`,
+                    doc1: `${doc1}`,
+                    doc2: `${doc2}`,
+                    doc3: `${doc3}`,
+                    doc4: `${doc4}`,
+                    doc5: `${doc5}`,
+                    doc6: `${doc6}`,
+                    doc7: `${doc7}`,
+                    doc8: `${doc8}`,
+                    doc9: `${doc9}`,
+                    doc10: `${doc10}`,
+                    doc11: `${doc11}`,
+                    doc12: `${doc12}`,
+                    doc13: `${doc13}`,
+                    doc14: `${doc14}`,
+                    doc15: `${doc15}`,
+                    doc16: `${doc16}`,
+                    doc17: `${doc17}`,
+                    doc18: `${doc18}`,
+                    doc19: `${doc19}`,
+                    doc20: `${doc20}`,
+                    doc21: `${doc21}`,
+                    doc22: `${doc22}`,
+                    doc23: `${doc23}`,
+                    doc24: `${doc24}`,
+                    doc25: `${doc25}`,
+                    doc26: `${doc26}`,
+                  }
+                )
+                .then((response) => {
+                  setStatusSend("true");
+                })
+                .catch((error) => {
+                  setStatusSend("false");
+                });
             }}
             onPostponed={(getCurrentPage) => {
               setCurrentPage(getCurrentPage);
