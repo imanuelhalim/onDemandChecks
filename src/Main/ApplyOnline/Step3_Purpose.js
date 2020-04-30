@@ -258,7 +258,6 @@ const Step3_Purpose = props => {
               <div className="col-md-12">
                 <div className="formboxs">
                   <label>
-                    {" "}
                     Your proposed place of work
                     <span className="required">* </span>
                   </label>
@@ -336,7 +335,6 @@ const Step3_Purpose = props => {
               <div className="col-md-12">
                 <div className="formboxs">
                   <label>
-                    {" "}
                     Will you have contact with children and/or vulnerable groups
                     as part of the role you are applying for?
                     <span className="required">* </span>
