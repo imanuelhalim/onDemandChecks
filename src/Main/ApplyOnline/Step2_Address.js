@@ -143,7 +143,7 @@ const Step2_Address = (props) => {
                   onChange={handleAddressPost}
                   placeholder="Enter address name"
                 />
-              </div>{" "}
+              </div>
             </div>
           </div>
           <div className="col-md-4">
@@ -163,7 +163,7 @@ const Step2_Address = (props) => {
                   onChange={handleSuburbPost}
                   placeholder="Enter suburb name"
                 />
-              </div>{" "}
+              </div>
             </div>
           </div>
           <div className="col-md-4">
@@ -199,7 +199,7 @@ const Step2_Address = (props) => {
                   value={postcodePost}
                   onChange={handlePostcodePost}
                 />
-              </div>{" "}
+              </div>
             </div>
           </div>
 
@@ -208,7 +208,7 @@ const Step2_Address = (props) => {
               <label>
                 Select Country<span className="required">* </span>
               </label>
-              {listCountriesPostal()}{" "}
+              {listCountriesPostal()}
             </div>
           </div>
         </div>
@@ -445,7 +445,7 @@ const Step2_Address = (props) => {
                       <option value="November">November</option>
                       <option value="December">December</option>
                     </select>
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
               <div className="col-md-4">
@@ -453,7 +453,7 @@ const Step2_Address = (props) => {
                   <label>
                     Select Year<span className="required">* </span>
                   </label>
-                  {handleYearRes()}{" "}
+                  {handleYearRes()}
                 </div>
               </div>
               <div className="clearfix"></div>
