@@ -801,6 +801,24 @@ ul.liststyle li {
   line-height: 22px;
   margin-bottom: 10px;
 }
+.SuccessSent {
+  position: absolute;
+  bottom: -30px;
+  left: 15px;
+  width: auto;
+  background-color: #0ec4dd5d;
+  color: #000;
+  border-radius: 2px;
+}
+.FailureSent {
+  position: absolute;
+  bottom: -30px;
+  left: 15px;
+  width: auto;
+  background-color: #dd1f0ea1;
+  color: #000;
+  border-radius: 2px;
+}
 
 /*======================INNER STYLE==========================*/
 
