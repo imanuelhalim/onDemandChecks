@@ -1,15 +1,19 @@
 import React, { useEffect } from "react";
+import { Table } from "react-bootstrap";
 
 const Step5_Confirm = (props) => {
-  const [userDetails, setUserDetails] = React.useState([]);
+  const [userDetails, setUserDetails] = React.useState({});
   const [currentPage, setCurrentPage] = React.useState("Step4");
+  const [docs, setDocs] = React.useState([]);
+  const [status, setStatus] = React.useState("");
 
   useEffect(() => {
     setUserDetails(props.onDisplay());
-  }, [userDetails]);
+    setStatus("ready");
+  }, []);
 
   const checkPostalAddress = () => {
-    if (userDetails[18] === "") {
+    if (userDetails.postalAdd === "") {
       return (
         <div className="col-md-10">
           <div className="formboxs">
@@ -23,7 +27,7 @@ const Step5_Confirm = (props) => {
         <div className="col-md-10">
           <div className="formboxs">
             <label>Postal Address</label>
-            {userDetails[18]}
+            {userDetails.postalAdd}
           </div>
         </div>
       );
@@ -31,34 +35,31 @@ const Step5_Confirm = (props) => {
   };
 
   const checkPreviousName = () => {
-    if (userDetails[3] === "Yes") {
+    if (userDetails.selectPreviousName === "Yes") {
       return (
         <div>
           <div className="col-md-12">
             <div className="formboxs">
               <label>Name Type</label>
-              {userDetails[4]}
+              {userDetails.prevNameType}
             </div>
           </div>
-
           <div className="col-md-4">
             <div className="formboxs">
               <label>First Name</label>
-              {userDetails[5]}
+              {userDetails.prevFirstName}
             </div>
           </div>
-
           <div className="col-md-4">
             <div className="formboxs">
               <label>Middle Name</label>
-              {userDetails[6]}
+              {userDetails.prevMiddleName}
             </div>
           </div>
-
           <div className="col-md-4">
             <div className="formboxs">
               <label>Surname</label>
-              {userDetails[7]}
+              {userDetails.prevSurname}
             </div>
           </div>
         </div>
@@ -66,7 +67,182 @@ const Step5_Confirm = (props) => {
     }
   };
 
-  const handleAllDocs = () => {};
+  const checkDoc = (doc) => {
+    if (doc.length === 0) {
+      return "not given";
+    } else {
+      return <div style={{ color: "green" }}>{doc[0].name}</div>;
+    }
+  };
+
+  const displayAllDocs = () => {
+    if (status === "ready") {
+      return (
+        <div>
+          <Table>
+            <tbody style={{ textAlign: "center" }}>
+              <tr>
+                <td>1.</td>
+                <td> Foreign or Australian Passport(current)</td>
+                <td>{checkDoc(userDetails.doc1)}</td>
+              </tr>
+              <tr>
+                <td>2.</td>
+                <td> Australian Citizenship Certificate</td>
+                <td>{checkDoc(userDetails.doc2)}</td>
+              </tr>
+              <tr>
+                <td>3.</td>
+                <td> Full Birth Certificate (not birth certificate extract)</td>
+                <td>{checkDoc(userDetails.doc3)}</td>
+              </tr>
+              <tr>
+                <td>4.</td>
+                <td>
+                  {" "}
+                  Certificate of identity issued by the Australian Government to
+                  refugees and non Australian citizens for enrty to Australia
+                </td>
+                <td>{checkDoc(userDetails.doc4)}</td>
+              </tr>
+              <tr>
+                <td>5.</td>
+                <td> Australian Driver Licence/Learner Permit</td>
+                <td>{checkDoc(userDetails.doc5)}</td>
+              </tr>
+              <tr>
+                <td>6.</td>
+                <td>
+                  Current (Australian) Tertiary Student Identification Card
+                </td>
+                <td>{checkDoc(userDetails.doc6)}</td>
+              </tr>
+              <tr>
+                <td>7.</td>
+                <td>
+                  Photo identification card issued for Australian regulatory
+                  purposes (e.g. Aviation/Maritime Security identification,
+                  security, industry etc)
+                </td>
+                <td>{checkDoc(userDetails.doc7)}</td>
+              </tr>
+              <tr>
+                <td>8. </td>
+                <td>
+                  Government Employee ID (Australian Federal/State/Territory)
+                </td>
+                <td>{checkDoc(userDetails.doc8)}</td>
+              </tr>
+              <tr>
+                <td>9. </td>
+                <td>Defence Force Identify Card (with photo or signature) </td>
+                <td>{checkDoc(userDetails.doc9)}</td>
+              </tr>
+              <tr>
+                <td>10. </td>
+                <td>Department of Veterans Affairs (DVA) card </td>
+                <td>{checkDoc(userDetails.doc10)}</td>
+              </tr>
+              <tr>
+                <td>11. </td>
+                <td>Centrelink card (with reference number) </td>
+                <td>{checkDoc(userDetails.doc11)}</td>
+              </tr>
+              <tr>
+                <td>12. </td>
+                <td>Birth Certificate Extract </td>
+                <td>{checkDoc(userDetails.doc12)}</td>
+              </tr>
+              <tr>
+                <td>13. </td>
+                <td>Birth Card(NSW Births, Deaths, Marriages issue only) </td>
+                <td>{checkDoc(userDetails.doc13)}</td>
+              </tr>
+              <tr>
+                <td>14. </td>
+                <td>Medicare Card </td>
+                <td>{checkDoc(userDetails.doc14)}</td>
+              </tr>
+              <tr>
+                <td>15. </td>
+                <td>Credit card or account card </td>
+                <td>{checkDoc(userDetails.doc15)}</td>
+              </tr>
+              <tr>
+                <td>16. </td>
+                <td>
+                  Australian Marriage Certificate (Australian Registry Issue
+                  Only)
+                </td>
+                <td>{checkDoc(userDetails.doc16)}</td>
+              </tr>
+              <tr>
+                <td>17. </td>
+                <td>
+                  Decree Nisi / Decress Absolute (Australian Registry Issue
+                  Only)
+                </td>
+                <td>{checkDoc(userDetails.doc17)}</td>
+              </tr>
+              <tr>
+                <td>18. </td>
+                <td>
+                  Change of name certificate (Australian Registry Issue Only)
+                </td>
+                <td>{checkDoc(userDetails.doc18)}</td>
+              </tr>
+              <tr>
+                <td>19. </td>
+                <td>Bank Statement (showing transactions)</td>
+                <td>{checkDoc(userDetails.doc19)}</td>
+              </tr>
+              <tr>
+                <td>20. </td>
+                <td>Property Lease Agreement - Current Address</td>
+                <td>{checkDoc(userDetails.doc20)}</td>
+              </tr>
+              <tr>
+                <td>21. </td>
+                <td>Taxation Assessment Notice</td>
+                <td>{checkDoc(userDetails.doc21)}</td>
+              </tr>
+              <tr>
+                <td>22. </td>
+                <td>Australian Mortgage Documents - Current Address</td>
+                <td>{checkDoc(userDetails.doc22)}</td>
+              </tr>
+              <tr>
+                <td>23. </td>
+                <td>Rating Authority - Current Address eg Land Rates</td>
+                <td>{checkDoc(userDetails.doc23)}</td>
+              </tr>
+              <tr>
+                <td>24. </td>
+                <td>
+                  Utility Bill - electricty, gas, telephone - Current address
+                  (less than 12 months old)
+                </td>
+                <td>{checkDoc(userDetails.doc24)}</td>
+              </tr>
+              <tr>
+                <td>25. </td>
+                <td>References from Indigenous Organisation</td>
+                <td>{checkDoc(userDetails.doc25)}</td>
+              </tr>
+              <tr>
+                <td>26. </td>
+                <td>
+                  Documents issued outside Australia (equivalent to Australian
+                  documents Must have official transaltion attached)
+                </td>
+                <td>{checkDoc(userDetails.doc26)}</td>
+              </tr>
+            </tbody>
+          </Table>
+        </div>
+      );
+    }
+  };
 
   const handleBackButton = () => {
     props.onPostponed(currentPage);
@@ -131,21 +307,21 @@ const Step5_Confirm = (props) => {
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>First Name</label>
-                    {userDetails[0]}
+                    {userDetails.firstName}
                   </div>
                 </div>
 
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>Middle Name</label>
-                    {userDetails[1]}
+                    {userDetails.middleName}
                   </div>
                 </div>
 
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>Surname</label>
-                    {userDetails[2]}
+                    {userDetails.surname}
                   </div>
                 </div>
                 <div className="col-md-12">
@@ -154,28 +330,28 @@ const Step5_Confirm = (props) => {
                       Have you ever been known by another name(including
                       previous, maiden, name)?
                     </label>
-                    {userDetails[3]}
+                    {userDetails.selectPreviousName}
                   </div>
                 </div>
                 {checkPreviousName()}
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>Gender</label>
-                    {userDetails[8]}
+                    {userDetails.gender}
                   </div>
                 </div>
 
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>Date Of Birth</label>
-                    {userDetails[14]}
+                    {userDetails.dOB}
                   </div>
                 </div>
 
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>Birth Place</label>
-                    {userDetails[15]}
+                    {userDetails.birthplace}
                   </div>
                 </div>
               </div>
@@ -186,34 +362,34 @@ const Step5_Confirm = (props) => {
                 <div className="col-md-12">
                   <div className="formboxs">
                     <label>Email</label>
-                    {userDetails[13]}
+                    {userDetails.email}
                   </div>
                 </div>
 
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>Home Phone</label>
-                    {userDetails[9]}
+                    {userDetails.homePhone}
                   </div>
                 </div>
 
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>Work Phone</label>
-                    {userDetails[10]}
+                    {userDetails.workPhone}
                   </div>
                 </div>
 
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>Mobile Phone</label>
-                    {userDetails[11]}
+                    {userDetails.mobilePhone}
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="formboxs">
-                    <label>Preferred Contact Phone</label>
-                    {userDetails[12]}
+                    <label>Preferred Contact Number</label>
+                    {userDetails.selectPrefContactNum}
                   </div>
                 </div>
               </div>
@@ -224,13 +400,13 @@ const Step5_Confirm = (props) => {
                 <div className="col-md-10">
                   <div className="formboxs">
                     <label>Residential Address</label>
-                    {userDetails[16]}
+                    {userDetails.residentialAdd}
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>Resident Form</label>
-                    {userDetails[17]}
+                    {userDetails.residentFrom}
                   </div>
                 </div>
                 {checkPostalAddress()}
@@ -242,31 +418,31 @@ const Step5_Confirm = (props) => {
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>Check Type</label>
-                    {userDetails[19]}
+                    {userDetails.checkType}
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>Position Title</label>
-                    {userDetails[20]}
+                    {userDetails.positionTitle}
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>Place of work</label>
-                    {userDetails[21]}
+                    {userDetails.proposedPlaceOfWork}
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>Will you have contact with children?</label>
-                    {userDetails[22]}
+                    {userDetails.contactGroupsOfPeople}
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="formboxs">
                     <label>Hard Copy</label>
-                    {userDetails[23]}
+                    {userDetails.hardCopyPoliceCheck}
                   </div>
                 </div>
                 <div className="col-md-4">
@@ -274,7 +450,7 @@ const Step5_Confirm = (props) => {
                     <label>
                       Digital Copy Forwarded To Employer/Organization?
                     </label>
-                    {userDetails[24]}
+                    {userDetails.digitalCopyPoliceCheck}
                   </div>
                 </div>
               </div>
@@ -282,7 +458,7 @@ const Step5_Confirm = (props) => {
                 <h3>
                   <strong>Uploaded Documents</strong>
                 </h3>
-                {handleAllDocs()}
+                {displayAllDocs()}
               </div>
               <div className="col-md-12">
                 <input
