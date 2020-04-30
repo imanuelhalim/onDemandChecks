@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import Dropzone from "react-dropzone";
 
-const Step4_ProffIdentity = props => {
+const Step4_ProffIdentity = (props) => {
   const [doc1, setDoc1] = React.useState([]);
   const [doc1Name, setDoc1Name] = React.useState("");
   const [doc1Status, setDoc1Status] = React.useState("Incomplete");
@@ -88,7 +88,7 @@ const Step4_ProffIdentity = props => {
 
   let points = totalPoints;
 
-  const uploadDoc1 = acceptedFiles => {
+  const uploadDoc1 = (acceptedFiles) => {
     setDoc1(acceptedFiles);
     setDoc1Name(acceptedFiles[0].name);
     setDoc1Status("Complete");
@@ -96,7 +96,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc2 = acceptedFiles => {
+  const uploadDoc2 = (acceptedFiles) => {
     setDoc2(acceptedFiles);
     setDoc2Name(acceptedFiles[0].name);
     setDoc2Status("Complete");
@@ -104,7 +104,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc3 = acceptedFiles => {
+  const uploadDoc3 = (acceptedFiles) => {
     setDoc3(acceptedFiles);
     setDoc3Name(acceptedFiles[0].name);
     setDoc3Status("Complete");
@@ -112,7 +112,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc4 = acceptedFiles => {
+  const uploadDoc4 = (acceptedFiles) => {
     setDoc4(acceptedFiles);
     setDoc4Name(acceptedFiles[0].name);
     setDoc4Status("Complete");
@@ -120,7 +120,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc5 = acceptedFiles => {
+  const uploadDoc5 = (acceptedFiles) => {
     setDoc5(acceptedFiles);
     setDoc5Name(acceptedFiles[0].name);
     setDoc5Status("Complete");
@@ -128,7 +128,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc6 = acceptedFiles => {
+  const uploadDoc6 = (acceptedFiles) => {
     setDoc6(acceptedFiles);
     setDoc6Name(acceptedFiles[0].name);
     setDoc6Status("Complete");
@@ -136,7 +136,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc7 = acceptedFiles => {
+  const uploadDoc7 = (acceptedFiles) => {
     setDoc7(acceptedFiles);
     setDoc7Name(acceptedFiles[0].name);
     setDoc7Status("Complete");
@@ -144,7 +144,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc8 = acceptedFiles => {
+  const uploadDoc8 = (acceptedFiles) => {
     setDoc8(acceptedFiles);
     setDoc8Name(acceptedFiles[0].name);
     setDoc8Status("Complete");
@@ -152,7 +152,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc9 = acceptedFiles => {
+  const uploadDoc9 = (acceptedFiles) => {
     setDoc9(acceptedFiles);
     setDoc9Name(acceptedFiles[0].name);
     setDoc9Status("Complete");
@@ -160,7 +160,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc10 = acceptedFiles => {
+  const uploadDoc10 = (acceptedFiles) => {
     setDoc10(acceptedFiles);
     setDoc10Name(acceptedFiles[0].name);
     setDoc10Status("Complete");
@@ -168,7 +168,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc11 = acceptedFiles => {
+  const uploadDoc11 = (acceptedFiles) => {
     setDoc11(acceptedFiles);
     setDoc11Name(acceptedFiles[0].name);
     setDoc11Status("Complete");
@@ -176,7 +176,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc12 = acceptedFiles => {
+  const uploadDoc12 = (acceptedFiles) => {
     setDoc12(acceptedFiles);
     setDoc12Name(acceptedFiles[0].name);
     setDoc12Status("Complete");
@@ -184,7 +184,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc13 = acceptedFiles => {
+  const uploadDoc13 = (acceptedFiles) => {
     setDoc13(acceptedFiles);
     setDoc13Name(acceptedFiles[0].name);
     setDoc13Status("Complete");
@@ -192,7 +192,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc14 = acceptedFiles => {
+  const uploadDoc14 = (acceptedFiles) => {
     setDoc14(acceptedFiles);
     setDoc14Name(acceptedFiles[0].name);
     setDoc14Status("Complete");
@@ -200,7 +200,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc15 = acceptedFiles => {
+  const uploadDoc15 = (acceptedFiles) => {
     setDoc15(acceptedFiles);
     setDoc15Name(acceptedFiles[0].name);
     setDoc15Status("Complete");
@@ -208,7 +208,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc16 = acceptedFiles => {
+  const uploadDoc16 = (acceptedFiles) => {
     setDoc16(acceptedFiles);
     setDoc16Name(acceptedFiles[0].name);
     setDoc16Status("Complete");
@@ -216,7 +216,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc17 = acceptedFiles => {
+  const uploadDoc17 = (acceptedFiles) => {
     setDoc17(acceptedFiles);
     setDoc17Name(acceptedFiles[0].name);
     setDoc17Status("Complete");
@@ -224,7 +224,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc18 = acceptedFiles => {
+  const uploadDoc18 = (acceptedFiles) => {
     setDoc18(acceptedFiles);
     setDoc18Name(acceptedFiles[0].name);
     setDoc18Status("Complete");
@@ -232,7 +232,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc19 = acceptedFiles => {
+  const uploadDoc19 = (acceptedFiles) => {
     setDoc19(acceptedFiles);
     setDoc19Name(acceptedFiles[0].name);
     setDoc19Status("Complete");
@@ -240,7 +240,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc20 = acceptedFiles => {
+  const uploadDoc20 = (acceptedFiles) => {
     setDoc20(acceptedFiles);
     setDoc20Name(acceptedFiles[0].name);
     setDoc20Status("Complete");
@@ -248,7 +248,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc21 = acceptedFiles => {
+  const uploadDoc21 = (acceptedFiles) => {
     setDoc21(acceptedFiles);
     setDoc21Name(acceptedFiles[0].name);
     setDoc21Status("Complete");
@@ -256,7 +256,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc22 = acceptedFiles => {
+  const uploadDoc22 = (acceptedFiles) => {
     setDoc22(acceptedFiles);
     setDoc22Name(acceptedFiles[0].name);
     setDoc22Status("Complete");
@@ -264,7 +264,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc23 = acceptedFiles => {
+  const uploadDoc23 = (acceptedFiles) => {
     setDoc23(acceptedFiles);
     setDoc23Name(acceptedFiles[0].name);
     setDoc23Status("Complete");
@@ -272,7 +272,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc24 = acceptedFiles => {
+  const uploadDoc24 = (acceptedFiles) => {
     setDoc24(acceptedFiles);
     setDoc24Name(acceptedFiles[0].name);
     setDoc24Status("Complete");
@@ -280,7 +280,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc25 = acceptedFiles => {
+  const uploadDoc25 = (acceptedFiles) => {
     setDoc25(acceptedFiles);
     setDoc25Name(acceptedFiles[0].name);
     setDoc25Status("Complete");
@@ -288,7 +288,7 @@ const Step4_ProffIdentity = props => {
     setTotalPoints(points);
   };
 
-  const uploadDoc26 = acceptedFiles => {
+  const uploadDoc26 = (acceptedFiles) => {
     setDoc26(acceptedFiles);
     setDoc26Name(acceptedFiles[0].name);
     setDoc26Status("Complete");
@@ -311,7 +311,7 @@ const Step4_ProffIdentity = props => {
     }
   };
 
-  const handleFormSubmit = e => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
     if (currentPage === "Step5" && totalPoints > 69) {
       props.onSuccess(
@@ -395,7 +395,7 @@ const Step4_ProffIdentity = props => {
                   <strong>Note: </strong>Documents in a language other than
                   English must be accompanied by an official translation. If
                   your document is not in English please email translations to
-                  hamud@ondemandchecks.com.
+                  support@ondemandchecks.com.au.
                 </h4>
                 <h4>
                   Please provide the list of documents below. Copies of
@@ -724,7 +724,7 @@ const Step4_ProffIdentity = props => {
                         </tr>
                         <tr>
                           <td>14</td>
-                          <td>MedicarecCard</td>
+                          <td>Medicare Card</td>
                           <td>25</td>
                           <td>{doc14Status}</td>
                           <td>
