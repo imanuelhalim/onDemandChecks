@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import PaypalButton from "react-paypal-express-checkout";
+import axios from "axios";
 
 const Step6_Payment = (props) => {
   const [userDetails, setUserDetails] = React.useState([]);
@@ -8,27 +9,38 @@ const Step6_Payment = (props) => {
   const [currentPage, setCurrentPage] = React.useState("Step5");
   const [isPaid, setIsPaid] = React.useState(false);
   const [totalAmount, setTotalAmount] = React.useState(53);
+  const [sendArchives, setSendArchives] = React.useState(false);
+  const [payment, setPayment] = React.useState("");
+  const [sandbox, setSandbox] = React.useState("");
+  const [production, setProduction] = React.useState("");
 
   useEffect(() => {
     setUserDetails(props.onDisplay());
-    if (userDetails[23] === "Yes") {
+    if (userDetails.hardCopyPoliceCheck === "Yes") {
       setTotalAmount(62.95);
     }
+    axios
+      .get(
+        "https://bx1pxkxsud.execute-api.ap-southeast-2.amazonaws.com/dev/paypalcredentials"
+      )
+      .then((response) => {
+        setSandbox(response.data.keyAccessId);
+        setProduction(response.data.secretAccessId);
+      });
   }, [userDetails]);
 
   const client = {
-    sandbox:
-      "ASuVO_UICx0matcciCCXjbfSslVVFjkN147BZjY4N66SEcTJJ_KzJvpr-OHpfCiIrvuT_bCqO41dgAtR",
-    production:
-      "EMes96g4ApE4N2e3Q9ZatBkU8Xww8pAeeHlfQdilVNoobOxthDPQYW_uZxT5HAz3Rs1_3ZvRtfH-hwWW",
+    sandbox: sandbox,
+    production: production,
   };
 
   const onCancel = (data) => {
-    console.log("The payment was cancelled", data);
+    // console.log("The payment was cancelled", data);
+    setIsPaid(false);
   };
 
   const onSuccess = (payment) => {
-    console.log("the payment was succeeded", payment);
+    // console.log("the payment was succeeded", payment);
     setIsPaid(true);
   };
 
@@ -80,7 +92,7 @@ const Step6_Payment = (props) => {
       return (
         <div>
           <div>
-            Before you transfer, plase ensure that you put your name in the
+            Before you transfer, please ensure that you put your name in the
             description.
           </div>
           <div>
@@ -94,7 +106,7 @@ const Step6_Payment = (props) => {
           </div>
           <div>
             Once you finished do payment, please send the receipt to
-            email@email.com and click button below
+            support@ondemandchecks.com.au and click button below
           </div>
           <input
             className="paymentBankTransfer"
@@ -107,7 +119,10 @@ const Step6_Payment = (props) => {
     }
   };
 
-  const handlePaymentBankTransfer = () => {};
+  const handlePaymentBankTransfer = () => {
+    setPayment("Bank Transfer");
+    setIsPaid(true);
+  };
 
   const checkPayPalAcc = (e) => {
     setPayPalAcc(e.target.value);
@@ -126,14 +141,6 @@ const Step6_Payment = (props) => {
       );
     } else if (payPalAcc === "Yes") {
       return (
-        // <PaypalButton
-        //   client={client}
-        //   currency={"AUD"}
-        //   total={totalAmount}
-        //   onSuccess={onSuccess}
-        //   onCancel={onCancel}
-        //   onError={onError}
-        // />
         <PaypalButton
           client={client}
           currency={"AUD"}
@@ -157,7 +164,7 @@ const Step6_Payment = (props) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (currentPage === "main") {
-      props.onSuccess(currentPage);
+      props.onSuccess(currentPage, payment);
     }
   };
 
