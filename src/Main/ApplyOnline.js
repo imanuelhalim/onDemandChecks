@@ -11,9 +11,11 @@ import Step4 from "./ApplyOnline/Step4_ProffIdentity";
 import Step5 from "./ApplyOnline/Step5_Confirm";
 import Step6 from "./ApplyOnline/Step6_Payment";
 import axios from "axios";
+// import SES from "aws-sdk/clients/ses";
+// import MailComposer from "mailcomposer";
 
 const ApplyOnline = () => {
-  const [currentPage, setCurrentPage] = React.useState("main");
+  const [currentPage, setCurrentPage] = React.useState("Step4");
   const [firstName, setFirstName] = React.useState("");
   const [middleName, setMiddleName] = React.useState("");
   const [surname, setSurname] = React.useState("");
@@ -71,60 +73,6 @@ const ApplyOnline = () => {
   const [userDetails, setUserDetails] = React.useState({});
   const [payment, setPayment] = React.useState("");
   const [statusSend, setStatusSend] = React.useState("");
-  // const [userDetails, setUserDetails] = React.useState({
-  //   firstName: "",
-  //   middleName: "",
-  //   surname: "",
-  //   fullName: "",
-  //   selectPreviousName: "",
-  //   prevNameType: "",
-  //   prevFirstName: "",
-  //   prevMiddleName: "",
-  //   prevSurname: "",
-  //   gender: "",
-  //   homePhone: "",
-  //   workPhone: "",
-  //   mobilePhone: "",
-  //   selectPrefContactNum: "",
-  //   email: "",
-  //   dOB: "",
-  //   birthplace: "",
-  //   residentialAdd: "",
-  //   residentFrom: "",
-  //   postalAdd: "",
-  //   checkType: "",
-  //   positionTitle: "",
-  //   proposedPlaceOfWork: "",
-  //   contactGroupsOfPeople: "",
-  //   hardCopyPoliceCheck: "",
-  //   digitalCopyPoliceCheck: "",
-  //   doc1: [],
-  //   doc2: [],
-  //   doc3: [],
-  //   doc4: [],
-  //   doc5: [],
-  //   doc6: [],
-  //   doc7: [],
-  //   doc8: [],
-  //   doc9: [],
-  //   doc10: [],
-  //   doc11: [],
-  //   doc12: [],
-  //   doc13: [],
-  //   doc14: [],
-  //   doc15: [],
-  //   doc16: [],
-  //   doc17: [],
-  //   doc18: [],
-  //   doc19: [],
-  //   doc20: [],
-  //   doc21: [],
-  //   doc22: [],
-  //   doc23: [],
-  //   doc24: [],
-  //   doc25: [],
-  //   doc26: [],
-  // });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -387,63 +335,46 @@ const ApplyOnline = () => {
             onSuccess={(getCurrentPage, payment) => {
               setCurrentPage(getCurrentPage);
               setPayment(payment);
+              const formData = new FormData();
+              formData.append("firstName", firstName);
+              formData.append("middleName", middleName);
+              formData.append("surname", surname);
+              formData.append("fullName", fullName);
+              formData.append("selectPreviousName", selectPreviousName);
+              formData.append("prevNameType", prevNameType);
+              formData.append("prevFirstName", prevFirstName);
+              formData.append("prevMiddleName", prevMiddleName);
+              formData.append("prevSurname", prevSurname);
+              formData.append("gender", gender);
+              formData.append("homePhone", homePhone);
+              formData.append("workPhone", workPhone);
+              formData.append("mobilePhone", mobilePhone);
+              formData.append("selectPrefContactNum", selectPrefContactNum);
+              formData.append("email", email);
+              formData.append("dOB", dOB);
+              formData.append("birthplace", birthplace);
+              formData.append("residentialAdd", residentialAdd);
+              formData.append("residentFrom", residentFrom);
+              formData.append("postalAdd", postalAdd);
+              formData.append("checkType", checkType);
+              formData.append("positionTitle", positionTitle);
+              formData.append("proposedPlaceOfWork", proposedPlaceOfWork);
+              formData.append("contactGroupsOfPeople", contactGroupsOfPeople);
+              formData.append("hardCopyPoliceCheck", hardCopyPoliceCheck);
+              formData.append("digitalCopyPoliceCheck", digitalCopyPoliceCheck);
+              formData.append("payment", payment);
+              console.log(doc1[0]);
+              formData.append("doc1", doc1[0], `${doc1[0].name}`);
+              formData.append("doc2", doc2[0], `${doc2[0].name}`);
               axios
                 .post(
                   "https://bx1pxkxsud.execute-api.ap-southeast-2.amazonaws.com/dev/applyonline",
+                  formData,
                   {
-                    firstName: `${firstName}`,
-                    middleName: `${middleName}`,
-                    surname: `${surname}`,
-                    fullName: `${fullName}`,
-                    selectPreviousName: `${selectPreviousName}`,
-                    prevNameType: `${prevNameType}`,
-                    prevFirstName: `${prevFirstName}`,
-                    prevMiddleName: `${prevMiddleName}`,
-                    prevSurname: `${prevSurname}`,
-                    gender: `${gender}`,
-                    homePhone: `${homePhone}`,
-                    workPhone: `${workPhone}`,
-                    mobilePhone: `${mobilePhone}`,
-                    selectPrefContactNum: `${selectPrefContactNum}`,
-                    email: `${email}`,
-                    dOB: `${dOB}`,
-                    birthplace: `${birthplace}`,
-                    residentialAdd: `${residentialAdd}`,
-                    residentFrom: `${residentFrom}`,
-                    postalAdd: `${postalAdd}`,
-                    checkType: `${checkType}`,
-                    positionTitle: `${positionTitle}`,
-                    proposedPlaceOfWork: `${proposedPlaceOfWork}`,
-                    contactGroupsOfPeople: `${contactGroupsOfPeople}`,
-                    hardCopyPoliceCheck: `${hardCopyPoliceCheck}`,
-                    digitalCopyPoliceCheck: `${digitalCopyPoliceCheck}`,
-                    payment: `${payment}`,
-                    doc1: `${doc1}`,
-                    doc2: `${doc2}`,
-                    doc3: `${doc3}`,
-                    doc4: `${doc4}`,
-                    doc5: `${doc5}`,
-                    doc6: `${doc6}`,
-                    doc7: `${doc7}`,
-                    doc8: `${doc8}`,
-                    doc9: `${doc9}`,
-                    doc10: `${doc10}`,
-                    doc11: `${doc11}`,
-                    doc12: `${doc12}`,
-                    doc13: `${doc13}`,
-                    doc14: `${doc14}`,
-                    doc15: `${doc15}`,
-                    doc16: `${doc16}`,
-                    doc17: `${doc17}`,
-                    doc18: `${doc18}`,
-                    doc19: `${doc19}`,
-                    doc20: `${doc20}`,
-                    doc21: `${doc21}`,
-                    doc22: `${doc22}`,
-                    doc23: `${doc23}`,
-                    doc24: `${doc24}`,
-                    doc25: `${doc25}`,
-                    doc26: `${doc26}`,
+                    headers: {
+                      "Content-type": "application/json",
+                      Accept: "multipart/form-data",
+                    },
                   }
                 )
                 .then((response) => {
