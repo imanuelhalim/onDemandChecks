@@ -85,215 +85,636 @@ const Step4_ProffIdentity = (props) => {
   const [currentPage, setCurrentPage] = React.useState("Step3");
   const [errorInformation, setErrorInformation] = React.useState("");
   const [disabledButton, setDisabledButton] = React.useState("disabled");
+  const [totalDocPoints, setTotalDocPoints] = React.useState(0);
+  const [isDisabledUpload, setIsDisabledUpload] = React.useState(false);
+  const [totalDocsUpload, setTotalDocsUpload] = React.useState(0);
 
   let points = totalPoints;
+  let docPoint = totalDocPoints;
+  let docsUpload = totalDocsUpload;
 
-  const uploadDoc1 = (acceptedFiles) => {
+  const isUploadDoc1 = (acceptedFiles) => {
     setDoc1(acceptedFiles);
     setDoc1Name(acceptedFiles[0].name);
     setDoc1Status("Complete");
     points = points + 70;
     setTotalPoints(points);
+    docPoint = docPoint + 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc2 = (acceptedFiles) => {
+  const isRemoveDoc1 = () => {
+    setDoc1([]);
+    setDoc1Name("");
+    setDoc1Status("Incomplete");
+    points = points - 70;
+    setTotalPoints(points);
+    docPoint = docPoint - 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc2 = (acceptedFiles) => {
     setDoc2(acceptedFiles);
     setDoc2Name(acceptedFiles[0].name);
     setDoc2Status("Complete");
     points = points + 70;
     setTotalPoints(points);
+    docPoint = docPoint + 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc3 = (acceptedFiles) => {
+  const isRemoveDoc2 = () => {
+    setDoc2([]);
+    setDoc2Name("");
+    setDoc2Status("Incomplete");
+    points = points - 70;
+    setTotalPoints(points);
+    docPoint = docPoint - 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc3 = (acceptedFiles) => {
     setDoc3(acceptedFiles);
     setDoc3Name(acceptedFiles[0].name);
     setDoc3Status("Complete");
     points = points + 70;
     setTotalPoints(points);
+    docPoint = docPoint + 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc4 = (acceptedFiles) => {
+  const isRemoveDoc3 = () => {
+    setDoc3([]);
+    setDoc3Name("");
+    setDoc3Status("Incomplete");
+    points = points - 70;
+    setTotalPoints(points);
+    docPoint = docPoint - 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc4 = (acceptedFiles) => {
     setDoc4(acceptedFiles);
     setDoc4Name(acceptedFiles[0].name);
     setDoc4Status("Complete");
     points = points + 70;
     setTotalPoints(points);
+    docPoint = docPoint + 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc5 = (acceptedFiles) => {
+  const isRemoveDoc4 = () => {
+    setDoc4([]);
+    setDoc4Name("");
+    setDoc4Status("Incomplete");
+    points = points - 70;
+    setTotalPoints(points);
+    docPoint = docPoint - 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc5 = (acceptedFiles) => {
     setDoc5(acceptedFiles);
     setDoc5Name(acceptedFiles[0].name);
     setDoc5Status("Complete");
     points = points + 40;
     setTotalPoints(points);
+    docPoint = docPoint + 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc6 = (acceptedFiles) => {
+  const isRemoveDoc5 = () => {
+    setDoc5([]);
+    setDoc5Name("");
+    setDoc5Status("Incomplete");
+    points = points - 40;
+    setTotalPoints(points);
+    docPoint = docPoint - 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc6 = (acceptedFiles) => {
     setDoc6(acceptedFiles);
     setDoc6Name(acceptedFiles[0].name);
     setDoc6Status("Complete");
     points = points + 40;
     setTotalPoints(points);
+    docPoint = docPoint + 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc7 = (acceptedFiles) => {
+  const isRemoveDoc6 = () => {
+    setDoc6([]);
+    setDoc6Name("");
+    setDoc6Status("Incomplete");
+    points = points - 40;
+    setTotalPoints(points);
+    docPoint = docPoint - 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc7 = (acceptedFiles) => {
     setDoc7(acceptedFiles);
     setDoc7Name(acceptedFiles[0].name);
     setDoc7Status("Complete");
     points = points + 40;
     setTotalPoints(points);
+    docPoint = docPoint + 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc8 = (acceptedFiles) => {
+  const isRemoveDoc7 = () => {
+    setDoc7([]);
+    setDoc7Name("");
+    setDoc7Status("Incomplete");
+    points = points - 40;
+    setTotalPoints(points);
+    docPoint = docPoint - 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc8 = (acceptedFiles) => {
     setDoc8(acceptedFiles);
     setDoc8Name(acceptedFiles[0].name);
     setDoc8Status("Complete");
     points = points + 40;
     setTotalPoints(points);
+    docPoint = docPoint + 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc9 = (acceptedFiles) => {
+  const isRemoveDoc8 = () => {
+    setDoc8([]);
+    setDoc8Name("");
+    setDoc8Status("Incomplete");
+    points = points - 40;
+    setTotalPoints(points);
+    docPoint = docPoint - 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc9 = (acceptedFiles) => {
     setDoc9(acceptedFiles);
     setDoc9Name(acceptedFiles[0].name);
     setDoc9Status("Complete");
     points = points + 40;
     setTotalPoints(points);
+    docPoint = docPoint + 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc10 = (acceptedFiles) => {
+  const isRemoveDoc9 = () => {
+    setDoc9([]);
+    setDoc9Name("");
+    setDoc9Status("Incomplete");
+    points = points - 40;
+    setTotalPoints(points);
+    docPoint = docPoint - 2;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc10 = (acceptedFiles) => {
     setDoc10(acceptedFiles);
     setDoc10Name(acceptedFiles[0].name);
     setDoc10Status("Complete");
     points = points + 40;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc11 = (acceptedFiles) => {
+  const isRemoveDoc10 = () => {
+    setDoc10([]);
+    setDoc10Name("");
+    setDoc10Status("Incomplete");
+    points = points - 40;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc11 = (acceptedFiles) => {
     setDoc11(acceptedFiles);
     setDoc11Name(acceptedFiles[0].name);
     setDoc11Status("Complete");
     points = points + 40;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc12 = (acceptedFiles) => {
+  const isRemoveDoc11 = () => {
+    setDoc11([]);
+    setDoc11Name("");
+    setDoc11Status("Incomplete");
+    points = points - 40;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc12 = (acceptedFiles) => {
     setDoc12(acceptedFiles);
     setDoc12Name(acceptedFiles[0].name);
     setDoc12Status("Complete");
     points = points + 25;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc13 = (acceptedFiles) => {
+  const isRemoveDoc12 = () => {
+    setDoc12([]);
+    setDoc12Name("");
+    setDoc12Status("Incomplete");
+    points = points - 25;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc13 = (acceptedFiles) => {
     setDoc13(acceptedFiles);
     setDoc13Name(acceptedFiles[0].name);
     setDoc13Status("Complete");
     points = points + 25;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc14 = (acceptedFiles) => {
+  const isRemoveDoc13 = () => {
+    setDoc13([]);
+    setDoc13Name("");
+    setDoc13Status("Incomplete");
+    points = points - 25;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc14 = (acceptedFiles) => {
     setDoc14(acceptedFiles);
     setDoc14Name(acceptedFiles[0].name);
     setDoc14Status("Complete");
     points = points + 25;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc15 = (acceptedFiles) => {
+  const isRemoveDoc14 = () => {
+    setDoc14([]);
+    setDoc14Name("");
+    setDoc14Status("Incomplete");
+    points = points - 25;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc15 = (acceptedFiles) => {
     setDoc15(acceptedFiles);
     setDoc15Name(acceptedFiles[0].name);
     setDoc15Status("Complete");
     points = points + 25;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc16 = (acceptedFiles) => {
+  const isRemoveDoc15 = () => {
+    setDoc15([]);
+    setDoc15Name("");
+    setDoc15Status("Incomplete");
+    points = points - 25;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc16 = (acceptedFiles) => {
     setDoc16(acceptedFiles);
     setDoc16Name(acceptedFiles[0].name);
     setDoc16Status("Complete");
     points = points + 25;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc17 = (acceptedFiles) => {
+  const isRemoveDoc16 = () => {
+    setDoc16([]);
+    setDoc16Name("");
+    setDoc16Status("Incomplete");
+    points = points - 25;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc17 = (acceptedFiles) => {
     setDoc17(acceptedFiles);
     setDoc17Name(acceptedFiles[0].name);
     setDoc17Status("Complete");
     points = points + 25;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc18 = (acceptedFiles) => {
+  const isRemoveDoc17 = () => {
+    setDoc17([]);
+    setDoc17Name("");
+    setDoc17Status("Incomplete");
+    points = points - 25;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc18 = (acceptedFiles) => {
     setDoc18(acceptedFiles);
     setDoc18Name(acceptedFiles[0].name);
     setDoc18Status("Complete");
     points = points + 25;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc19 = (acceptedFiles) => {
+  const isRemoveDoc18 = () => {
+    setDoc18([]);
+    setDoc18Name("");
+    setDoc18Status("Incomplete");
+    points = points - 25;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc19 = (acceptedFiles) => {
     setDoc19(acceptedFiles);
     setDoc19Name(acceptedFiles[0].name);
     setDoc19Status("Complete");
     points = points + 25;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc20 = (acceptedFiles) => {
+  const isRemoveDoc19 = () => {
+    setDoc19([]);
+    setDoc19Name("");
+    setDoc19Status("Incomplete");
+    points = points - 25;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc20 = (acceptedFiles) => {
     setDoc20(acceptedFiles);
     setDoc20Name(acceptedFiles[0].name);
     setDoc20Status("Complete");
     points = points + 25;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc21 = (acceptedFiles) => {
+  const isRemoveDoc20 = () => {
+    setDoc20([]);
+    setDoc20Name("");
+    setDoc20Status("Incomplete");
+    points = points - 25;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc21 = (acceptedFiles) => {
     setDoc21(acceptedFiles);
     setDoc21Name(acceptedFiles[0].name);
     setDoc21Status("Complete");
     points = points + 25;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc22 = (acceptedFiles) => {
+  const isRemoveDoc21 = () => {
+    setDoc21([]);
+    setDoc21Name("");
+    setDoc21Status("Incomplete");
+    points = points - 25;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc22 = (acceptedFiles) => {
     setDoc22(acceptedFiles);
     setDoc22Name(acceptedFiles[0].name);
     setDoc22Status("Complete");
     points = points + 25;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc23 = (acceptedFiles) => {
+  const isRemoveDoc22 = () => {
+    setDoc22([]);
+    setDoc22Name("");
+    setDoc22Status("Incomplete");
+    points = points - 25;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc23 = (acceptedFiles) => {
     setDoc23(acceptedFiles);
     setDoc23Name(acceptedFiles[0].name);
     setDoc23Status("Complete");
     points = points + 25;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc24 = (acceptedFiles) => {
+  const isRemoveDoc23 = () => {
+    setDoc23([]);
+    setDoc23Name("");
+    setDoc23Status("Incomplete");
+    points = points - 25;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc24 = (acceptedFiles) => {
     setDoc24(acceptedFiles);
     setDoc24Name(acceptedFiles[0].name);
     setDoc24Status("Complete");
     points = points + 20;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc25 = (acceptedFiles) => {
+  const isRemoveDoc24 = () => {
+    setDoc24([]);
+    setDoc24Name("");
+    setDoc24Status("Incomplete");
+    points = points - 20;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc25 = (acceptedFiles) => {
     setDoc25(acceptedFiles);
     setDoc25Name(acceptedFiles[0].name);
     setDoc25Status("Complete");
     points = points + 20;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
   };
 
-  const uploadDoc26 = (acceptedFiles) => {
+  const isRemoveDoc25 = () => {
+    setDoc25([]);
+    setDoc25Name("");
+    setDoc25Status("Incomplete");
+    points = points - 20;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isUploadDoc26 = (acceptedFiles) => {
     setDoc26(acceptedFiles);
     setDoc26Name(acceptedFiles[0].name);
     setDoc26Status("Complete");
     points = points + 20;
     setTotalPoints(points);
+    docPoint = docPoint + 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload + 1;
+    setTotalDocsUpload(docsUpload);
+  };
+
+  const isRemoveDoc26 = () => {
+    setDoc26([]);
+    setDoc26Name("");
+    setDoc26Status("Incomplete");
+    points = points - 20;
+    setTotalPoints(points);
+    docPoint = docPoint - 1;
+    setTotalDocPoints(docPoint);
+    docsUpload = docsUpload - 1;
+    setTotalDocsUpload(docsUpload);
   };
 
   const handleBackButton = () => {
@@ -301,19 +722,28 @@ const Step4_ProffIdentity = (props) => {
   };
 
   const handleSubmitButton = () => {
-    if (totalPoints > 99) {
+    if (totalDocPoints > 4 && (totalDocsUpload === 4) & (totalPoints > 100)) {
       setDisabledButton("");
       setCurrentPage("Step5");
-    } else {
+    }
+    if (totalPoints < 100) {
       setErrorInformation(
         "Total points is not enough, Please upload more documents"
+      );
+    }
+    if (
+      (totalDocPoints < 5 && totalDocsUpload >= 4 && totalPoints > 100) ||
+      (totalDocsUpload < 4 && totalPoints > 100)
+    ) {
+      setErrorInformation(
+        "Please upload at least one primary document and three more addtional documents"
       );
     }
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (currentPage === "Step5" && totalPoints > 69) {
+    if (currentPage === "Step5" && totalDocPoints >= 5) {
       props.onSuccess(
         doc1,
         doc2,
@@ -394,13 +824,15 @@ const Step4_ProffIdentity = (props) => {
                 <h4>
                   <strong>Note: </strong>Documents in a language other than
                   English must be accompanied by an official translation. If
-                  your document is not in English please email translations to
-                  support@ondemandchecks.com.au.
+                  your document is not in English please email translations to{" "}
+                  <strong>support@ondemandchecks.com.au</strong>.
                 </h4>
                 <h4>
                   Please provide the list of documents below. Copies of
-                  identification documents totalling 100 points must be provided
-                  with your application.
+                  identification documents totalling more than 100 points and 4
+                  documents (at least one of the documents contains{" "}
+                  <strong>Primary Documents</strong>) must be provided with your
+                  application.
                 </h4>
 
                 <div className="formboxs">
@@ -412,7 +844,9 @@ const Step4_ProffIdentity = (props) => {
                           <th style={{ textAlign: "center" }}>Document Name</th>
                           <th style={{ textAlign: "center" }}>Points Worth</th>
                           <th style={{ textAlign: "center" }}>Points Gained</th>
-                          <th style={{ textAlign: "center" }}>Upload File</th>
+                          <th style={{ textAlign: "center" }}>
+                            Upload and Remove File
+                          </th>
                           <th style={{ textAlign: "center" }}>Attached File</th>
                         </tr>
                       </thead>
@@ -426,12 +860,18 @@ const Step4_ProffIdentity = (props) => {
                           <td>1</td>
                           <td>Foreign or Australian Passport(current)</td>
                           <td>70</td>
-                          <td>{doc1Status}</td>
+                          <td>
+                            {doc1.length > 0 && (
+                              <button onClick={isRemoveDoc1}>Remove</button>
+                            )}
+                            {doc1.length === 0 && `${doc1Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc1}
+                              onDrop={isUploadDoc1}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -447,12 +887,18 @@ const Step4_ProffIdentity = (props) => {
                           <td>2</td>
                           <td>Australian Citizenship Certificate</td>
                           <td>70</td>
-                          <td>{doc2Status}</td>
+                          <td>
+                            {doc2.length > 0 && (
+                              <button onClick={isRemoveDoc2}>Remove</button>
+                            )}
+                            {doc2.length === 0 && `${doc2Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc2}
+                              onDrop={isUploadDoc2}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -471,12 +917,18 @@ const Step4_ProffIdentity = (props) => {
                             extract)
                           </td>
                           <td>70</td>
-                          <td>{doc3Status}</td>
+                          <td>
+                            {doc3.length > 0 && (
+                              <button onClick={isRemoveDoc3}>Remove</button>
+                            )}
+                            {doc3.length === 0 && `${doc3Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc3}
+                              onDrop={isUploadDoc3}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -496,12 +948,18 @@ const Step4_ProffIdentity = (props) => {
                             for enrty to Australia
                           </td>
                           <td>70</td>
-                          <td>{doc4Status}</td>
+                          <td>
+                            {doc4.length > 0 && (
+                              <button onClick={isRemoveDoc4}>Remove</button>
+                            )}
+                            {doc4.length === 0 && `${doc4Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc4}
+                              onDrop={isUploadDoc4}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -517,12 +975,18 @@ const Step4_ProffIdentity = (props) => {
                           <td>5</td>
                           <td>Australian Driver Licence/Learner Permit</td>
                           <td>40</td>
-                          <td>{doc5Status}</td>
+                          <td>
+                            {doc5.length > 0 && (
+                              <button onClick={isRemoveDoc5}>Remove</button>
+                            )}
+                            {doc5.length === 0 && `${doc5Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc5}
+                              onDrop={isUploadDoc5}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -541,12 +1005,18 @@ const Step4_ProffIdentity = (props) => {
                             Card
                           </td>
                           <td>40</td>
-                          <td>{doc6Status}</td>
+                          <td>
+                            {doc6.length > 0 && (
+                              <button onClick={isRemoveDoc6}>Remove</button>
+                            )}
+                            {doc6.length === 0 && `${doc6Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc6}
+                              onDrop={isUploadDoc6}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -566,12 +1036,18 @@ const Step4_ProffIdentity = (props) => {
                             identification, security, industry etc)
                           </td>
                           <td>40</td>
-                          <td>{doc7Status}</td>
+                          <td>
+                            {doc7.length > 0 && (
+                              <button onClick={isRemoveDoc7}>Remove</button>
+                            )}
+                            {doc7.length === 0 && `${doc7Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc7}
+                              onDrop={isUploadDoc7}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -590,12 +1066,18 @@ const Step4_ProffIdentity = (props) => {
                             Federal/State/Territory)
                           </td>
                           <td>40</td>
-                          <td>{doc8Status}</td>
+                          <td>
+                            {doc8.length > 0 && (
+                              <button onClick={isRemoveDoc8}>Remove</button>
+                            )}
+                            {doc8.length === 0 && `${doc8Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc8}
+                              onDrop={isUploadDoc8}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -614,12 +1096,18 @@ const Step4_ProffIdentity = (props) => {
                             signature)
                           </td>
                           <td>40</td>
-                          <td>{doc9Status}</td>
+                          <td>
+                            {doc9.length > 0 && (
+                              <button onClick={isRemoveDoc9}>Remove</button>
+                            )}
+                            {doc9.length === 0 && `${doc9Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc9}
+                              onDrop={isUploadDoc9}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -640,12 +1128,18 @@ const Step4_ProffIdentity = (props) => {
                           <td>10</td>
                           <td>Department of Veterans Affairs (DVA) card</td>
                           <td>40</td>
-                          <td>{doc10Status}</td>
+                          <td>
+                            {doc10.length > 0 && (
+                              <button onClick={isRemoveDoc10}>Remove</button>
+                            )}
+                            {doc10.length === 0 && `${doc10Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc10}
+                              onDrop={isUploadDoc10}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -661,12 +1155,18 @@ const Step4_ProffIdentity = (props) => {
                           <td>11</td>
                           <td>Centrelink card (with reference number)</td>
                           <td>40</td>
-                          <td>{doc11Status}</td>
+                          <td>
+                            {doc11.length > 0 && (
+                              <button onClick={isRemoveDoc11}>Remove</button>
+                            )}
+                            {doc11.length === 0 && `${doc11Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc11}
+                              onDrop={isUploadDoc11}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -682,12 +1182,18 @@ const Step4_ProffIdentity = (props) => {
                           <td>12</td>
                           <td>Birth Certificate Extract</td>
                           <td>25</td>
-                          <td>{doc12Status}</td>
+                          <td>
+                            {doc12.length > 0 && (
+                              <button onClick={isRemoveDoc12}>Remove</button>
+                            )}
+                            {doc12.length === 0 && `${doc12Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc12}
+                              onDrop={isUploadDoc12}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -705,12 +1211,18 @@ const Step4_ProffIdentity = (props) => {
                             Birth Card(NSW Births, Deaths, Marriages issue only)
                           </td>
                           <td>25</td>
-                          <td>{doc13Status}</td>
+                          <td>
+                            {doc13.length > 0 && (
+                              <button onClick={isRemoveDoc13}>Remove</button>
+                            )}
+                            {doc13.length === 0 && `${doc13Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc13}
+                              onDrop={isUploadDoc13}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -726,12 +1238,18 @@ const Step4_ProffIdentity = (props) => {
                           <td>14</td>
                           <td>Medicare Card</td>
                           <td>25</td>
-                          <td>{doc14Status}</td>
+                          <td>
+                            {doc14.length > 0 && (
+                              <button onClick={isRemoveDoc14}>Remove</button>
+                            )}
+                            {doc14.length === 0 && `${doc14Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc14}
+                              onDrop={isUploadDoc14}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -747,12 +1265,18 @@ const Step4_ProffIdentity = (props) => {
                           <td>15</td>
                           <td>Credit card or account card</td>
                           <td>25</td>
-                          <td>{doc15Status}</td>
+                          <td>
+                            {doc15.length > 0 && (
+                              <button onClick={isRemoveDoc15}>Remove</button>
+                            )}
+                            {doc15.length === 0 && `${doc15Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc15}
+                              onDrop={isUploadDoc15}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -771,12 +1295,18 @@ const Step4_ProffIdentity = (props) => {
                             Issue Only)
                           </td>
                           <td>25</td>
-                          <td>{doc16Status}</td>
+                          <td>
+                            {doc16.length > 0 && (
+                              <button onClick={isRemoveDoc16}>Remove</button>
+                            )}
+                            {doc16.length === 0 && `${doc16Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc16}
+                              onDrop={isUploadDoc16}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -795,12 +1325,18 @@ const Step4_ProffIdentity = (props) => {
                             Issue Only)
                           </td>
                           <td>25</td>
-                          <td>{doc17Status}</td>
+                          <td>
+                            {doc17.length > 0 && (
+                              <button onClick={isRemoveDoc17}>Remove</button>
+                            )}
+                            {doc17.length === 0 && `${doc17Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc17}
+                              onDrop={isUploadDoc17}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -819,12 +1355,18 @@ const Step4_ProffIdentity = (props) => {
                             Issue Only)
                           </td>
                           <td>25</td>
-                          <td>{doc18Status}</td>
+                          <td>
+                            {doc18.length > 0 && (
+                              <button onClick={isRemoveDoc18}>Remove</button>
+                            )}
+                            {doc18.length === 0 && `${doc18Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc18}
+                              onDrop={isUploadDoc18}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -840,12 +1382,18 @@ const Step4_ProffIdentity = (props) => {
                           <td>19</td>
                           <td>Bank Statement (showing transactions)</td>
                           <td>25</td>
-                          <td>{doc19Status}</td>
+                          <td>
+                            {doc19.length > 0 && (
+                              <button onClick={isRemoveDoc19}>Remove</button>
+                            )}
+                            {doc19.length === 0 && `${doc19Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc19}
+                              onDrop={isUploadDoc19}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -861,12 +1409,18 @@ const Step4_ProffIdentity = (props) => {
                           <td>20</td>
                           <td>Property Lease Agreement - Current Address</td>
                           <td>25</td>
-                          <td>{doc20Status}</td>
+                          <td>
+                            {doc20.length > 0 && (
+                              <button onClick={isRemoveDoc20}>Remove</button>
+                            )}
+                            {doc20.length === 0 && `${doc20Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc20}
+                              onDrop={isUploadDoc20}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -882,12 +1436,18 @@ const Step4_ProffIdentity = (props) => {
                           <td>21</td>
                           <td>Taxation Assessment Notice</td>
                           <td>25</td>
-                          <td>{doc21Status}</td>
+                          <td>
+                            {doc21.length > 0 && (
+                              <button onClick={isRemoveDoc21}>Remove</button>
+                            )}
+                            {doc21.length === 0 && `${doc21Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc21}
+                              onDrop={isUploadDoc21}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -905,12 +1465,18 @@ const Step4_ProffIdentity = (props) => {
                             Australian Mortgage Documents - Current Address
                           </td>
                           <td>25</td>
-                          <td>{doc22Status}</td>
+                          <td>
+                            {doc22.length > 0 && (
+                              <button onClick={isRemoveDoc22}>Remove</button>
+                            )}
+                            {doc22.length === 0 && `${doc22Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc22}
+                              onDrop={isUploadDoc22}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -928,12 +1494,18 @@ const Step4_ProffIdentity = (props) => {
                             Rating Authority - Current Address eg Land Rates
                           </td>
                           <td>25</td>
-                          <td>{doc23Status}</td>
+                          <td>
+                            {doc23.length > 0 && (
+                              <button onClick={isRemoveDoc23}>Remove</button>
+                            )}
+                            {doc23.length === 0 && `${doc23Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc23}
+                              onDrop={isUploadDoc23}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -952,12 +1524,18 @@ const Step4_ProffIdentity = (props) => {
                             address (less than 12 months old)
                           </td>
                           <td>20</td>
-                          <td>{doc24Status}</td>
+                          <td>
+                            {doc24.length > 0 && (
+                              <button onClick={isRemoveDoc24}>Remove</button>
+                            )}
+                            {doc24.length === 0 && `${doc24Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc24}
+                              onDrop={isUploadDoc24}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -973,12 +1551,18 @@ const Step4_ProffIdentity = (props) => {
                           <td>25</td>
                           <td>References from Indigenous Organisation</td>
                           <td>20</td>
-                          <td>{doc25Status}</td>
+                          <td>
+                            {doc25.length > 0 && (
+                              <button onClick={isRemoveDoc25}>Remove</button>
+                            )}
+                            {doc25.length === 0 && `${doc25Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc25}
+                              onDrop={isUploadDoc25}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
@@ -998,12 +1582,18 @@ const Step4_ProffIdentity = (props) => {
                             attached)
                           </td>
                           <td>20</td>
-                          <td>{doc26Status}</td>
+                          <td>
+                            {doc26.length > 0 && (
+                              <button onClick={isRemoveDoc26}>Remove</button>
+                            )}
+                            {doc26.length === 0 && `${doc26Status}`}
+                          </td>
                           <td>
                             <Dropzone
-                              onDrop={uploadDoc26}
+                              onDrop={isUploadDoc26}
                               accept=".pdf"
                               maxSize={1500000}
+                              disabled={isDisabledUpload}
                             >
                               {({ getRootProps, getInputProps }) => (
                                 <div {...getRootProps()}>
