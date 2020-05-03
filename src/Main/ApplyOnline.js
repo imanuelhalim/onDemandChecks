@@ -11,11 +11,9 @@ import Step4 from "./ApplyOnline/Step4_ProffIdentity";
 import Step5 from "./ApplyOnline/Step5_Confirm";
 import Step6 from "./ApplyOnline/Step6_Payment";
 import axios from "axios";
-// import SES from "aws-sdk/clients/ses";
-// import MailComposer from "mailcomposer";
 
 const ApplyOnline = () => {
-  const [currentPage, setCurrentPage] = React.useState("Step4");
+  const [currentPage, setCurrentPage] = React.useState("main");
   const [firstName, setFirstName] = React.useState("");
   const [middleName, setMiddleName] = React.useState("");
   const [surname, setSurname] = React.useState("");
@@ -72,7 +70,9 @@ const ApplyOnline = () => {
   const [doc26, setDoc26] = React.useState([]);
   const [userDetails, setUserDetails] = React.useState({});
   const [payment, setPayment] = React.useState("");
-  const [statusSend, setStatusSend] = React.useState("");
+  const [isSuccessfull, setIsSuccessfull] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [docs, setDocs] = React.useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -222,31 +222,57 @@ const ApplyOnline = () => {
               getCurrentPage
             ) => {
               setDoc1(getDoc1);
+              isDocExist(getDoc1);
               setDoc2(getDoc2);
+              isDocExist(getDoc2);
               setDoc3(getDoc3);
+              isDocExist(getDoc3);
               setDoc4(getDoc4);
+              isDocExist(getDoc4);
               setDoc5(getDoc5);
+              isDocExist(getDoc5);
               setDoc6(getDoc6);
+              isDocExist(getDoc6);
               setDoc7(getDoc7);
+              isDocExist(getDoc7);
               setDoc8(getDoc8);
+              isDocExist(getDoc8);
               setDoc9(getDoc9);
+              isDocExist(getDoc9);
               setDoc10(getDoc10);
+              isDocExist(getDoc10);
               setDoc11(getDoc11);
+              isDocExist(getDoc11);
               setDoc12(getDoc12);
+              isDocExist(getDoc12);
               setDoc13(getDoc13);
+              isDocExist(getDoc13);
               setDoc14(getDoc14);
+              isDocExist(getDoc14);
               setDoc15(getDoc15);
+              isDocExist(getDoc15);
               setDoc16(getDoc16);
+              isDocExist(getDoc16);
               setDoc17(getDoc17);
+              isDocExist(getDoc17);
               setDoc18(getDoc18);
+              isDocExist(getDoc18);
               setDoc19(getDoc19);
+              isDocExist(getDoc19);
               setDoc20(getDoc20);
+              isDocExist(getDoc20);
               setDoc21(getDoc21);
+              isDocExist(getDoc21);
               setDoc22(getDoc22);
+              isDocExist(getDoc22);
               setDoc23(getDoc23);
+              isDocExist(getDoc23);
               setDoc24(getDoc24);
+              isDocExist(getDoc24);
               setDoc25(getDoc25);
+              isDocExist(getDoc25);
               setDoc26(getDoc26);
+              isDocExist(getDoc26);
               setCurrentPage(getCurrentPage);
               setUserDetails({
                 firstName: `${firstName}`,
@@ -363,25 +389,25 @@ const ApplyOnline = () => {
               formData.append("hardCopyPoliceCheck", hardCopyPoliceCheck);
               formData.append("digitalCopyPoliceCheck", digitalCopyPoliceCheck);
               formData.append("payment", payment);
-              console.log(doc1[0]);
-              formData.append("doc1", doc1[0], `${doc1[0].name}`);
-              formData.append("doc2", doc2[0], `${doc2[0].name}`);
+              appendDocs(formData);
+              setIsLoading(true);
               axios
                 .post(
                   "https://bx1pxkxsud.execute-api.ap-southeast-2.amazonaws.com/dev/applyonline",
                   formData,
                   {
                     headers: {
-                      "Content-type": "application/json",
+                      "Content-type": "multipart/form-data",
                       Accept: "multipart/form-data",
                     },
                   }
                 )
                 .then((response) => {
-                  setStatusSend("true");
+                  setIsSuccessfull(true);
+                  setIsLoading(false);
                 })
                 .catch((error) => {
-                  setStatusSend("false");
+                  setIsLoading(false);
                 });
             }}
             onPostponed={(getCurrentPage) => {
@@ -393,9 +419,52 @@ const ApplyOnline = () => {
     }
   };
 
+  const isDocExist = (doc) => {
+    if (doc.length !== 0) {
+      setDocs((docs) => docs.concat(doc));
+    }
+  };
+
+  const appendDocs = (formData) => {
+    for (let i = 0; i < docs.length; i++) {
+      let docName = "doc" + [i + 1];
+      formData.append(docName, docs[i], docs[i].name);
+    }
+  };
+
+  const displayLoading = () => {
+    if (isLoading) {
+      return (
+        <div
+          style={{
+            display: "block",
+            position: "fixed",
+            width: "100%",
+            height: "100%",
+            top: "0",
+            left: "0",
+            background: "rgba(0,0,0,0.5)",
+            zIndex: "2",
+          }}
+        >
+          Loading
+        </div>
+      );
+    } else {
+      return (
+        <div
+          style={{
+            display: "none",
+          }}
+        ></div>
+      );
+    }
+  };
+
   function mainPage() {
     return (
       <div>
+        {displayLoading()}
         <div className="innerhead">
           <div className="container">
             <div className="row">
