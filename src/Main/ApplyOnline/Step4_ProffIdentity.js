@@ -94,7 +94,6 @@ const Step4_ProffIdentity = (props) => {
     setDoc1Status("Complete");
     points = points + 70;
     setTotalPoints(points);
-    console.log(acceptedFiles);
   };
 
   const uploadDoc2 = (acceptedFiles) => {
