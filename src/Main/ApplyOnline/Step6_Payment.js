@@ -19,19 +19,13 @@ const Step6_Payment = (props) => {
     if (userDetails.hardCopyPoliceCheck === "Yes") {
       setTotalAmount(62.95);
     }
-    axios
-      .get(
-        "https://bx1pxkxsud.execute-api.ap-southeast-2.amazonaws.com/dev/paypalcredentials"
-      )
-      .then((response) => {
-        setSandbox(response.data.keyAccessId);
-        setProduction(response.data.secretAccessId);
-      });
   }, [userDetails]);
 
   const client = {
-    sandbox: sandbox,
-    production: production,
+    sandbox:
+      "ASuVO_UICx0matcciCCXjbfSslVVFjkN147BZjY4N66SEcTJJ_KzJvpr-OHpfCiIrvuT_bCqO41dgAtR",
+    production:
+      "EMes96g4ApE4N2e3Q9ZatBkU8Xww8pAeeHlfQdilVNoobOxthDPQYW_uZxT5HAz3Rs1_3ZvRtfH-hwWW",
   };
 
   const onCancel = (data) => {
