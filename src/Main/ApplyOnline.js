@@ -426,9 +426,14 @@ const ApplyOnline = () => {
   };
 
   const appendDocs = (formData) => {
+    console.log(docs.length);
+    console.log(docs);
+    let number = 1;
     for (let i = 0; i < docs.length; i++) {
-      let docName = "doc" + [i + 1];
+      let docName = "doc" + [number];
       formData.append(docName, docs[i], docs[i].name);
+      number = number + 1;
+      console.log(docName);
     }
   };
 
