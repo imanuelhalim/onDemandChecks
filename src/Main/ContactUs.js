@@ -7,6 +7,7 @@ const ContactUs = () => {
   const [phone, setPhone] = React.useState("");
   const [message, setMessage] = React.useState("");
   const [statusSend, setStatusSend] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,6 +36,7 @@ const ContactUs = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     if (name !== "" && email !== "" && phone !== "" && message !== "") {
+      setIsLoading(true);
       axios
         .post(
           "https://bx1pxkxsud.execute-api.ap-southeast-2.amazonaws.com/dev/contact",
@@ -47,6 +49,7 @@ const ContactUs = () => {
         )
         .then((response) => {
           setStatusSend("true");
+          setIsLoading(false);
           setName("");
           setEmail("");
           setPhone("");
@@ -57,6 +60,7 @@ const ContactUs = () => {
         })
         .catch((error) => {
           setStatusSend("false");
+          setIsLoading(false);
           setTimeout(() => {
             setStatusSend("");
           }, 5000);
@@ -81,8 +85,38 @@ const ContactUs = () => {
     }
   };
 
+  const displayLoading = () => {
+    if (isLoading) {
+      return (
+        <div
+          style={{
+            display: "block",
+            position: "fixed",
+            width: "100%",
+            height: "100%",
+            top: "0",
+            left: "0",
+            background: "rgba(0,0,0,0.5)",
+            zIndex: "2",
+          }}
+        >
+          Loading
+        </div>
+      );
+    } else {
+      return (
+        <div
+          style={{
+            display: "none",
+          }}
+        ></div>
+      );
+    }
+  };
+
   return (
     <div>
+      {displayLoading()}
       <div className="innerhead">
         <div className="container">
           <div className="row">
