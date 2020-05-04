@@ -441,7 +441,6 @@ a:hover {
   text-align: center;
   padding: 20px 0px 0px;
   position: relative;
-  z-index: 99;
 }
 .roundshadow {
   width: 100%;
@@ -1175,7 +1174,6 @@ ul.liststyle li {
   display: table;
   margin: 0px auto;
   position: relative;
-  z-index: 99;
 }
 .appyshaldow {
   width: 100%;
