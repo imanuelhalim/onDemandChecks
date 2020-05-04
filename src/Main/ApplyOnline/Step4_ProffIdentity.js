@@ -739,6 +739,9 @@ const Step4_ProffIdentity = (props) => {
         "Please upload at least one primary document and three more addtional documents"
       );
     }
+    if (totalDocsUpload > 4) {
+      setErrorInformation("Only 4 documents can be uploaded to the system");
+    }
   };
 
   const handleFormSubmit = (e) => {
