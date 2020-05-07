@@ -4,7 +4,6 @@ import { Table } from "react-bootstrap";
 const Step5_Confirm = (props) => {
   const [userDetails, setUserDetails] = React.useState({});
   const [currentPage, setCurrentPage] = React.useState("Step4");
-  const [docs, setDocs] = React.useState([]);
   const [status, setStatus] = React.useState("");
 
   useEffect(() => {
@@ -67,14 +66,6 @@ const Step5_Confirm = (props) => {
     }
   };
 
-  const checkDoc = (doc) => {
-    if (doc.length === 0) {
-      return "not given";
-    } else {
-      return <div style={{ color: "green" }}>{doc[0].name}</div>;
-    }
-  };
-
   const displayAllDocs = () => {
     if (status === "ready") {
       return (
@@ -82,160 +73,25 @@ const Step5_Confirm = (props) => {
           <Table>
             <tbody style={{ textAlign: "center" }}>
               <tr>
-                <td>1.</td>
-                <td> Foreign or Australian Passport(current)</td>
-                <td>{checkDoc(userDetails.doc1)}</td>
+                <td> Photograph</td>
+                <td> Photo with document 1</td>
               </tr>
               <tr>
-                <td>2.</td>
-                <td> Australian Citizenship Certificate</td>
-                <td>{checkDoc(userDetails.doc2)}</td>
+                <td>{userDetails.file1[0].name}</td>
+                <td>{userDetails.file2[0].name}</td>
               </tr>
               <tr>
-                <td>3.</td>
-                <td> Full Birth Certificate (not birth certificate extract)</td>
-                <td>{checkDoc(userDetails.doc3)}</td>
+                <td> Photo with document 2</td>
+                <td>Photo with document 3</td>
               </tr>
               <tr>
-                <td>4.</td>
-                <td>
-                  {" "}
-                  Certificate of identity issued by the Australian Government to
-                  refugees and non Australian citizens for enrty to Australia
-                </td>
-                <td>{checkDoc(userDetails.doc4)}</td>
+                <td>{userDetails.file3[0].name}</td>
+                <td>{userDetails.file4[0].name}</td>
               </tr>
+
               <tr>
-                <td>5.</td>
-                <td> Australian Driver Licence/Learner Permit</td>
-                <td>{checkDoc(userDetails.doc5)}</td>
-              </tr>
-              <tr>
-                <td>6.</td>
-                <td>
-                  Current (Australian) Tertiary Student Identification Card
-                </td>
-                <td>{checkDoc(userDetails.doc6)}</td>
-              </tr>
-              <tr>
-                <td>7.</td>
-                <td>
-                  Photo identification card issued for Australian regulatory
-                  purposes (e.g. Aviation/Maritime Security identification,
-                  security, industry etc)
-                </td>
-                <td>{checkDoc(userDetails.doc7)}</td>
-              </tr>
-              <tr>
-                <td>8. </td>
-                <td>
-                  Government Employee ID (Australian Federal/State/Territory)
-                </td>
-                <td>{checkDoc(userDetails.doc8)}</td>
-              </tr>
-              <tr>
-                <td>9. </td>
-                <td>Defence Force Identify Card (with photo or signature) </td>
-                <td>{checkDoc(userDetails.doc9)}</td>
-              </tr>
-              <tr>
-                <td>10. </td>
-                <td>Department of Veterans Affairs (DVA) card </td>
-                <td>{checkDoc(userDetails.doc10)}</td>
-              </tr>
-              <tr>
-                <td>11. </td>
-                <td>Centrelink card (with reference number) </td>
-                <td>{checkDoc(userDetails.doc11)}</td>
-              </tr>
-              <tr>
-                <td>12. </td>
-                <td>Birth Certificate Extract </td>
-                <td>{checkDoc(userDetails.doc12)}</td>
-              </tr>
-              <tr>
-                <td>13. </td>
-                <td>Birth Card(NSW Births, Deaths, Marriages issue only) </td>
-                <td>{checkDoc(userDetails.doc13)}</td>
-              </tr>
-              <tr>
-                <td>14. </td>
-                <td>Medicare Card </td>
-                <td>{checkDoc(userDetails.doc14)}</td>
-              </tr>
-              <tr>
-                <td>15. </td>
-                <td>Credit card or account card </td>
-                <td>{checkDoc(userDetails.doc15)}</td>
-              </tr>
-              <tr>
-                <td>16. </td>
-                <td>
-                  Australian Marriage Certificate (Australian Registry Issue
-                  Only)
-                </td>
-                <td>{checkDoc(userDetails.doc16)}</td>
-              </tr>
-              <tr>
-                <td>17. </td>
-                <td>
-                  Decree Nisi / Decress Absolute (Australian Registry Issue
-                  Only)
-                </td>
-                <td>{checkDoc(userDetails.doc17)}</td>
-              </tr>
-              <tr>
-                <td>18. </td>
-                <td>
-                  Change of name certificate (Australian Registry Issue Only)
-                </td>
-                <td>{checkDoc(userDetails.doc18)}</td>
-              </tr>
-              <tr>
-                <td>19. </td>
-                <td>Bank Statement (showing transactions)</td>
-                <td>{checkDoc(userDetails.doc19)}</td>
-              </tr>
-              <tr>
-                <td>20. </td>
-                <td>Property Lease Agreement - Current Address</td>
-                <td>{checkDoc(userDetails.doc20)}</td>
-              </tr>
-              <tr>
-                <td>21. </td>
-                <td>Taxation Assessment Notice</td>
-                <td>{checkDoc(userDetails.doc21)}</td>
-              </tr>
-              <tr>
-                <td>22. </td>
-                <td>Australian Mortgage Documents - Current Address</td>
-                <td>{checkDoc(userDetails.doc22)}</td>
-              </tr>
-              <tr>
-                <td>23. </td>
-                <td>Rating Authority - Current Address eg Land Rates</td>
-                <td>{checkDoc(userDetails.doc23)}</td>
-              </tr>
-              <tr>
-                <td>24. </td>
-                <td>
-                  Utility Bill - electricty, gas, telephone - Current address
-                  (less than 12 months old)
-                </td>
-                <td>{checkDoc(userDetails.doc24)}</td>
-              </tr>
-              <tr>
-                <td>25. </td>
-                <td>References from Indigenous Organisation</td>
-                <td>{checkDoc(userDetails.doc25)}</td>
-              </tr>
-              <tr>
-                <td>26. </td>
-                <td>
-                  Documents issued outside Australia (equivalent to Australian
-                  documents Must have official transaltion attached)
-                </td>
-                <td>{checkDoc(userDetails.doc26)}</td>
+                <td> Document</td>
+                <td>{userDetails.file5[0].name}</td>
               </tr>
             </tbody>
           </Table>
