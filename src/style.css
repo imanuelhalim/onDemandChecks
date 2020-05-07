@@ -2050,7 +2050,7 @@ input[type="file"] {
   height: 255px !important;
 }
 .table-bordered {
-  border: 1px solid #0f9be6 !important;
+  /* border: 1px solid #000000 !important; */
   float: left !important;
   margin-top: 34px !important;
 }
