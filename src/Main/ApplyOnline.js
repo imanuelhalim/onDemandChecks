@@ -42,37 +42,16 @@ const ApplyOnline = () => {
   const [digitalCopyPoliceCheck, setDigitalCopyPoliceCheck] = React.useState(
     ""
   );
-  const [doc1, setDoc1] = React.useState([]);
-  const [doc2, setDoc2] = React.useState([]);
-  const [doc3, setDoc3] = React.useState([]);
-  const [doc4, setDoc4] = React.useState([]);
-  const [doc5, setDoc5] = React.useState([]);
-  const [doc6, setDoc6] = React.useState([]);
-  const [doc7, setDoc7] = React.useState([]);
-  const [doc8, setDoc8] = React.useState([]);
-  const [doc9, setDoc9] = React.useState([]);
-  const [doc10, setDoc10] = React.useState([]);
-  const [doc11, setDoc11] = React.useState([]);
-  const [doc12, setDoc12] = React.useState([]);
-  const [doc13, setDoc13] = React.useState([]);
-  const [doc14, setDoc14] = React.useState([]);
-  const [doc15, setDoc15] = React.useState([]);
-  const [doc16, setDoc16] = React.useState([]);
-  const [doc17, setDoc17] = React.useState([]);
-  const [doc18, setDoc18] = React.useState([]);
-  const [doc19, setDoc19] = React.useState([]);
-  const [doc20, setDoc20] = React.useState([]);
-  const [doc21, setDoc21] = React.useState([]);
-  const [doc22, setDoc22] = React.useState([]);
-  const [doc23, setDoc23] = React.useState([]);
-  const [doc24, setDoc24] = React.useState([]);
-  const [doc25, setDoc25] = React.useState([]);
-  const [doc26, setDoc26] = React.useState([]);
+  const [file1, setFile1] = React.useState([]);
+  const [file2, setFile2] = React.useState([]);
+  const [file3, setFile3] = React.useState([]);
+  const [file4, setFile4] = React.useState([]);
+  const [file5, setFile5] = React.useState([]);
   const [userDetails, setUserDetails] = React.useState({});
   const [payment, setPayment] = React.useState("");
   const [isSuccessfull, setIsSuccessfull] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
-  const [docs, setDocs] = React.useState([]);
+  const [files, setFiles] = React.useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -193,86 +172,23 @@ const ApplyOnline = () => {
         <div>
           <Step4
             onSuccess={(
-              getDoc1,
-              getDoc2,
-              getDoc3,
-              getDoc4,
-              getDoc5,
-              getDoc6,
-              getDoc7,
-              getDoc8,
-              getDoc9,
-              getDoc10,
-              getDoc11,
-              getDoc12,
-              getDoc13,
-              getDoc14,
-              getDoc15,
-              getDoc16,
-              getDoc17,
-              getDoc18,
-              getDoc19,
-              getDoc20,
-              getDoc21,
-              getDoc22,
-              getDoc23,
-              getDoc24,
-              getDoc25,
-              getDoc26,
+              getFile1,
+              getFile2,
+              getFile3,
+              getFile4,
+              getFile5,
               getCurrentPage
             ) => {
-              setDoc1(getDoc1);
-              isDocExist(getDoc1);
-              setDoc2(getDoc2);
-              isDocExist(getDoc2);
-              setDoc3(getDoc3);
-              isDocExist(getDoc3);
-              setDoc4(getDoc4);
-              isDocExist(getDoc4);
-              setDoc5(getDoc5);
-              isDocExist(getDoc5);
-              setDoc6(getDoc6);
-              isDocExist(getDoc6);
-              setDoc7(getDoc7);
-              isDocExist(getDoc7);
-              setDoc8(getDoc8);
-              isDocExist(getDoc8);
-              setDoc9(getDoc9);
-              isDocExist(getDoc9);
-              setDoc10(getDoc10);
-              isDocExist(getDoc10);
-              setDoc11(getDoc11);
-              isDocExist(getDoc11);
-              setDoc12(getDoc12);
-              isDocExist(getDoc12);
-              setDoc13(getDoc13);
-              isDocExist(getDoc13);
-              setDoc14(getDoc14);
-              isDocExist(getDoc14);
-              setDoc15(getDoc15);
-              isDocExist(getDoc15);
-              setDoc16(getDoc16);
-              isDocExist(getDoc16);
-              setDoc17(getDoc17);
-              isDocExist(getDoc17);
-              setDoc18(getDoc18);
-              isDocExist(getDoc18);
-              setDoc19(getDoc19);
-              isDocExist(getDoc19);
-              setDoc20(getDoc20);
-              isDocExist(getDoc20);
-              setDoc21(getDoc21);
-              isDocExist(getDoc21);
-              setDoc22(getDoc22);
-              isDocExist(getDoc22);
-              setDoc23(getDoc23);
-              isDocExist(getDoc23);
-              setDoc24(getDoc24);
-              isDocExist(getDoc24);
-              setDoc25(getDoc25);
-              isDocExist(getDoc25);
-              setDoc26(getDoc26);
-              isDocExist(getDoc26);
+              setFile1(getFile1);
+              isFileExist(getFile1);
+              setFile2(getFile2);
+              isFileExist(getFile2);
+              setFile3(getFile3);
+              isFileExist(getFile3);
+              setFile4(getFile4);
+              isFileExist(getFile4);
+              setFile5(getFile5);
+              isFileExist(getFile5);
               setCurrentPage(getCurrentPage);
               setUserDetails({
                 firstName: `${firstName}`,
@@ -301,32 +217,11 @@ const ApplyOnline = () => {
                 contactGroupsOfPeople: `${contactGroupsOfPeople}`,
                 hardCopyPoliceCheck: `${hardCopyPoliceCheck}`,
                 digitalCopyPoliceCheck: `${digitalCopyPoliceCheck}`,
-                doc1: getDoc1,
-                doc2: getDoc2,
-                doc3: getDoc3,
-                doc4: getDoc4,
-                doc5: getDoc5,
-                doc6: getDoc6,
-                doc7: getDoc7,
-                doc8: getDoc8,
-                doc9: getDoc9,
-                doc10: getDoc10,
-                doc11: getDoc11,
-                doc12: getDoc12,
-                doc13: getDoc13,
-                doc14: getDoc14,
-                doc15: getDoc15,
-                doc16: getDoc16,
-                doc17: getDoc17,
-                doc18: getDoc18,
-                doc19: getDoc19,
-                doc20: getDoc20,
-                doc21: getDoc21,
-                doc22: getDoc22,
-                doc23: getDoc23,
-                doc24: getDoc24,
-                doc25: getDoc25,
-                doc26: getDoc26,
+                file1: getFile1,
+                file2: getFile2,
+                file3: getFile3,
+                file4: getFile4,
+                file5: getFile5,
               });
             }}
             onPostponed={(getCurrentPage) => {
@@ -389,7 +284,7 @@ const ApplyOnline = () => {
               formData.append("hardCopyPoliceCheck", hardCopyPoliceCheck);
               formData.append("digitalCopyPoliceCheck", digitalCopyPoliceCheck);
               formData.append("payment", payment);
-              appendDocs(formData);
+              appendFiles(formData);
               setIsLoading(true);
               axios
                 .post(
@@ -419,21 +314,18 @@ const ApplyOnline = () => {
     }
   };
 
-  const isDocExist = (doc) => {
-    if (doc.length !== 0) {
-      setDocs((docs) => docs.concat(doc));
+  const isFileExist = (file) => {
+    if (file.length !== 0) {
+      setFiles((files) => files.concat(file));
     }
   };
 
-  const appendDocs = (formData) => {
-    console.log(docs.length);
-    console.log(docs);
+  const appendFiles = (formData) => {
     let number = 1;
-    for (let i = 0; i < docs.length; i++) {
-      let docName = "doc" + [number];
-      formData.append(docName, docs[i], docs[i].name);
+    for (let i = 0; i < files.length; i++) {
+      let fileName = "file" + [number];
+      formData.append(fileName, files[i], files[i].name);
       number = number + 1;
-      console.log(docName);
     }
   };
 
