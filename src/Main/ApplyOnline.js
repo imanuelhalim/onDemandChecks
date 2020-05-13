@@ -13,7 +13,7 @@ import Step6 from "./ApplyOnline/Step6_Payment";
 import axios from "axios";
 
 const ApplyOnline = () => {
-  const [currentPage, setCurrentPage] = React.useState("main");
+  const [currentPage, setCurrentPage] = React.useState("Step4");
   const [firstName, setFirstName] = React.useState("");
   const [middleName, setMiddleName] = React.useState("");
   const [surname, setSurname] = React.useState("");
@@ -47,11 +47,12 @@ const ApplyOnline = () => {
   const [file3, setFile3] = React.useState([]);
   const [file4, setFile4] = React.useState([]);
   const [file5, setFile5] = React.useState([]);
+  const [file6, setFile6] = React.useState([]);
+  const [file7, setFile7] = React.useState([]);
   const [userDetails, setUserDetails] = React.useState({});
   const [payment, setPayment] = React.useState("");
   const [isSuccessfull, setIsSuccessfull] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
-  const [files, setFiles] = React.useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -177,18 +178,26 @@ const ApplyOnline = () => {
               getFile3,
               getFile4,
               getFile5,
+              getFile6,
+              getFile7,
               getCurrentPage
             ) => {
               setFile1(getFile1);
-              isFileExist(getFile1);
+              // isFileExist(getFile1);
+              console.log("GETFILE1");
+              console.log(getFile1);
               setFile2(getFile2);
-              isFileExist(getFile2);
+              // isFileExist(getFile2);
               setFile3(getFile3);
-              isFileExist(getFile3);
+              // isFileExist(getFile3);
               setFile4(getFile4);
-              isFileExist(getFile4);
+              // isFileExist(getFile4);
               setFile5(getFile5);
-              isFileExist(getFile5);
+              // isFileExist(getFile5);
+              setFile6(getFile6);
+              // isFileExist(getFile6);
+              setFile7(getFile7);
+              // isFileExist(getFile7);
               setCurrentPage(getCurrentPage);
               setUserDetails({
                 firstName: `${firstName}`,
@@ -222,6 +231,8 @@ const ApplyOnline = () => {
                 file3: getFile3,
                 file4: getFile4,
                 file5: getFile5,
+                file6: getFile6,
+                file7: getFile7,
               });
             }}
             onPostponed={(getCurrentPage) => {
@@ -284,7 +295,14 @@ const ApplyOnline = () => {
               formData.append("hardCopyPoliceCheck", hardCopyPoliceCheck);
               formData.append("digitalCopyPoliceCheck", digitalCopyPoliceCheck);
               formData.append("payment", payment);
-              appendFiles(formData);
+              // appendFiles(formData);
+              formData.append(file1.name, file1, file1.name);
+              formData.append(file2.name, file2, file2.name);
+              formData.append(file3.name, file3, file3.name);
+              formData.append(file4.name, file4, file4.name);
+              formData.append(file5[0].name, file5[0], file5[0].name);
+              formData.append(file6[0].name, file6[0], file6[0].name);
+              formData.append(file7[0].name, file7[0], file7[0].name);
               setIsLoading(true);
               axios
                 .post(
@@ -314,20 +332,20 @@ const ApplyOnline = () => {
     }
   };
 
-  const isFileExist = (file) => {
-    if (file.length !== 0) {
-      setFiles((files) => files.concat(file));
-    }
-  };
+  // const isFileExist = (file) => {
+  //   if (file.length !== 0) {
+  //     setFiles((files) => files.concat(file));
+  //   }
+  // };
 
-  const appendFiles = (formData) => {
-    let number = 1;
-    for (let i = 0; i < files.length; i++) {
-      let fileName = "file" + [number];
-      formData.append(fileName, files[i], files[i].name);
-      number = number + 1;
-    }
-  };
+  // const appendFiles = (formData) => {
+  //   let number = 1;
+  //   for (let i = 0; i < files.length; i++) {
+  //     let fileName = "file" + [number];
+  //     formData.append(fileName, files[i], files[i].name);
+  //     number = number + 1;
+  //   }
+  // };
 
   const displayLoading = () => {
     if (isLoading) {
