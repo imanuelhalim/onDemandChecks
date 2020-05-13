@@ -10,6 +10,7 @@ import ContactUs from "./Main/ContactUs";
 import Faq from "./Main/Faq";
 import TermsAndConditions from "./Main/TermsAndConditions";
 import PrivacyAndPolicy from "./Main/PrivacyAndPolicy";
+import Login from "./Main/Auth/Login";
 
 const App = () => {
   const [isSticky, setSticky] = useState(false);
@@ -122,6 +123,9 @@ const App = () => {
                               <li>
                                 <Link to="/ContactUs">Contact Us</Link>
                               </li>
+                              <li>
+                                <Link to="/Login">Login</Link>
+                              </li>
                             </ul>
                           </div>
                         </nav>
@@ -155,6 +159,9 @@ const App = () => {
           </Route>
           <Route path="/PrivacyAndPolicy" component={PrivacyAndPolicy}>
             <PrivacyAndPolicy />
+          </Route>
+          <Route path="/Login" component={Login}>
+            <Login />
           </Route>
         </Switch>
         <div className="footerfull">
