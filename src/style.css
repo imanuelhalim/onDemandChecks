@@ -265,6 +265,28 @@ a:hover {
   border-radius: 10px;
   color: #fff;
 }
+
+.react-html5-camera-photo img {
+  height: 300px;
+  width: 300px;
+}
+
+.react-html5-camera-photo video {
+  height: 200px;
+  width: 200px;
+}
+
+div#display-error.display-error {
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+  font-size: 8px;
+}
+
+div#outer-circle {
+  z-index: NaN;
+}
+
 .verifiyfull {
   width: 100%;
   float: left;
@@ -2165,7 +2187,7 @@ table.table.table-bordered img {
 
   /*============================080219 css================*/
 
-  .camera {
+  /* .camera {
     height: 205px !important;
   }
   .inputfile-6 + label span {
@@ -2173,7 +2195,7 @@ table.table.table-bordered img {
   }
   .takeformmatter h4 {
     font-size: 12px;
-  }
+  } */
 }
 @media only screen and (min-width: 768px) and (max-width: 959px) {
   .sticky-wrapper {
@@ -2959,11 +2981,6 @@ table.table.table-bordered img {
     width: 100%;
     padding: 0px 0px;
     float: left;
-  }
-
-  .camera {
-    width: 100% !important;
-    height: 255px !important;
   }
   .backbtns {
     padding: 12px 15px;
