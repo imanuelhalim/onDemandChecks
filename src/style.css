@@ -284,7 +284,11 @@ div#display-error.display-error {
 }
 
 div#outer-circle {
-  z-index: NaN;
+  z-index: 0;
+}
+
+.errorMsg {
+  color: rgb(255, 0, 0);
 }
 
 .verifiyfull {
