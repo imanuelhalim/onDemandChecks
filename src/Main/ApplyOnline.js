@@ -318,9 +318,11 @@ const ApplyOnline = () => {
                 .then((response) => {
                   setIsSuccessfull(true);
                   setIsLoading(false);
+                  window.location.reload(false);
                 })
                 .catch((error) => {
                   setIsLoading(false);
+                  window.location.reload(false);
                 });
             }}
             onPostponed={(getCurrentPage) => {
