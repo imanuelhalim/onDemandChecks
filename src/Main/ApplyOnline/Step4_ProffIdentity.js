@@ -1,187 +1,119 @@
 import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import Dropzone from "react-dropzone";
+import Camera from "react-html5-camera-photo";
+import "react-html5-camera-photo/build/css/index.css";
+import ImagePreview from "../imagePreview";
 
 const Step4_ProffIdentity = (props) => {
+  const [photograph, setPhotograph] = React.useState([]);
+  const [photographURI, setPhotographURI] = React.useState("");
+  const [photographName, setPhotographName] = React.useState("");
+  const [photographStatus, setPhotographStatus] = React.useState(true);
   const [pic1, setPic1] = React.useState([]);
+  const [pic1URI, setPic1URI] = React.useState("");
   const [pic1Name, setPic1Name] = React.useState("");
-  const [pic1Status, setPic1Status] = React.useState("Incomplete");
+  const [pic1Status, setPic1Status] = React.useState(true);
   const [pic2, setPic2] = React.useState([]);
+  const [pic2URI, setPic2URI] = React.useState("");
   const [pic2Name, setPic2Name] = React.useState("");
-  const [pic2Status, setPic2Status] = React.useState("Incomplete");
+  const [pic2Status, setPic2Status] = React.useState(true);
   const [pic3, setPic3] = React.useState([]);
+  const [pic3URI, setPic3URI] = React.useState("");
   const [pic3Name, setPic3Name] = React.useState("");
-  const [pic3Status, setPic3Status] = React.useState("Incomplete");
-  const [pic4, setPic4] = React.useState([]);
-  const [pic4Name, setPic4Name] = React.useState("");
-  const [pic4Status, setPic4Status] = React.useState("Incomplete");
+  const [pic3Status, setPic3Status] = React.useState(true);
   const [doc1, setDoc1] = React.useState([]);
   const [doc1Name, setDoc1Name] = React.useState("");
   const [doc1Status, setDoc1Status] = React.useState("Incomplete");
+  const [doc2, setDoc2] = React.useState([]);
+  const [doc2Name, setDoc2Name] = React.useState("");
+  const [doc2Status, setDoc2Status] = React.useState("Incomplete");
+  const [doc3, setDoc3] = React.useState([]);
+  const [doc3Name, setDoc3Name] = React.useState("");
+  const [doc3Status, setDoc3Status] = React.useState("Incomplete");
   const [currentPage, setCurrentPage] = React.useState("Step3");
   const [errorInformation, setErrorInformation] = React.useState("");
   const [disabledButton, setDisabledButton] = React.useState("disabled");
   const [totalFilesUpload, setTotalFilesUpload] = React.useState(0);
 
-  useEffect(
-    () => () => {
-      pic1.forEach((picture1) => URL.revokeObjectURL(picture1.preview));
-      pic2.forEach((picture2) => URL.revokeObjectURL(picture2.preview));
-      pic3.forEach((picture3) => URL.revokeObjectURL(picture3.preview));
-      pic4.forEach((picture4) => URL.revokeObjectURL(picture4.preview));
-    },
-    [pic1, pic2, pic3, pic4]
-  );
-
-  const thumb = {
-    display: "inline-flex",
-    borderRadius: 2,
-    border: "1px solid #eaeaea",
-    marginBottom: 8,
-    marginRight: 8,
-    width: 100,
-    height: 100,
-    padding: 4,
-    boxSizing: "border-box",
-  };
-
-  const thumbInner = {
-    display: "flex",
-    minWidth: 0,
-    overflow: "hidden",
-  };
-
-  const img = {
-    display: "block",
-    width: "auto",
-    height: "100%",
-  };
-
   let filesUpload = totalFilesUpload;
 
-  const isUploadpic1 = (acceptedFiles) => {
-    setPic1(
-      acceptedFiles.map((picture1) =>
-        Object.assign(picture1, { preview: URL.createObjectURL(picture1) })
-      )
-    );
-    setPic1Name(acceptedFiles[0].name);
-    setPic1Status("Complete");
+  const isFullscreen = false;
+
+  const isSilentMode = true;
+
+  function dataURItoBlob(dataURI, fileName) {
+    let nameFile = fileName + ".png";
+    // convert base64 to raw binary data held in a string
+    // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+    let byteString = atob(dataURI.split(",")[1]);
+
+    // separate out the mime component
+    let mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
+
+    // write the bytes of the string to an ArrayBuffer
+    let ab = new ArrayBuffer(byteString.length);
+
+    // create a view into the buffer
+    let ia = new Uint8Array(ab);
+
+    // set the bytes of the buffer to the correct values
+    for (let i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+
+    // write the ArrayBuffer to a blob, and you're done
+    let blob = new Blob([ab], { name: nameFile, type: mimeString });
+    return blob;
+  }
+
+  function handleTakePhotograph(dataUri) {
+    setPhotographURI(dataUri);
+    setPhotographStatus(false);
     filesUpload = filesUpload + 1;
     setTotalFilesUpload(filesUpload);
+  }
+
+  const handlePhotograph = (e) => {
+    e.preventDefault();
+    setPhotographName(e.target.value);
   };
 
-  const isRemovepic1 = () => {
-    setPic1([]);
-    setPic1Name("");
-    setPic1Status("Incomplete");
-    filesUpload = filesUpload - 1;
-    setTotalFilesUpload(filesUpload);
-  };
-
-  const isPreviewPic1 = pic1.map((picture1) => {
-    return (
-      <div style={thumb} key={picture1.name}>
-        <div style={thumbInner}>
-          <img src={picture1.preview} style={img} />
-        </div>
-      </div>
-    );
-  });
-
-  const isUploadpic2 = (acceptedFiles) => {
-    setPic2(
-      acceptedFiles.map((picture2) =>
-        Object.assign(picture2, { preview: URL.createObjectURL(picture2) })
-      )
-    );
-    setPic2Name(acceptedFiles[0].name);
-    setPic2Status("Complete");
+  function handleTakePhoto1(dataUri) {
+    setPic1URI(dataUri);
+    setPic1Status(false);
     filesUpload = filesUpload + 1;
     setTotalFilesUpload(filesUpload);
+  }
+
+  const handlePhoto1 = (e) => {
+    e.preventDefault();
+    setPic1Name(e.target.value);
   };
 
-  const isRemovepic2 = () => {
-    setPic2([]);
-    setPic2Name("");
-    setPic2Status("Incomplete");
-    filesUpload = filesUpload - 1;
-    setTotalFilesUpload(filesUpload);
-  };
-
-  const isPreviewPic2 = pic2.map((picture2) => {
-    return (
-      <div style={thumb} key={picture2.name}>
-        <div style={thumbInner}>
-          <img src={picture2.preview} style={img} />
-        </div>
-      </div>
-    );
-  });
-
-  const isUploadpic3 = (acceptedFiles) => {
-    setPic3(
-      acceptedFiles.map((picture3) =>
-        Object.assign(picture3, { preview: URL.createObjectURL(picture3) })
-      )
-    );
-    setPic3Name(acceptedFiles[0].name);
-    setPic3Status("Complete");
-
+  function handleTakePhoto2(dataUri) {
+    setPic2URI(dataUri);
+    setPic2Status(false);
     filesUpload = filesUpload + 1;
     setTotalFilesUpload(filesUpload);
+  }
+
+  const handlePhoto2 = (e) => {
+    e.preventDefault();
+    setPic2Name(e.target.value);
   };
 
-  const isRemovepic3 = () => {
-    setPic3([]);
-    setPic3Name("");
-    setPic3Status("Incomplete");
-
-    filesUpload = filesUpload - 1;
-    setTotalFilesUpload(filesUpload);
-  };
-
-  const isPreviewPic3 = pic3.map((picture3) => {
-    return (
-      <div style={thumb} key={picture3.name}>
-        <div style={thumbInner}>
-          <img src={picture3.preview} style={img} />
-        </div>
-      </div>
-    );
-  });
-
-  const isUploadpic4 = (acceptedFiles) => {
-    setPic4(
-      acceptedFiles.map((picture4) =>
-        Object.assign(picture4, { preview: URL.createObjectURL(picture4) })
-      )
-    );
-    setPic4Name(acceptedFiles[0].name);
-    setPic4Status("Complete");
-
+  function handleTakePhoto3(dataUri) {
+    setPic3URI(dataUri);
+    setPic3Status(false);
     filesUpload = filesUpload + 1;
     setTotalFilesUpload(filesUpload);
+  }
+
+  const handlePhoto3 = (e) => {
+    e.preventDefault();
+    setPic3Name(e.target.value);
   };
-
-  const isRemovepic4 = () => {
-    setPic4([]);
-    setPic4Name("");
-    setPic4Status("Incomplete");
-
-    filesUpload = filesUpload - 1;
-    setTotalFilesUpload(filesUpload);
-  };
-
-  const isPreviewPic4 = pic4.map((picture4) => {
-    return (
-      <div style={thumb} key={picture4.name}>
-        <div style={thumbInner}>
-          <img src={picture4.preview} style={img} />
-        </div>
-      </div>
-    );
-  });
 
   const isUploadDoc1 = (acceptedFiles) => {
     setDoc1(acceptedFiles);
@@ -200,24 +132,110 @@ const Step4_ProffIdentity = (props) => {
     setTotalFilesUpload(filesUpload);
   };
 
+  const isUploadDoc2 = (acceptedFiles) => {
+    setDoc2(acceptedFiles);
+    setDoc2Name(acceptedFiles[0].name);
+    setDoc2Status("Complete");
+    filesUpload = filesUpload + 1;
+    setTotalFilesUpload(filesUpload);
+  };
+
+  const isRemoveDoc2 = () => {
+    setDoc2([]);
+    setDoc2Name("");
+    setDoc2Status("Incomplete");
+    filesUpload = filesUpload + 1;
+    setTotalFilesUpload(filesUpload);
+  };
+
+  const isUploadDoc3 = (acceptedFiles) => {
+    setDoc3(acceptedFiles);
+    setDoc3Name(acceptedFiles[0].name);
+    setDoc3Status("Complete");
+    filesUpload = filesUpload + 1;
+    setTotalFilesUpload(filesUpload);
+  };
+
+  const isRemoveDoc3 = () => {
+    setDoc3([]);
+    setDoc3Name("");
+    setDoc3Status("Incomplete");
+    filesUpload = filesUpload + 1;
+    setTotalFilesUpload(filesUpload);
+  };
+
+  const editPhotographName = () => {
+    setPhotograph(dataURItoBlob(photographURI, photographName));
+  };
+
+  const removePhotographName = () => {
+    setPhotographName("");
+  };
+
+  const editPic1Name = () => {
+    setPic1(dataURItoBlob(pic1URI, pic1Name));
+  };
+
+  const removePic1Name = () => {
+    setPic2Name("");
+  };
+
+  const editPic2Name = () => {
+    setPic2(dataURItoBlob(pic2URI, pic2Name));
+  };
+
+  const removePic2Name = () => {
+    setPic2Name("");
+  };
+  const editPic3Name = () => {
+    setPic3(dataURItoBlob(photographURI, pic3Name));
+  };
+
+  const removePic3Name = () => {
+    setPic3Name("");
+  };
+
   const handleBackButton = () => {
     props.onPostponed(currentPage);
   };
 
   const handleSubmitButton = () => {
-    if (totalFilesUpload === 5) {
+    if (
+      totalFilesUpload === 7 &&
+      photographName !== "" &&
+      pic1Name !== "" &&
+      pic2Name !== "" &&
+      pic3Name != ""
+    ) {
       setDisabledButton("");
       setCurrentPage("Step5");
+      console.log(photograph);
     }
-    if (totalFilesUpload < 5) {
+    if (totalFilesUpload < 7) {
       setErrorInformation("Please upload more files");
     }
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (currentPage === "Step5" && totalFilesUpload === 5) {
-      props.onSuccess(pic1, pic2, pic3, pic4, doc1, currentPage);
+    if (
+      currentPage === "Step5" &&
+      totalFilesUpload === 7 &&
+      !photographStatus &&
+      !pic1Status &&
+      !pic2Status &&
+      !pic3Status
+    ) {
+      props.onSuccess(
+        photograph,
+        pic1,
+        pic2,
+        pic3,
+        doc1,
+        doc2,
+        doc3,
+        currentPage
+      );
     }
   };
 
@@ -258,203 +276,301 @@ const Step4_ProffIdentity = (props) => {
               </div>
             </div>
           </div>
-
           <form onSubmit={handleFormSubmit}>
             <div className="forminformation">
               <div className="takecontnet">
-                <h3>
-                  <strong>Proof of Identity</strong>
-                </h3>
+                <div className="col-md-6">
+                  <div className="takeformmatter">
+                    <h3>Proof of Identity</h3>
+                    <h4>
+                      You must provide a photograph of yourself as well as three
+                      identity documents with your completed form to confirm
+                      your identity:
+                    </h4>
+                    <h4>
+                      one commencement document to confirm your birth in
+                      Australia or arrival in Australia one primary and two
+                      secondary documents to show the use of your identity in
+                      the community
+                    </h4>
+                    <h4>
+                      Note: Documents in a language other than English must be
+                      accompanied by an official translation. If your document
+                      is not in English please email translations to
+                      support@ondemandchecks.com.au.
+                    </h4>
+                  </div>
+                </div>
 
-                <div className="formboxs">
-                  <div className="col-sm-12">
-                    <Table striped bordered condesed="true">
-                      <thead>
-                        <tr>
-                          <td colSpan="2">
-                            <h4>
-                              You must provide a photograph of yourself as well
-                              as three identity picuments with your completed
-                              form to confirm your identity:
-                            </h4>
-                            <h4>
-                              one commencement picument to confirm your birth in
-                              Australia or arrival in Australia one primary and
-                              two secondary picuments to show the use of your
-                              identity in the community
-                            </h4>
-                            <h4>
-                              Note: picuments in a language other than English
-                              must be accompanied by an official translation. If
-                              your picument is not in English please email
-                              translations to{" "}
-                              <strong>support@ondemandchecks.com.au</strong>.
-                            </h4>
-                          </td>
-                        </tr>
-                      </thead>
-                      <tbody style={{ textAlign: "center" }}>
-                        <tr>
-                          <td>
-                            <strong>Photograph</strong>
-                          </td>
-                          <td>
-                            <strong>Photo with Document 1</strong>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <Dropzone
-                              onDrop={isUploadpic1}
-                              accept="image/*"
-                              maxSize={1500000}
-                            >
-                              {({ getRootProps, getInputProps }) => (
-                                <div {...getRootProps()}>
-                                  <input {...getInputProps()} />
-                                  <button>Upload</button>
-                                </div>
-                              )}
-                            </Dropzone>
-                          </td>
-                          <td>
-                            <Dropzone
-                              onDrop={isUploadpic2}
-                              accept="image/*"
-                              maxSize={1500000}
-                            >
-                              {({ getRootProps, getInputProps }) => (
-                                <div {...getRootProps()}>
-                                  <input {...getInputProps()} />
-                                  <button>Upload</button>
-                                </div>
-                              )}
-                            </Dropzone>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>{isPreviewPic1}</td>
-                          <td>{isPreviewPic2}</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            {pic1.length > 0 && (
-                              <button onClick={isRemovepic1}>Remove</button>
-                            )}
-                            {pic1.length === 0 && `${pic1Status}`}
-                          </td>
-                          <td>
-                            {pic2.length > 0 && (
-                              <button onClick={isRemovepic2}>Remove</button>
-                            )}
-                            {pic2.length === 0 && `${pic2Status}`}
-                          </td>
-                        </tr>
-                        <tr style={{ backgroundColor: "#D3D3D3" }}>
-                          <td colSpan="2"></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <strong>Photo with Document 2</strong>
-                          </td>
-                          <td>
-                            <strong>Photo with Document 3</strong>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <Dropzone
-                              onDrop={isUploadpic3}
-                              accept="image/*"
-                              maxSize={1500000}
-                            >
-                              {({ getRootProps, getInputProps }) => (
-                                <div {...getRootProps()}>
-                                  <input {...getInputProps()} />
-                                  <button>Upload</button>
-                                </div>
-                              )}
-                            </Dropzone>
-                          </td>
-                          <td>
-                            <Dropzone
-                              onDrop={isUploadpic4}
-                              accept="image/*"
-                              maxSize={1500000}
-                            >
-                              {({ getRootProps, getInputProps }) => (
-                                <div {...getRootProps()}>
-                                  <input {...getInputProps()} />
-                                  <button>Upload</button>
-                                </div>
-                              )}
-                            </Dropzone>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>{isPreviewPic3}</td>
-                          <td>{isPreviewPic4}</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            {pic3.length > 0 && (
-                              <button onClick={isRemovepic3}>Remove</button>
-                            )}
-                            {pic3.length === 0 && `${pic3Status}`}
-                          </td>
-                          <td>
-                            {pic4.length > 0 && (
-                              <button onClick={isRemovepic4}>Remove</button>
-                            )}
-                            {pic4.length === 0 && `${pic4Status}`}
-                          </td>
-                        </tr>
-                        <tr style={{ backgroundColor: "#D3D3D3" }}>
-                          <td colSpan="2"></td>
-                        </tr>
-                        <tr>
-                          <td colSpan="2">
-                            <strong>
-                              Document (All documents must be in one file on pdf
-                              format)
-                            </strong>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td colSpan="2">{doc1Name}</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <Dropzone
-                              onDrop={isUploadDoc1}
-                              accept=".pdf"
-                              maxSize={1500000}
-                            >
-                              {({ getRootProps, getInputProps }) => (
-                                <div {...getRootProps()}>
-                                  <input {...getInputProps()} />
-                                  <button>Upload</button>
-                                </div>
-                              )}
-                            </Dropzone>
-                          </td>
-                          <td>
-                            {doc1.length > 0 && (
-                              <button onClick={isRemoveDoc1}>Remove</button>
-                            )}
-                            {doc1.length === 0 && `${doc1Status}`}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td colSpan="2" style={{ color: "red" }}>
-                            <strong>{errorInformation}</strong>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </Table>
+                <div className="col-md-3 col-sm-6">
+                  <label>
+                    <strong className="pichead">Photograph</strong>
+                  </label>
+                  <div id="camera" className="camera"></div>
+                  <br />
+                  <Camera
+                    onTakePhotoAnimationDone={handleTakePhotograph}
+                    isFullscreen={isFullscreen}
+                    isSilentMode={isSilentMode}
+                    onCameraStop={() => {}}
+                  />
+                  <div className="input text required">
+                    <input
+                      type="text"
+                      name="photo"
+                      className="form-control"
+                      id="photowebcam"
+                      required="required"
+                      maxlength="50"
+                      onChange={handlePhotograph}
+                      placeholder="Enter Photograph Name"
+                      value={photographName}
+                    />{" "}
+                    <button onClick={editPhotographName}>Edit</button>{" "}
+                    <button onClick={removePhotographName}>Remove</button>
+                  </div>
+                </div>
+
+                <div className="col-md-3 col-sm-6">
+                  <table className="table table-bordered">
+                    <tbody id="imagelist"></tbody>
+                    <ImagePreview
+                      dataUri={photographURI}
+                      isFullscreen={isFullscreen}
+                    />
+                  </table>
+                </div>
+              </div>
+
+              <div className="col-md-4 col-sm-6 padtablet">
+                <div className="col-md-12">
+                  <div className="formboxs">
+                    <label>
+                      <strong>Document 1</strong>
+                    </label>
+                    <div style={{ float: "left", width: "100%" }}>
+                      <Dropzone
+                        onDrop={isUploadDoc1}
+                        accept=".pdf"
+                        maxSize={1500000}
+                      >
+                        {({ getRootProps, getInputProps }) => (
+                          <div {...getRootProps()}>
+                            <input {...getInputProps()} />
+                            <button>Upload</button>
+                          </div>
+                        )}
+                      </Dropzone>{" "}
+                      {doc1.length > 0 && (
+                        <button onClick={isRemoveDoc1}>Remove</button>
+                      )}
+                      {doc1.length === 0 && `${doc1Status}`}
+                      <label for="file-1" style={{ width: "auto" }}>
+                        <strong>{doc1Name}</strong>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12">
+                  <div className="formboxs">
+                    <div className="col-md-12 imagpicpad">
+                      <label>
+                        <strong>Photo with document 1</strong>
+                      </label>
+                      <div id="camera2" className="camerasmaill"></div>
+                      <br />
+                      <Camera
+                        onTakePhotoAnimationDone={handleTakePhoto1}
+                        isFullscreen={isFullscreen}
+                        isSilentMode={isSilentMode}
+                        onCameraStop={() => {}}
+                      />
+
+                      <div className="input text required">
+                        <input
+                          type="text"
+                          name="doc1_photo"
+                          className="form-control"
+                          id="photowebcam2"
+                          required="required"
+                          maxlength="250"
+                          onChange={handlePhoto1}
+                          placeholder="Enter Photo 1 Name"
+                          value={pic1Name}
+                        />{" "}
+                        <button onClick={editPic1Name}>Edit</button>{" "}
+                        <button onClick={removePic1Name}>Remove</button>
+                      </div>
+                    </div>
+                    <div className="col-md-12 imagpicpad">
+                      <label>
+                        <strong>&nbsp;</strong>
+                      </label>
+                      <table className="table table-bordered">
+                        <tbody id="imagelist2"></tbody>
+                        <ImagePreview
+                          dataUri={pic1URI}
+                          isFullscreen={isFullscreen}
+                        />
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <div className="col-md-4 col-sm-6 padtablet">
+                <div className="col-md-12">
+                  <div className="formboxs">
+                    <label>
+                      <strong>Document 2</strong>
+                    </label>
+                    <div style={{ float: "left", width: "100%" }}>
+                      <Dropzone
+                        onDrop={isUploadDoc2}
+                        accept=".pdf"
+                        maxSize={1500000}
+                      >
+                        {({ getRootProps, getInputProps }) => (
+                          <div {...getRootProps()}>
+                            <input {...getInputProps()} />
+                            <button>Upload</button>
+                          </div>
+                        )}
+                      </Dropzone>{" "}
+                      {doc2.length > 0 && (
+                        <button onClick={isRemoveDoc2}>Remove</button>
+                      )}
+                      {doc2.length === 0 && `${doc2Status}`}
+                      <label for="file-2" style={{ width: "auto" }}>
+                        <strong>{doc2Name}</strong>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12">
+                  <div className="formboxs">
+                    <div className="col-md-12 imagpicpad">
+                      <label>
+                        <strong>Photo with document 2</strong>
+                      </label>
+                      <div id="camera3" className="camerasmaill"></div>
+                      <br />
+                      <Camera
+                        onTakePhotoAnimationDone={handleTakePhoto2}
+                        isFullscreen={isFullscreen}
+                        isSilentMode={isSilentMode}
+                        onCameraStop={() => {}}
+                      />
+                      <div className="input text required">
+                        <input
+                          type="text"
+                          name="doc2_photo"
+                          className="form-control"
+                          id="photowebcam3"
+                          required="required"
+                          maxlength="250"
+                          onChange={handlePhoto2}
+                          placeholder="Enter Photo 2 Name"
+                          value={pic2Name}
+                        />{" "}
+                        <button onClick={editPic2Name}>Edit</button>{" "}
+                        <button onClick={removePic2Name}>Remove</button>
+                      </div>{" "}
+                    </div>
+                    <div className="col-md-12 imagpicpad">
+                      <label>
+                        <strong>&nbsp;</strong>
+                      </label>
+                      <table className="table table-bordered">
+                        <tbody id="imagelist3"></tbody>
+                        <ImagePreview
+                          dataUri={pic2URI}
+                          isFullscreen={isFullscreen}
+                        />
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-md-4 col-sm-6 padtablet">
+                <div className="col-md-12">
+                  <div className="formboxs">
+                    <label>
+                      <strong>Document 3</strong>
+                    </label>
+                    <div style={{ float: "left", width: "100%" }}>
+                      <Dropzone
+                        onDrop={isUploadDoc3}
+                        accept=".pdf"
+                        maxSize={1500000}
+                      >
+                        {({ getRootProps, getInputProps }) => (
+                          <div {...getRootProps()}>
+                            <input {...getInputProps()} />
+                            <button>Upload</button>
+                          </div>
+                        )}
+                      </Dropzone>{" "}
+                      {doc3.length > 0 && (
+                        <button onClick={isRemoveDoc3}>Remove</button>
+                      )}
+                      {doc3.length === 0 && `${doc3Status}`}
+                      <label for="file-3" style={{ width: "auto" }}>
+                        <strong>{doc3Name}</strong>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-12">
+                  <div className="formboxs">
+                    <div className="col-md-12 imagpicpad">
+                      <label>
+                        <strong>Photo with document 3</strong>
+                      </label>
+                      <div id="camera4" className="camerasmaill"></div>
+                      <br />
+                      <Camera
+                        onTakePhotoAnimationDone={handleTakePhoto3}
+                        isFullscreen={isFullscreen}
+                        isSilentMode={isSilentMode}
+                        onCameraStop={() => {}}
+                      />
+                      <div className="input text required">
+                        <input
+                          type="text"
+                          name="doc3_photo"
+                          className="form-control"
+                          id="photowebcam4"
+                          required="required"
+                          maxlength="250"
+                          onChange={handlePhoto3}
+                          placeholder="Enter Photo 3 Name"
+                          value={pic3Name}
+                        />{" "}
+                        <button onClick={editPic3Name}>Edit</button>{" "}
+                        <button onClick={removePic3Name}>Remove</button>
+                      </div>
+                    </div>
+                    <div className="col-md-12 imagpicpad">
+                      <label>
+                        <strong>&nbsp;</strong>
+                      </label>
+                      <table className="table table-bordered">
+                        <tbody id="imagelist4"></tbody>
+                        <ImagePreview
+                          dataUri={pic3URI}
+                          isFullscreen={isFullscreen}
+                        />
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style={{ color: "red" }}>
+                <strong>{errorInformation}</strong>
+              </div>
+              <div className="col-md-12 col-sm-6 padtablet">&nbsp;</div>
 
               <div className="col-md-12">
                 <input
