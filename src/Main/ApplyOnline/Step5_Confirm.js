@@ -73,25 +73,33 @@ const Step5_Confirm = (props) => {
           <Table>
             <tbody style={{ textAlign: "center" }}>
               <tr>
-                <td> Photograph</td>
-                <td> Photo with document 1</td>
+                <td>Photograph</td>
+                <td>Photo with document 1</td>
               </tr>
               <tr>
-                <td>{userDetails.file1[0].name}</td>
-                <td>{userDetails.file2[0].name}</td>
+                <td>{userDetails.file1.name}</td>
+                <td>{userDetails.file2.name}</td>
               </tr>
               <tr>
-                <td> Photo with document 2</td>
+                <td>Photo with document 2</td>
                 <td>Photo with document 3</td>
               </tr>
               <tr>
-                <td>{userDetails.file3[0].name}</td>
-                <td>{userDetails.file4[0].name}</td>
+                <td>{userDetails.file3.name}</td>
+                <td>{userDetails.file4.name}</td>
               </tr>
 
               <tr>
-                <td> Document</td>
+                <td>Document 1</td>
                 <td>{userDetails.file5[0].name}</td>
+              </tr>
+              <tr>
+                <td>Document 2</td>
+                <td>{userDetails.file6[0].name}</td>
+              </tr>
+              <tr>
+                <td>Document 3</td>
+                <td>{userDetails.file7[0].name}</td>
               </tr>
             </tbody>
           </Table>
