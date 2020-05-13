@@ -1,15 +1,15 @@
 import React from "react";
 
-const Step3_Purpose = props => {
+const Step3_Purpose = (props) => {
   const [selectCheckType, setSelectCheckType] = React.useState("");
   const [selectPositionTitle, setSelectPositionTitle] = React.useState("");
   const [
     selectProposedPlaceOfWork,
-    setSelectProposedPlaceOfWork
+    setSelectProposedPlaceOfWork,
   ] = React.useState("");
   const [
     selectContactGroupsOfPeople,
-    setSelectContactGroupsOfPeople
+    setSelectContactGroupsOfPeople,
   ] = React.useState("");
   const [hardCopyPoliceCheck, setHardCopyPoliceCheck] = React.useState("No");
   const [digitalCopyPoliceCheck, setDigitalCopyPoliceCheck] = React.useState(
@@ -17,27 +17,27 @@ const Step3_Purpose = props => {
   );
   const [currentPage, setCurrentPage] = React.useState("Step2");
 
-  const handleSelectCheckType = e => {
+  const handleSelectCheckType = (e) => {
     setSelectCheckType(e.target.value);
   };
 
-  const handleSelectPositionTitle = e => {
+  const handleSelectPositionTitle = (e) => {
     setSelectPositionTitle(e.target.value);
   };
 
-  const handleSelectProposedPlaceOfWork = e => {
+  const handleSelectProposedPlaceOfWork = (e) => {
     setSelectProposedPlaceOfWork(e.target.value);
   };
 
-  const handleSelectContactGroupsOfPeople = e => {
+  const handleSelectContactGroupsOfPeople = (e) => {
     setSelectContactGroupsOfPeople(e.target.value);
   };
 
-  const handleHardCopyPoliceCheck = e => {
+  const handleHardCopyPoliceCheck = (e) => {
     setHardCopyPoliceCheck(e.target.value);
   };
 
-  const handleDigitalCopyPoliceCheck = e => {
+  const handleDigitalCopyPoliceCheck = (e) => {
     setDigitalCopyPoliceCheck(e.target.value);
   };
 
@@ -49,7 +49,7 @@ const Step3_Purpose = props => {
     setCurrentPage("Step4");
   };
 
-  const handleFormSubmit = e => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
     if (currentPage === "Step4") {
       props.onSuccess(
@@ -251,6 +251,7 @@ const Step3_Purpose = props => {
                         Transport Officer
                       </option>
                       <option value="Youth Worker">Youth Worker</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
                 </div>
