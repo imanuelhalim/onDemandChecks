@@ -10,18 +10,22 @@ const Step4_ProffIdentity = (props) => {
   const [photographURI, setPhotographURI] = React.useState("");
   const [photographName, setPhotographName] = React.useState("");
   const [photographStatus, setPhotographStatus] = React.useState(true);
+  const [errorPhotograph, setErrorPhotograph] = React.useState("");
   const [pic1, setPic1] = React.useState([]);
   const [pic1URI, setPic1URI] = React.useState("");
   const [pic1Name, setPic1Name] = React.useState("");
   const [pic1Status, setPic1Status] = React.useState(true);
+  const [errorPic1, setErrorPic1] = React.useState(false);
   const [pic2, setPic2] = React.useState([]);
   const [pic2URI, setPic2URI] = React.useState("");
   const [pic2Name, setPic2Name] = React.useState("");
   const [pic2Status, setPic2Status] = React.useState(true);
+  const [errorPic2, setErrorPic2] = React.useState(false);
   const [pic3, setPic3] = React.useState([]);
   const [pic3URI, setPic3URI] = React.useState("");
   const [pic3Name, setPic3Name] = React.useState("");
   const [pic3Status, setPic3Status] = React.useState(true);
+  const [errorPic3, setErrorPic3] = React.useState(false);
   const [doc1, setDoc1] = React.useState([]);
   const [doc1Name, setDoc1Name] = React.useState("");
   const [doc1Status, setDoc1Status] = React.useState("Incomplete");
@@ -195,11 +199,56 @@ const Step4_ProffIdentity = (props) => {
     setPic3Name("");
   };
 
+  const displayErrorPhotograph = () => {
+    if (errorPhotograph) {
+      return <div className="errorMsg">Photograph Name Required</div>;
+    }
+  };
+
+  const displayErrorPic1 = () => {
+    if (errorPic1) {
+      return <div className="errorMsg">Photo 1 Name Required</div>;
+    }
+  };
+
+  const displayErrorPic2 = () => {
+    if (errorPic2) {
+      return <div className="errorMsg">Photo 2 Name Required</div>;
+    }
+  };
+
+  const displayErrorPic3 = () => {
+    if (errorPic3) {
+      return <div className="errorMsg">Photo 3 Name Required</div>;
+    }
+  };
+
   const handleBackButton = () => {
     props.onPostponed(currentPage);
   };
 
   const handleSubmitButton = () => {
+    if (photographName === "") {
+      setErrorPhotograph(true);
+    } else {
+      setErrorPhotograph(false);
+    }
+    if (pic1Name === "") {
+      setErrorPic1(true);
+    } else {
+      setErrorPic1(false);
+    }
+    if (pic2Name === "") {
+      setErrorPic2(true);
+    } else {
+      setErrorPic2(false);
+    }
+    if (pic3Name === "") {
+      setErrorPic3(true);
+    } else {
+      setErrorPic3(false);
+    }
+
     if (
       totalFilesUpload === 7 &&
       photographName !== "" &&
@@ -314,20 +363,28 @@ const Step4_ProffIdentity = (props) => {
                     isSilentMode={isSilentMode}
                     onCameraStop={() => {}}
                   />
-                  <div className="input text required">
+                  <div>
                     <input
                       type="text"
                       name="photo"
                       className="form-control"
                       id="photowebcam"
-                      required="required"
                       maxlength="50"
                       onChange={handlePhotograph}
                       placeholder="Enter Photograph Name"
                       value={photographName}
                     />{" "}
-                    <button onClick={editPhotographName}>Edit</button>{" "}
-                    <button onClick={removePhotographName}>Remove</button>
+                    {displayErrorPhotograph()}{" "}
+                    <input
+                      type="button"
+                      value="Edit"
+                      onClick={editPhotographName}
+                    />{" "}
+                    <input
+                      type="button"
+                      value="Remove"
+                      onClick={removePhotographName}
+                    />
                   </div>
                 </div>
 
@@ -386,20 +443,28 @@ const Step4_ProffIdentity = (props) => {
                         onCameraStop={() => {}}
                       />
 
-                      <div className="input text required">
+                      <div>
                         <input
                           type="text"
                           name="doc1_photo"
                           className="form-control"
                           id="photowebcam2"
-                          required="required"
                           maxlength="250"
                           onChange={handlePhoto1}
                           placeholder="Enter Photo 1 Name"
                           value={pic1Name}
                         />{" "}
-                        <button onClick={editPic1Name}>Edit</button>{" "}
-                        <button onClick={removePic1Name}>Remove</button>
+                        {displayErrorPic1()}{" "}
+                        <input
+                          type="button"
+                          value="Edit"
+                          onClick={editPic1Name}
+                        />{" "}
+                        <input
+                          type="button"
+                          value="Remove"
+                          onClick={removePic1Name}
+                        />
                       </div>
                     </div>
                     <div className="col-md-12 imagpicpad">
@@ -461,20 +526,28 @@ const Step4_ProffIdentity = (props) => {
                         isSilentMode={isSilentMode}
                         onCameraStop={() => {}}
                       />
-                      <div className="input text required">
+                      <div>
                         <input
                           type="text"
                           name="doc2_photo"
                           className="form-control"
                           id="photowebcam3"
-                          required="required"
                           maxlength="250"
                           onChange={handlePhoto2}
                           placeholder="Enter Photo 2 Name"
                           value={pic2Name}
                         />{" "}
-                        <button onClick={editPic2Name}>Edit</button>{" "}
-                        <button onClick={removePic2Name}>Remove</button>
+                        {displayErrorPic2()}{" "}
+                        <input
+                          type="button"
+                          value="Edit"
+                          onClick={editPic2Name}
+                        />{" "}
+                        <input
+                          type="button"
+                          value="Remove"
+                          onClick={removePic2Name}
+                        />
                       </div>{" "}
                     </div>
                     <div className="col-md-12 imagpicpad">
@@ -536,20 +609,28 @@ const Step4_ProffIdentity = (props) => {
                         isSilentMode={isSilentMode}
                         onCameraStop={() => {}}
                       />
-                      <div className="input text required">
+                      <div>
                         <input
                           type="text"
                           name="doc3_photo"
                           className="form-control"
                           id="photowebcam4"
-                          required="required"
                           maxlength="250"
                           onChange={handlePhoto3}
                           placeholder="Enter Photo 3 Name"
                           value={pic3Name}
                         />{" "}
-                        <button onClick={editPic3Name}>Edit</button>{" "}
-                        <button onClick={removePic3Name}>Remove</button>
+                        {displayErrorPic3()}{" "}
+                        <input
+                          type="button"
+                          value="Edit"
+                          onClick={editPic3Name}
+                        />{" "}
+                        <input
+                          type="button"
+                          value="Remove"
+                          onClick={removePic3Name}
+                        />
                       </div>
                     </div>
                     <div className="col-md-12 imagpicpad">
