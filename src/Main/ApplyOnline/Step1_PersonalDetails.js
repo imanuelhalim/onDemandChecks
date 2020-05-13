@@ -14,13 +14,17 @@ const Step1_PersonalDetails = (props) => {
   const [prevSurname, setPrevSurname] = React.useState("");
   const [gender, setGender] = React.useState("");
   const [homePhone, setHomePhone] = React.useState("");
+  const [isHomePhoneCorrect, setIsHomePhoneCorrect] = React.useState(true);
   const [workPhone, setWorkPhone] = React.useState("");
+  const [isWorkPhoneCorrect, setIsWorkPhoneCorrect] = React.useState(true);
   const [mobilePhone, setMobilePhone] = React.useState("");
+  const [isMobilePhoneCorrect, setIsMobilePhoneCorrect] = React.useState(true);
   const [selectPrefContactNum, setSelectPrefContactNum] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [confirmEmail, setConfirmEmail] = React.useState("");
   const [statusConfirmEmail, setStatusConfirmEmail] = React.useState(true);
   const [dOB, setDOB] = React.useState("");
+  const [isDOBCorrect, setIsDOBCorrect] = React.useState(true);
   const [formatDOB, setFormatDOB] = React.useState("");
   const [birthplace, setBirthPlace] = React.useState("");
   const [currentPage, setCurrentPage] = React.useState("");
@@ -211,6 +215,38 @@ const Step1_PersonalDetails = (props) => {
     setBirthPlace(e.target.value);
   };
 
+  const displayErrorHomePhone = () => {
+    if (!isHomePhoneCorrect) {
+      return (
+        <div>
+          <span className="required">Home Phone is Invalid</span>
+        </div>
+      );
+    } else {
+      return <div></div>;
+    }
+  };
+
+  const displayErrorWorkPhone = () => {
+    if (!isWorkPhoneCorrect) {
+      return (
+        <div>
+          <span className="required">Work Phone is Invalid</span>
+        </div>
+      );
+    }
+  };
+
+  const displayErrorMobilePhone = () => {
+    if (!isMobilePhoneCorrect) {
+      return (
+        <div>
+          <span className="required">Mobile Phone is Invalid</span>
+        </div>
+      );
+    }
+  };
+
   const displayErrorConfirmEmail = () => {
     if (email !== confirmEmail && !statusConfirmEmail) {
       return (
@@ -221,11 +257,79 @@ const Step1_PersonalDetails = (props) => {
     }
   };
 
+  const displayErrorDOB = () => {
+    if (!isDOBCorrect) {
+      return (
+        <div>
+          <span className="required">
+            Your age must be more than 18 years old
+          </span>
+        </div>
+      );
+    }
+  };
+
   const handleSubmitButton = () => {
-    if (email === confirmEmail && email !== "") {
+    let newDate = new Date();
+    let getYear = newDate.getFullYear();
+    let getMonth = newDate.getMonth() + 1;
+    let getDate = newDate.getDate();
+    let dOBYear = parseInt(
+      formatDOB.substring(formatDOB.length - 4, formatDOB.length)
+    );
+    let dOBMonth = parseInt(formatDOB.substring(3, 5));
+    let dOBDate = parseInt(formatDOB.substring(0, 2));
+
+    if (
+      email === confirmEmail &&
+      email !== "" &&
+      isHomePhoneCorrect &&
+      (homePhone === undefined || homePhone.length >= 10 || homePhone === "") &&
+      isWorkPhoneCorrect &&
+      (workPhone === undefined || workPhone.length >= 10 || workPhone === "") &&
+      mobilePhone.length >= 10
+    ) {
       setCurrentPage("Step2");
-    } else if (email !== confirmEmail || email === "") {
+    }
+    if (email !== confirmEmail || email === "") {
       setStatusConfirmEmail(false);
+    }
+    if (homePhone.length >= 1 && homePhone.length < 10) {
+      setIsHomePhoneCorrect(false);
+    }
+    if (homePhone === undefined || homePhone === "") {
+      setIsHomePhoneCorrect(true);
+    }
+    if (workPhone.length >= 1 && workPhone.length < 10) {
+      setIsWorkPhoneCorrect(false);
+    }
+    if (workPhone === undefined || workPhone === "") {
+      setIsWorkPhoneCorrect(true);
+    }
+    if (
+      mobilePhone.length < 10 ||
+      mobilePhone === undefined ||
+      mobilePhone === ""
+    ) {
+      setIsMobilePhoneCorrect(false);
+    }
+
+    if (getYear - dOBYear > 18) {
+      setIsDOBCorrect(true);
+    } else if (getYear - dOBYear < 18) {
+      setIsDOBCorrect(false);
+    } else if (getYear - dOBYear === 18) {
+      if (getMonth - dOBMonth > 0) {
+        setIsDOBCorrect(true);
+      } else if (getMonth - dOBMonth < 0) {
+        setIsDOBCorrect(false);
+      } else if (getMonth - dOBMonth === 0) {
+        if (getDate - dOBDate <= 0) {
+          setIsDOBCorrect(false);
+        } else if (getDate - dOBDate > 0) {
+          setIsDOBCorrect(true);
+        }
+      }
     }
   };
 
@@ -434,7 +538,7 @@ const Step1_PersonalDetails = (props) => {
                   <label>Home Phone </label>
                   <div className="input text required">
                     <input
-                      type="text"
+                      type="number"
                       name="phone_3"
                       className="inpuststyles"
                       maxLength="20"
@@ -443,6 +547,7 @@ const Step1_PersonalDetails = (props) => {
                       onChange={handleSetHomePhone}
                       placeholder="Enter home phone number"
                     />
+                    {displayErrorHomePhone()}
                   </div>
                 </div>
               </div>
@@ -451,7 +556,7 @@ const Step1_PersonalDetails = (props) => {
                   <label>Work Phone </label>
                   <div className="input text required">
                     <input
-                      type="text"
+                      type="number"
                       name="phone_2"
                       className="inpuststyles"
                       maxLength="20"
@@ -460,6 +565,7 @@ const Step1_PersonalDetails = (props) => {
                       onChange={handleSetWorkPhone}
                       placeholder="Enter work phone number"
                     />
+                    {displayErrorWorkPhone()}
                   </div>
                 </div>
               </div>
@@ -476,6 +582,7 @@ const Step1_PersonalDetails = (props) => {
                       onChange={setMobilePhone}
                       placeholder="Enter mobile phone number"
                     />
+                    {displayErrorMobilePhone()}
                   </div>
                 </div>
               </div>
@@ -584,6 +691,7 @@ const Step1_PersonalDetails = (props) => {
                       value={dOB}
                       placeholderText="dd/MM/yyyy"
                     />
+                    {displayErrorDOB()}
                   </div>
                 </div>
               </div>
