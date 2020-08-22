@@ -13,7 +13,7 @@ import Step6 from "./ApplyOnline/Step6_Payment";
 import axios from "axios";
 
 const ApplyOnline = () => {
-  const [currentPage, setCurrentPage] = React.useState("Step4");
+  const [currentPage, setCurrentPage] = React.useState("main");
   const [firstName, setFirstName] = React.useState("");
   const [middleName, setMiddleName] = React.useState("");
   const [surname, setSurname] = React.useState("");
